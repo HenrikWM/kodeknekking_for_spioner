@@ -1,67 +1,2945 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+    <title>Kodeknekking for spioner - JavaZone 2019</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-		
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="Kodeknekking for spioner - JavaZone 2019"
+    />
+    <meta name="author" content="Henrik Walker Moe" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <meta
+      property="og:title"
+      content="Kodeknekking for spioner - JavaZone 2019"
+    />
+    <meta
+      property="og:description"
+      content="En gjennomgang av løsningen på PST-gåten presentert på JavaZone 2019"
+    />
+    <meta property="og:site_name" content="Github" />
+    <meta
+      property="og:image"
+      content="https://henrikwm.github.io/kodeknekking_for_spioner/img/twitterhai-eu/twitterhai-eu_1337_shrk.jpg"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://henrikwm.github.io/kodeknekking_for_spioner"
+    />
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-		
-		<script src="//localhost:35729/livereload.js"></script>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@github" />
+    <meta name="twitter:creator" content="@henrikwm" />
+    <meta
+      name="twitter:title"
+      content="Kodeknekking for spioner - JavaZone 2019"
+    />
+    <meta
+      name="twitter:description"
+      content="En gjennomgang av løsningen på PST-gåten presentert på JavaZone 2019"
+    />
+    <meta
+      name="twitter:image"
+      content="https://henrikwm.github.io/kodeknekking_for_spioner/img/twitterhai-eu/twitterhai-eu_1337_shrk.jpg"
+    />
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
 
-		<script src="js/reveal.js"></script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.min.css" />
+    <link rel="stylesheet" href="css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="css/custom.css" />
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				history: true,
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css" />
 
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true },
-					{ src: 'plugin/search/search.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-				]
-			});
-		</script>
-	</body>
+    <!-- Title-Footer plugin -->
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css" />
+    <link rel="stylesheet" href="plugin/title-footer/title-footer-custom.css" />
+
+    <!-- Globals -->
+    <script type="text/javascript" async defer>
+      var isProd = true;
+      var defaultFooterText = "Kodeknekking for spioner - JavaZone 2019";
+    </script>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <!-- Scrambler -->
+    <script src="node_modules/scrambling-letters/dist/scrambler.min.js"></script>
+
+    <!-- QR Codes -->
+    <script type="text/javascript" src="lib/js/qrcode.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- =================== START =================== -->
+        <section>
+          <section data-source="background_image">
+            <p>
+              <span class="fragment">henrikwm</span>
+              <span class="fragment">@</span>
+              <span class="fragment">bekk</span>
+            </p>
+            <aside class="notes">
+              Heisann alle sammen! Takk for at dere valgte å høre på meg idag.
+              Jeg har fått æren av å holde siste foredrag på dag 1. Så jeg vet
+              at det er sent og at dere er slitne. Jeg skal prøve sette et
+              skikkelig telemarknedslag og levere varene så det var verdt turen!
+              (NESTE)<br />
+              Mitt navn er Henrik Walker Moe og (NESTE) jeg jober i (NESTE)<br />
+              Bekk. <br /><br />
+              Og idag skal jeg snakke om...
+            </aside>
+          </section>
+
+          <section data-transition="concave" data-source="bitmoji">
+            <div>
+              <h2>Kodeknekking for spioner</h2>
+              <img src="img/intro/intro_spy_avatar.png" class="plain" />
+            </div>
+          </section>
+        </section>
+
+        <!-- =================== INTRO =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>IT-sikkeret i Norge anno 2019</h2>
+            <aside class="notes">
+              Først la oss snakket litt om status på IT-sikkerhet idag.<br />
+              Og vi begynner med...
+            </aside>
+          </section>
+
+          <section>
+            <h3>En tankevekker</h3>
+            <p>
+              <a href="https://www.rand.org/pubs/research_reports/RR1751.html"
+                >Zero days, thousands of nights: The Life and Times of Zero-Day
+                Vulnerabilities and Their Exploits (Ablon, Bogard)</a
+              >
+            </p>
+            <blockquote class="fragment fade-up">
+              Zero-day exploits [...] have a rather long average life expectancy
+              (6.9 years).
+            </blockquote>
+            <aside class="notes">
+              * Hvor så jeg Lillian Ablon holde foredrag? (Black Hat Europe
+              2017)<br />
+              * Hva handlet det om? (forskning på datasett med
+              "Zero-day"-sårbarheter: programvaresårbarhet som ikke har en fix
+              ennå) (NESTE)<br />
+              * Et av funnene deres var: (LES SITAT)<br /><br />
+              Spør publikum: hvor mange her har mobiler som er yngre enn 7 år
+              gammel<br />
+            </aside>
+          </section>
+
+          <section>
+            <h3>Hvem er jeg?</h3>
+          </section>
+
+          <section
+            data-background="img/intro/intro_henrik_ecotrail.JPG"
+            data-source="henrikwm"
+          >
+            <aside class="notes">
+              Jeg liker å løpe, noen ganger langt. Her fra Ecotrail i mai.
+            </aside>
+          </section>
+
+          <section
+            data-background="img/intro/intro_henrik_nnug.jpg"
+            data-source="henrikwm"
+          >
+            <aside class="notes">
+              Jeg er med i NNUG-styret (Norwegian .NET User Group) og bidrar
+              bl.a. til å arrangere meetups og å arrangere den årlige Global
+              Azure Bootcamp meetupen her i Oslo
+            </aside>
+          </section>
+
+          <section>
+            <h3>Om meg</h3>
+            <ul>
+              <li class="fragment">Nysgjerrig</li>
+              <li class="fragment">Liker utfordringer med klare mål</li>
+              <li class="fragment">Sta og pågangsmot</li>
+              <li class="fragment">
+                Vært i Sikkerhetsfaggruppen i 2 år, er iår faggruppeleder for
+                Open Source faggruppen
+              </li>
+              <li class="fragment">
+                Favoritt kompetansebyggeaktivitet om dagen: løse CTF (Capture
+                The Flag)-oppgaver 😀
+              </li>
+            </ul>
+            <aside class="notes">
+              (NESTE)<br />
+              (NESTE)<br />
+              (NESTE)<br />
+              Tilfeldigvis egenskaper som egner seg godt til kodeknekking
+              (NESTE)
+              <br />
+              * Hva er en faggruppe? (NESTE)<br />
+              * Hva er en CTF? (oppave som innebærer å finne en kode gjemt bak
+              en løsning, hvor man må hacke seg frem.)<br />
+              * Hvorfor liker jeg CTFs? (måldrevet, må analysere og etterforske
+              før man kan hacke, belønning)<br /><br />
+
+              Hacking bringer meg over til PSTs stillingsutlysning i vinter og
+              hvorfor vi er her idag
+            </aside>
+          </section>
+
+          <section>
+            <h3>Mangel på hackere/spioner i PST?</h3>
+            <p class="fragment">
+              Vi må møte en økende trussel for dataangrep mot Norge og norske
+              interesser.
+            </p>
+            <span class="fragment">
+              <p>Store mediesaker i 2019:</p>
+              <a
+                href="https://e24.no/naeringsliv/i/rLx3lR/kina-anklages-for-aa-hacke-visma-i-norge"
+                >Kina anklages for å hacke Visma</a
+              >
+            </span>
+
+            <br />
+            <a
+              class="fragment"
+              href="https://www.dn.no/marked/bitcoins-norge/bitcoin/bitcoins-norway/norsk-kryptobors-reklamerte-med-hacke-forsikring-if-avviser-at-de-dekker-kundenes-bitcoin-tap/2-1-631326"
+              >Bitcoin Norge hevder å ha bli hacket</a
+            >
+            <aside class="notes">
+              Hvorfor ser Politiets Sikkerhetstjeneste etter flere
+              etterforskere, eller spioner? (NESTE)<br />
+
+              * Jeg tror de ser en økende trussel, både nasjonalt og
+              internasjonalt (NESTE)<br /><br />
+              * Kina hacket Visma (NESTE)<br />
+              * Bitcoin Norge hacket<br /><br />
+
+              * For å forsvare oss trenger vi styrke hos PST, Norges Sikkerhets
+              Myndighet (NSM) og E-tjenesten<br />
+
+              Jeg skjønner at dere tenker "hva er sannsynligheten for hacking
+              mot Norge?" og "dette skjer jo ikke i lille Norge". Hva er vitsen
+              med å bruke ressurser på dette når det er så mye det offentlige
+              heller burde bruke penger på.<br /><br />
+
+              Det er en sak til som jeg ikke har nevnt her...
+            </aside>
+          </section>
+
+          <section>
+            <h3>Dataangrep mot Hydro</h3>
+          </section>
+
+          <section data-source="abcnyheter_hydro">
+            <img
+              src="img/intro/intro-abcnyheter-hydro.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <aside class="notes">
+              19. mars i våres ble Hydro angrepet av et krypteringsvirus
+              ("LockerGoga").<br /><br />
+              Dette skjedde på <b>Norsk jord</b>, <b>i Oslo</b>,
+              <b>i bygget</b> hvor Hydro deler etasjer med If Skadeforsikring
+              hvor <b>jeg</b>, og kanskje flere av dere også, sitter til
+              daglig.<br /><br />
+              - I kantinen og rundt i bygget så vi disse oppslagene. Det var et
+              angrep som traff målrettet, gjorde mye skade og kostet Hydro
+              milliarder.<br />
+              - Kanskje dette er vekkeren vi trenger for å virkelig øke
+              bevisstheten vår rundt IT-sikkeret, å sikre Norge og norske
+              interesser bedre.<br /><br />
+
+              Før vi starter på gåten må vi snakke om en elefant i rommet...
+            </aside>
+          </section>
+
+          <section>
+            <h3>Haien i rommet</h3>
+            <aside class="notes">
+              Nærmere bestemt en hai...
+            </aside>
+          </section>
+
+          <section data-source="dagbladet_pst">
+            <img
+              src="img/intro/intro-dagbladet-pst2.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <aside class="notes">
+              Ooops. En dag i oktober 2018 lekte sønnen til kommunikasjonssjefen
+              i PST med fars IPad. IPaden ble brukt til bl.a. Twitter og skrive
+              meldinger på @PST_Norge-twitterkontoen. <br /><br />
+              Sønnen spilte <b>Hungry Shark Evolution</b> og delte et bilde fra
+              spillet til Twitter-appen, som da ble lagt ut på PSTs
+              Twitter-konto.<br /><br />Det ble raskt oppdaget og slettet men
+              det raskt snappet opp av følgere og mediene. Flere trodde de hadde
+              blitt hacket.<br /><br />
+              Det viser seg heldigvis at PST har et snev av selvironi, fordi
+              gåten og løsningen som vi skal gå igjennom idag bærer preg av
+              relativt mye hai, som dere snart skal få se.
+            </aside>
+          </section>
+
+          <section>
+            <h3>Hvilke områder dekker PST-gåten?</h3>
+            <p>Av nevnte kategorier vil vi gå gjennom:</p>
+            <br />
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <p class="fragment highlight-green">
+                      Etterretning og analyse
+                    </p>
+                  </td>
+                  <td>Utnytte programmer</td>
+                  <td>Utnytte binære sårbarheter</td>
+                </tr>
+                <tr>
+                  <td><p class="fragment highlight-green">Kryptografi</p></td>
+                  <td>Utnytte web-baserte sårbarheter</td>
+                  <td><p class="fragment highlight-green">Steganografi</p></td>
+                </tr>
+              </tbody>
+            </table>
+            <aside class="notes">
+              Jeg har lagd en oversikt over hvilke områder vi kommer til å gå
+              gjennom idag. Dette er kategorier man kan kjenne igjen fra
+              CTF-konkurranser (NESTE)<br />
+              * Etterretning og analyse (NESTE)<br />
+              * Kryptografi (NESTE)<br />
+              * Steganografi (skjule spor i filer)
+            </aside>
+          </section>
+
+          <section>
+            <h3>Stor takk til Roy Solberg</h3>
+            <p>PST fjernet gåten i våres.</p>
+            <p>
+              Uten hjelp fra Roy og hans samling av filer ville det ikke blitt
+              noe foredrag
+            </p>
+            <p class="fragment fade-up">
+              😍👏 <a href="https://twitter.com/roysolberg">@roysolberg</a>
+            </p>
+            <aside class="notes">
+              Og en stor takk til Roy!<br /><br />
+
+              * Hva hjalp Roy med? (Jeg må få takke Roy for hans filer og
+              grundige arbeid med å løse gåten. Da PST fjernet gåten gikk
+              live-demo planene mine ad undas men med Roys hjelp ble jeg
+              reddet)<br />
+              * Nå har jeg lært å ta vare på både løsningene OG oppgavene jeg
+              løser (NESTE)<br /><br />
+              Stor takk til Roy!
+            </aside>
+          </section>
+        </section>
+
+        <!-- =================== STILLINGSANNONSEN =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>Stillingsannonsen</h2>
+            <aside class="notes">
+              Vi begynner på gåten med stillingsutlysningen som ble lagt ut i
+              vinter.
+            </aside>
+          </section>
+
+          <section data-source="stillingsannonsen_nrk">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_nrk-artikkel2.png"
+              class="plain"
+              style="width: 75%"
+            />
+            <aside class="notes">
+              NRK lagde en sak på det og det var denne som jeg kom over en
+              morgen på vei til jobb. Ble med en gang nysgjerrig og ville gjerne
+              prøve meg på litt kodeknekking
+            </aside>
+          </section>
+
+          <section data-transition="fade-in" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>?</h3>
+            <aside class="notes">
+              Annonsen inneholdt et dikt.<br />
+              Se nøye på teksten. Finner du et mønster?
+            </aside>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>E</h3>
+            <aside class="notes">
+              Dette er første bokstav.
+            </aside>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ER</h3>
+            <aside class="notes">
+              Andre bokstav. Hva med nå? Ser vi et mønster i bokstavene vi
+              plukker ut?
+            </aside>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERT</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTH</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHA</h3>
+            <aside class="notes">
+              Bokstavene er store bokstaver i rekkefølge.
+            </aside>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAI</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAII</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAIIT</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAIITW</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAIITWT</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAIITWTE</h3>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAIITWTEU</h3>
+            <aside class="notes">
+              Noe vi har glemt? Er et punktum her. Hva får vi da?
+            </aside>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <h3>ERTHAIITWT.EU</h3>
+            <aside class="notes">
+              Sånn. Det ligner jo på en URL!
+            </aside>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <a href="http://ERTHAIITWT.EU">http://ERTHAIITWT.EU ➡</a>
+            <aside class="notes">
+              Oppgave løst, vi skal åpenbart til denne nettsiden
+            </aside>
+          </section>
+
+          <section data-transition="slide" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_hangman.png"
+              class="plain"
+            />
+            <h3 class="fragment fade-up">Blindvei!</h3>
+          </section>
+
+          <section
+            data-transition="slide fade-in"
+            data-source="roy_solberg_fra_pst"
+          >
+            <img
+              data-src="img/stillingsannonsen/stillingsannonsen_diktet.png"
+              class="plain"
+            />
+            <a href="http://ERTHAIITWT.EU">http://ERTHAIITWT.EU ➡</a>
+            <aside class="notes">
+              Hmm, rekkefølge er viktig. Vi får stokke om bokstavene litt
+            </aside>
+          </section>
+
+          <section
+            data-state="stillingsannonsen-scrambler-start"
+            data-transition="fade-in slide"
+          >
+            <h3>ERTHAIITWT.EU</h3>
+            <h3>=</h3>
+            <h3 id="scramble-id">ERTHAIITWT.EU</h3>
+            <p class="fragment fade-up">👍</p>
+          </section>
+        </section>
+
+        <!-- =================== TWITTERHAI.EU =================== -->
+        <section data-transition="concave">
+          <section><h2>TWITTERHAI.EU</h2></section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu.png"
+              class="plain"
+              style="width: 50%;"
+            />
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu_1337_shrk.jpg"
+              class="plain"
+            />
+          </section>
+
+          <section>
+            <p>Steganografi-analyse: <b>Stegsolve</b></p>
+            <p>
+              <b>Linux</b>:
+              <a
+                href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install"
+                >kjør install-script</a
+              >
+            </p>
+            <p>
+              <b>Windows</b>:
+              <a
+                href="https://github.com/eugenekolo/sec-tools/raw/master/stego/stegsolve/stegsolve/stegsolve.jar"
+                >last ned stegsolve.jar</a
+              >
+            </p>
+          </section>
+
+          <section data-source="stegsolve_caesum">
+            <pre><code data-trim class="shell">
+              root@c04ddcc8bccd:~# java -jar stegsolve.jar</code></pre>
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-stegsolve.gif"
+              class="plain"
+              style="width: 75%;"
+            />
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <a href="http://twitterhai.eu/robots.txt"
+              >http://twitterhai.eu/robots.txt ➡</a
+            >
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-robots-txt.png"
+              class="plain fragment"
+            />
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu.png"
+              class="plain"
+              style="width: 50%;"
+            />
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-source.png"
+              class="plain"
+              style="width: 75%"
+            />
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-shark-html-source-zoomed.png"
+              class="plain"
+            />
+            <p>?</p>
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-shark-html-source-zoomed-highlighted.png"
+              class="plain"
+            />
+            <p>shark.html</p>
+          </section>
+
+          <section>
+            <a href="http://twitterhai.eu/shark.html"
+              >http://twitterhai.eu/shark.html ➡</a
+            >
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-case_matters.png"
+              class="plain"
+            />
+          </section>
+
+          <section
+            data-transition="none"
+            data-source="joshua_reynolds"
+            data-background="img/twitterhai-eu/twitterhai-eu-Samuel_Johnson_by_Joshua_Reynolds_small.png"
+          >
+            <aside class="notes">Vi må ta en nærmere kikk.</aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-shark-html-source-zoomed-highlighted.png"
+              class="plain"
+            />
+            <span>
+              <a href="http://twitterhai.eu/Shark.html">http://twitterhai.eu/</a
+              ><a href="http://twitterhai.eu/Shark.html" class="fragment"
+                >Shark.html ➡</a
+              >
+            </span>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-shark-html.png"
+              class="plain"
+            />
+            <h3 class="fragment fade-up">🤔</h3>
+          </section>
+
+          <section
+            data-transition="fade-in slide"
+            data-source="roy_solberg_fra_pst"
+          >
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu-shark-html-source.png"
+              class="plain"
+            />
+            <h3 class="fragment fade-up">🤔🤔🤔</h3>
+            <aside class="notes">
+              Vi gransker kildekoden til nettsiden og finner et par interessante
+              kommentarer i koden:<br />
+              * Vi får tips om at NAVs nettsider inneholder tips på å skrive en
+              god jobbsøknad.<br />
+              * Vi ser også: "Vi har flere oppgaver. Se nøye etter, så finner du
+              de."<br />
+              Så vi må tilbake og ta en grundigere kikk.
+            </aside>
+          </section>
+        </section>
+
+        <!-- =================== 1337_shrk.jpg =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>1337_shrk.jpg</h2>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu.png"
+              class="plain"
+              style="width: 50%"
+            />
+          </section>
+
+          <section data-transition="fade-in" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitterhai-eu/twitterhai-eu_1337_shrk.jpg"
+              class="plain"
+            />
+          </section>
+
+          <section>
+            <p>
+              <b>Linux</b>: binæranalyse med
+              <span class="fragment highlight-green">binwalk</span>
+            </p>
+            <pre
+              class="fragment fade-up"
+            ><code class="shell smaller" data-trim data-noescape>
+                root@c04ddcc8bccd:~# binwalk 1337_shrk.jpg
+
+                DECIMAL       HEXADECIMAL     DESCRIPTION
+                --------------------------------------------------------------------------------
+                0             0x0             <mark>JPEG image data</mark>, JFIF standard 1.01
+                30            0x1E            <mark>TIFF image data</mark>, big-endian, offset of first image directory: 8
+              </code></pre>
+            <aside class="notes">Hva gjør binwalk?</aside>
+          </section>
+
+          <section>
+            <p>
+              <b>Linux</b>: binæranalyse med
+              <span class="fragment highlight-green">strings</span>
+            </p>
+            <pre
+              class="fragment fade-up"
+            ><code class="shell smaller" data-trim data-noescape>
+              root@c04ddcc8bccd:~# strings -10 1337_shrk.jpg
+
+              [...] (klippet vekk XML og tom data)
+              [...] (klippet vekk tom data)
+
+              8Photoshop 3.0
+              <mark class="fragment">/haitech_secure.html</mark>
+              %&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+              &'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+              NE/i}N|xSP
+              E-A#uYM6'=E`
+              kNP5k+a1XZ
+              Ql`T>^GLUd
+            </code></pre>
+            <aside class="notes">Hva gjør strings?</aside>
+          </section>
+
+          <section>
+            <p>
+              <b>Linux</b>: binæranalyse med
+              <span class="fragment highlight-green">file</span>
+            </p>
+            <pre
+              class="fragment fade-up"
+            ><code class="shell smaller" data-trim data-noescape>
+              root@c04ddcc8bccd:~# file 1337_shrk.jpg
+
+              1337_shrk.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, /
+              density 72x72, segment length 16, Exif Standard: [TIFF image data, /
+              big-endian, direntries=3, PhotometricIntepretation=RGB, /
+              orientation=upper-left], <mark class="fragment">comment: "/haitech_secure.html"</mark>, /
+              baseline, precision 8, 851x514, components 3
+            </code></pre>
+            <aside class="notes">
+              Hva fant vi her?<br /><br />
+
+              Både <b>file</b> og <b>strings</b> er fine go-to verktøy når du
+              skal scanne raskt igjennom en fil på utkikk etter ledetråder.<br />
+              Det var med <b>strings</b> jeg fant kommentaren.<br />
+              Har du et bilde er <b>exiftool</b> også kjekt
+            </aside>
+          </section>
+
+          <section>
+            <p>
+              <b>Windows</b>: binæranalyse med
+              <span class="fragment highlight-green">filegenskaper</span>
+            </p>
+          </section>
+
+          <section data-source="exif_regex_info">
+            <img
+              data-src="img/1337_shrk-jpg/1337_shrk-jeffreysmetadataviewer-highlighted.png"
+              class="plain"
+              style="width: 75%"
+            />
+            <aside class="notes">
+              I CTF'er gjelder fart og det finnes masser av verktøy på nett.<br />
+              Bruker man ikke Linux og vil heller bruke online-verktøy er det
+              meste et Google-treff unna.<br />
+              Denne nettsiden henter ut metadata fra et bilde, her ser vi også
+              JPG-kommentaren.
+            </aside>
+          </section>
+
+          <section data-transition="fade-in slide">
+            <a href="http://twitterhai.eu/haitech_secure.html"
+              >http://twitterhai.eu/haitech_secure.html ➡</a
+            >
+            <p class="fragment fade-up">👍</p>
+          </section>
+        </section>
+
+        <!-- =================== INNLOGGING =================== -->
+        <section data-transition="concave">
+          <section><h2>Sårbar innlogging</h2></section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/innlogging/innlogging_haitech_secure-html.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-transition="fade-in" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/innlogging/innlogging_haitech_secure-html-source.png"
+              class="plain"
+              width="75%"
+            />
+          </section>
+
+          <section data-transition="none" data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/innlogging/innlogging_haitech_secure-html-source-highlighted.png"
+              class="plain"
+              width="75%"
+            />
+            <aside class="notes">
+              Det vi ser er JavaScript-kode som gjør passordvalidering. Som er
+              flaks for oss, da kan vi se lese og prøve å forstå hva som skal
+              til for å <b>knekke</b> passordet!<br />
+              1. Det første som skjer etter at vi har tastet inn passordet og
+              trykker ENTER, er å trigge funksjonen "login()"<br />
+              2. I login()-funksjonen er det en chiffertekst på pkt. 2, hva
+              brukes den til?<br />
+              3. På pkt. 3 ser vi et if-uttrykk. Den gjør true/false-sjekker på
+              passordet vi oppgir.<br />
+              Hvis hele uttrykket blir sant:<br />
+              * så blir funksjonen <b>decrypt()</b> brukt med chifferteksten og
+              passordet vårt som parametere. Tilbake får man dekryptert
+              chiffertekst. * deretter spretter det opp en pop-up med denne
+              dekrypterte chifferteksten. Spennende!<br />
+              Ellers når vi forsøker med å oppgi feil passord får vi bare en
+              "Beklager, feil passord"-feilmelding.<br />
+              Vi er nødt til å finne ut hva passordet er! Hvis vi tar en nærmere
+              kikk på if-uttrykket, klarer vi å forstå valideringslogikken og
+              kalkulere oss fram til passordet?
+            </aside>
+          </section>
+
+          <section>
+            <p>Det vil si... på tide å hacke 😎</p>
+            <p class="fragment fade-up">
+              For å komme videre må vi ha
+              <span class="fragment highlight-green">riktig passord</span>
+            </p>
+            <p class="fragment fade-up">
+              Når vi nå vet logikken i passordvalideringen...
+            </p>
+            <p class="fragment fade-up">
+              Klarer vi å
+              <span class="fragment highlight-green">beregne</span> oss fram til
+              hva passordet er?
+            </p>
+            <aside class="notes">
+              Dette handler om å reverseengineere logikken i
+              JavaScript-kodesnutten som validerer passordet, for å "hacke" seg
+              inn når man ikke har passordet som kreves.<br />
+              Denne typen "kodeknekking"/hacking finner man ofte på enklere
+              CTF-oppgaver. Lærerikt fordi av og til er logikken på språk man
+              ikke kan eller bruker til vanlig, og kjempegøy når man løser
+              nøtten og kommer igjennom med et gyldig passord!
+            </aside>
+          </section>
+
+          <section data-transition="none fade-in">
+            <p>Passordvalidering i login():</p>
+            <pre>
+              <code data-trim class="javascript smaller" data-line-numbers="">
+              password.charCodeAt(0) == 8 * 8 + 8 &&
+              password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
+              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
+              password.charCodeAt(3) == password.charCodeAt(2) &&
+              password.substring(4, 5) == 3 &&
+              password.charCodeAt(5) == 7 * 17 - 5 &&
+              password.charCodeAt(6) == password.charCodeAt(0) &&
+              password.charCodeAt(7) == password.charCodeAt(1) &&
+              password.charCodeAt(8) == 0x69
+              </code>
+            </pre>
+            <a
+              href="https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html"
+              class="fragment"
+              >ASCII-til-hex/bin/dec-converter</a
+            >
+            <aside class="notes">
+              Her har vi logikken vi må knekke:<br />
+              * For hver bokstav i passordet må vi regne ut et tall.<br />
+              * Tallet må vi gjøre om til en bokstav. Det gjør vi ved å slå opp
+              tallet i noe som kalles ASCII-tabellen, en liste over alle
+              bokstaver, tall, tegn osv. hvor hver bokstav har en tallverdi.<br />
+              * Uttrykket validerer tallet vi finner mot bokstavens
+              ASCII-tallverdi, så vi må gå andre veien og bruke tallet til å
+              finne en bokstav, slik at vi kan taste inn passordet som
+              bokstaver<br />
+              * Hver bokstav blir tilsammen passordet vi er på jakt etter.<br />
+
+              Veldig kjekt å bruke et verktøy for å gå til/fra tall og
+              ASCII-tegn. Her er den jeg ofte bruker.
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+              <code class="javascript smaller" data-trim data-line-numbers="1">
+              password.charCodeAt(0) == 8 * 8 + 8 &&
+              password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
+              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
+              password.charCodeAt(3) == password.charCodeAt(2) &&
+              password.substring(4, 5) == 3 &&
+              password.charCodeAt(5) == 7 * 17 - 5 &&
+              password.charCodeAt(6) == password.charCodeAt(0) &&
+              password.charCodeAt(7) == password.charCodeAt(1) &&
+              password.charCodeAt(8) == 0x69
+              </code>
+            </pre>
+            <p>?</p>
+            <aside class="notes">
+              Så vi begynner med første tegn i passordet.<br />
+              Hva blir 8 * 8 + 8?
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+              <code class="javascript smaller" data-trim data-line-numbers="1">
+              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+              password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
+              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
+              password.charCodeAt(3) == password.charCodeAt(2) &&
+              password.substring(4, 5) == 3 &&
+              password.charCodeAt(5) == 7 * 17 - 5 &&
+              password.charCodeAt(6) == password.charCodeAt(0) &&
+              password.charCodeAt(7) == password.charCodeAt(1) &&
+              password.charCodeAt(8) == 0x69
+              </code>
+            </pre>
+            <p>H</p>
+            <aside class="notes"><b>72, H</b><br /></aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                  <code class="javascript smaller" data-trim data-line-numbers="2">
+                  password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                  password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
+                  password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
+                  password.charCodeAt(3) == password.charCodeAt(2) &&
+                  password.substring(4, 5) == 3 &&
+                  password.charCodeAt(5) == 7 * 17 - 5 &&
+                  password.charCodeAt(6) == password.charCodeAt(0) &&
+                  password.charCodeAt(7) == password.charCodeAt(1) &&
+                  password.charCodeAt(8) == 0x69
+                  </code>
+                </pre>
+            <p>H</p>
+            <aside class="notes">
+              Math.pow, dvs. x opphøyd i y.<br />
+              9^2 - 29?
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="2">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
+                password.charCodeAt(3) == password.charCodeAt(2) &&
+                password.substring(4, 5) == 3 &&
+                password.charCodeAt(5) == 7 * 17 - 5 &&
+                password.charCodeAt(6) == password.charCodeAt(0) &&
+                password.charCodeAt(7) == password.charCodeAt(1) &&
+                password.charCodeAt(8) == 0x69
+                </code>
+              </pre>
+            <p>H4</p>
+            <aside class="notes"><b>52, 4</b><br /></aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                  <code class="javascript smaller" data-trim data-line-numbers="3">
+                  password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                  password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                  password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
+                  password.charCodeAt(3) == password.charCodeAt(2) &&
+                  password.substring(4, 5) == 3 &&
+                  password.charCodeAt(5) == 7 * 17 - 5 &&
+                  password.charCodeAt(6) == password.charCodeAt(0) &&
+                  password.charCodeAt(7) == password.charCodeAt(1) &&
+                  password.charCodeAt(8) == 0x69
+                  </code>
+                </pre>
+            <p>H4</p>
+            <aside class="notes">
+              x opphøyd i y igjen.<br />
+              10^2 + 3^2?
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                    <code class="javascript smaller" data-trim data-line-numbers="3">
+                    password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                    password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                    password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                    password.charCodeAt(3) == password.charCodeAt(2) &&
+                    password.substring(4, 5) == 3 &&
+                    password.charCodeAt(5) == 7 * 17 - 5 &&
+                    password.charCodeAt(6) == password.charCodeAt(0) &&
+                    password.charCodeAt(7) == password.charCodeAt(1) &&
+                    password.charCodeAt(8) == 0x69
+                    </code>
+                  </pre>
+            <p>H4m</p>
+            <aside class="notes">
+              <b>109, m</b>
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="4">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                password.charCodeAt(3) == password.charCodeAt(2) &&
+                password.substring(4, 5) == 3 &&
+                password.charCodeAt(5) == 7 * 17 - 5 &&
+                password.charCodeAt(6) == password.charCodeAt(0) &&
+                password.charCodeAt(7) == password.charCodeAt(1) &&
+                password.charCodeAt(8) == 0x69
+                </code>
+              </pre>
+            <p>H4m</p>
+            <aside class="notes">
+              password.charCodeAt(2): <br />
+              Artig. Uttrykket blir sant når verdien er lik det svaret er på
+              forrige bokstav.<br />
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                  <code class="javascript smaller" data-trim data-line-numbers="4">
+                  password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                  password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                  password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                  password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                  password.substring(4, 5) == 3 &&
+                  password.charCodeAt(5) == 7 * 17 - 5 &&
+                  password.charCodeAt(6) == password.charCodeAt(0) &&
+                  password.charCodeAt(7) == password.charCodeAt(1) &&
+                  password.charCodeAt(8) == 0x69
+                  </code>
+                </pre>
+            <p>H4mm</p>
+            <aside class="notes">
+              <b>109, m</b>
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="5">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                password.substring(4, 5) == 3 &&
+                password.charCodeAt(5) == 7 * 17 - 5 &&
+                password.charCodeAt(6) == password.charCodeAt(0) &&
+                password.charCodeAt(7) == password.charCodeAt(1) &&
+                password.charCodeAt(8) == 0x69
+                </code>
+              </pre>
+            <p>H4mm</p>
+            <aside class="notes">
+              Neste bokstavs tegn ser vi i uttrykket må være 3-tall, fordi det
+              er en konstant.<br />
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="5">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                password.substring(4, 5) == 3 && // 3
+                password.charCodeAt(5) == 7 * 17 - 5 &&
+                password.charCodeAt(6) == password.charCodeAt(0) &&
+                password.charCodeAt(7) == password.charCodeAt(1) &&
+                password.charCodeAt(8) == 0x69
+                </code>
+              </pre>
+            <p>H4mm3</p>
+            <aside class="notes">
+              <b>substring(4,5</b>) betyr at tegnet "3" er passordets 5.
+              tegn.<br />
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="6">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                password.substring(4, 5) == 3 && // 3
+                password.charCodeAt(5) == 7 * 17 - 5 &&
+                password.charCodeAt(6) == password.charCodeAt(0) &&
+                password.charCodeAt(7) == password.charCodeAt(1) &&
+                password.charCodeAt(8) == 0x69
+                </code>
+              </pre>
+            <p>H4mm3</p>
+            <aside class="notes">
+              7 * 17 - 5
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                  <code class="javascript smaller" data-trim data-line-numbers="6">
+                  password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                  password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                  password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                  password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                  password.substring(4, 5) == 3 && // 3
+                  password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
+                  password.charCodeAt(6) == password.charCodeAt(0) &&
+                  password.charCodeAt(7) == password.charCodeAt(1) &&
+                  password.charCodeAt(8) == 0x69
+                  </code>
+                </pre>
+            <p>H4mm3r</p>
+            <aside class="notes">
+              <b>114, r</b>
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="7">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                password.substring(4, 5) == 3 && // 3
+                password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
+                password.charCodeAt(6) == password.charCodeAt(0) &&
+                password.charCodeAt(7) == password.charCodeAt(1) &&
+                password.charCodeAt(8) == 0x69
+                </code>
+              </pre>
+            <p>H4mm3r</p>
+            <aside class="notes">
+              password.charCodeAt(0):<br />
+              Vi skal ha ASCII-tallet til passordets første tegn.
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                  <code class="javascript smaller" data-trim data-line-numbers="7">
+                  password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                  password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                  password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                  password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                  password.substring(4, 5) == 3 && // 3
+                  password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
+                  password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
+                  password.charCodeAt(7) == password.charCodeAt(1) &&
+                  password.charCodeAt(8) == 0x69
+                  </code>
+                </pre>
+            <p>H4mm3rH</p>
+            <aside class="notes"><b>72, H</b>, det fant vi ut på steg 1.</aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                    <code class="javascript smaller" data-trim data-line-numbers="8">
+                    password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                    password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                    password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                    password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                    password.substring(4, 5) == 3 && // 3
+                    password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
+                    password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
+                    password.charCodeAt(7) == password.charCodeAt(1) &&
+                    password.charCodeAt(8) == 0x69
+                    </code>
+                  </pre>
+            <p>H4mm3rH</p>
+            <aside class="notes">
+              password.charCodeAt(1):<br />
+              Vi skal ha ASCII-tallet til passordets andre tegn.
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="8">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                password.substring(4, 5) == 3 && // 3
+                password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
+                password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
+                password.charCodeAt(7) == password.charCodeAt(1) && // 52 = 4
+                password.charCodeAt(8) == 0x69
+                </code>
+              </pre>
+            <p>H4mm3rH4</p>
+            <aside class="notes">
+              <b>52, 4</b>, det fant vi ut på steg 2.<br />
+              De av dere som er observante ser kanskje hva passordet ser ut til
+              å bli...
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                  <code class="javascript smaller" data-trim data-line-numbers="9">
+                  password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                  password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                  password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                  password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                  password.substring(4, 5) == 3 && // 3
+                  password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
+                  password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
+                  password.charCodeAt(7) == password.charCodeAt(1) && // 52 = 4
+                  password.charCodeAt(8) == 0x69
+                  </code>
+                </pre>
+            <p>H4mm3rH4</p>
+            <aside class="notes">
+              Vi må finne ut hva hexadesimalet <b>0x69</b> er som en
+              tallrepresentasjon (desimal).
+            </aside>
+          </section>
+
+          <section data-transition="none">
+            <pre>
+                <code class="javascript smaller" data-trim data-line-numbers="9">
+                password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+                password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
+                password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
+                password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
+                password.substring(4, 5) == 3 && // 3
+                password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
+                password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
+                password.charCodeAt(7) == password.charCodeAt(1) && // 52 = 4
+                password.charCodeAt(8) == 0x69 // 105 = i
+                </code>
+              </pre>
+            <p>H4mm3rH4i 🦈</p>
+            <!--HAMMERHAI? -->
+            <aside class="notes">
+              <b>105, i</b>
+            </aside>
+          </section>
+
+          <section>
+            <p class="fragment">
+              Oppgir passord:
+              <span
+                style="display: inline-block;"
+                class="fragment highlight-green"
+                >H4mm3H4i
+              </span>
+            </p>
+            <p class="fragment">
+              <span style="display: inline-block;"
+                >if ()-uttrykket for passordvalidering blir
+              </span>
+              <span
+                style="display: inline-block;"
+                class="fragment highlight-green"
+                >true
+              </span>
+            </p>
+            <p class="fragment">
+              <span
+                style="display: inline-block;"
+                class="fragment highlight-green"
+                >decrypt(ciphertext, passord)
+              </span>
+              dekrypterer <b>ciphertext</b>-strengen med XOR-operasjon mot
+              <span
+                style="display: inline-block;"
+                class="fragment highlight-green"
+                >H4mm3H4i
+              </span>
+            </p>
+            <p class="fragment">
+              Melding vises ved passordfeltet:
+              <span
+                style="display: inline-block;"
+                class="fragment highlight-green"
+                >Kult! Du er en råing!
+              </span>
+            </p>
+            <p class="fragment">
+              Alert-boks vises med dekryptert
+              <span
+                style="display: inline-block;"
+                class="fragment highlight-green"
+                >ciphertext
+              </span>
+              -tekst:
+            </p>
+            <aside class="notes">
+              Vi klarte å finne et fornuftig forslag til et passord!
+            </aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/innlogging/innlogging_haitech_secure-html-alert.png"
+              class="plain"
+            />
+            <p class="fragment">
+              <a href="https://www.boxentriq.com/code-breaking/caesar-cipher"
+                >Ceasar chiffer?</a
+              >
+            </p>
+            <p class="fragment">
+              uggc:// = http:// med 13 rotasjoner
+            </p>
+            <p class="fragment">
+              altså
+              <a
+                href="https://en.wikipedia.org/wiki/ROT13"
+                alt="ROT-13 Ceaser cipher"
+                title="ROT-13 Ceaser cipher"
+                >ROT-13 Ceasar chiffer</a
+              >
+            </p>
+            <aside class="notes">
+              Ser vi noe mønster i den rare teksten? Hva ligner det på?
+            </aside>
+          </section>
+
+          <section data-source="ceasar_wheel">
+            <img
+              data-src="img/innlogging/innlogging_haitech_secure-html-ceasar-wheel.jpg"
+              class="plain"
+              style="width: 60%"
+            />
+            <aside class="notes">
+              Disse skivene demonstrerer hvordan man krypterer en tekst uten å
+              bruke en krypteringsnøkkel. Istedet roteres skiven hvor hver
+              bokstav 13 ganger. Den som skal lese en krypterte meldingen
+              roterer tilbake 13 ganger, og kan dermed lese teksten.
+            </aside>
+          </section>
+
+          <section data-source="ceasar_cipher_decryption_tool">
+            <img
+              data-src="img/innlogging/innlogging_haitech_secure-html-ceasar-decrypted-highlighted.png"
+              class="plain"
+              style="width: 75%"
+            />
+            <p class="fragment">
+              <a href="http://twitterhai.tech/hai_there.html"
+                >http://twitterhai.tech/hai_there.html ➡
+              </a>
+            </p>
+          </section>
+
+          <section
+            data-transition="fade-in slide"
+            data-source="roy_solberg_fra_pst"
+          >
+            <img
+              data-src="img/innlogging/innlogging_haitech-secure-hai_there.png"
+              class="plain"
+            />
+            <p class="fragment fade-up">👌</p>
+          </section>
+          <aside class="notes">
+            Ser ut som vi skal på Twitter. En artig fotnote her: hvis man gjør
+            en "reverse DNS-lookup", altså finne hvilke andre domener
+            twitterhai.eu er koblet til, så finner vi twitterhai.tech:
+            http://reverseip.domaintools.com/search/?q=twitterhai.eu. Hvis man
+            navigerer dit får man samme melding som vi ser her. Dvs. med det
+            trikset kunne man ha hoppet helt fra slutten av steg 1 til her vi er
+            nå.
+          </aside>
+        </section>
+
+        <!-- =================== TWITT3Rhai =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>TWITT3RHAI</h2>
+          </section>
+
+          <section data-source="roy_solberg">
+            <img
+              data-src="img/twitt3rhai/twitt3rhai-twitterkonto-aug-2019.png"
+              class="plain"
+            />
+          </section>
+
+          <section>
+            <p>2 observasjoner...</p>
+            <p class="fragment">
+              Noe om roboter og å flytte teksten til et tekstprogram
+            </p>
+            <p class="fragment">Og 65 tweets om ulike haiarter...</p>
+            <aside class="notes">* 65 hairelaterte tweets!<br /></aside>
+          </section>
+
+          <section data-source="twitter">
+            <img
+              data-src="img/twitt3rhai/twitt3rhai-twitterkonto-innlegg-zoomed.png"
+              class="plain"
+            />
+            <aside class="notes">
+              * ROBOTS - kan de mene robots.txt? (hva er denne filen?)<br />
+              * Hvilken tekst skal jeg flytte til et tekstprogram?
+            </aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <p>La oss finne robots.txt</p>
+            <a href="http://twitterhai.eu/robots.txt" class="fragment"
+              >http://twitterhai.eu/robots.txt ➡</a
+            >
+            <img
+              data-src="img/twitt3rhai/twitt3rhai-twitterkonto-robots_txt-highlighted.png"
+              class="plain fragment"
+            />
+            <aside class="notes">
+              Hva ligger i mappen '/min_hemmelige_mappe' tro?
+            </aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/twitt3rhai/twitt3rhai-twitterkonto-haimat-highlighted.png"
+              class="plain"
+            />
+            <p class="fragment">👍</p>
+            <aside class="notes">
+              Vi fant en fil! Så var det de twitterhaiene.
+            </aside>
+          </section>
+
+          <section data-source="twitter">
+            <img
+              data-src="img/twitt3rhai/twitt3rhai-twitterkonto-innlegg-zoomed.png"
+              class="plain"
+            />
+            <aside class="notes">
+              Ser ikke noe mønster i haitweetene. Får ta ut tekstene til et
+              tekstprogram.
+            </aside>
+          </section>
+
+          <section>
+            <p>*klipper ut og limer inn en og en tweet til Sublime*</p>
+            <aside class="notes">
+              Sublime er et tekstprogram, kunne likegjerne vært Notepad, VIM
+              etc.<br />
+
+              Vurderte å lage en liten kodesnutt i JavaScript. Gadd ikke å bruke
+              tid på det da det ikke tok lang tid å "brute force" klipp og lim.
+              Av og til i CTF'er er det en helt grei måte å komme kjapt videre
+              på.
+            </aside>
+          </section>
+
+          <section
+            data-state="twitt3rhai-textwriter-start"
+            data-source="roy_solberg_blogg"
+          >
+            <pre>
+              <code id="twitt3rhai-textwriter-target" class="javascript" data-trim>
+              </code>
+            </pre>
+            <h3 id="twitt3rhai-textwriter-target-password"></h3>
+            <aside class="notes">
+              Veldig kult med negativ tekst! Gøy å se løsningen åpenbare seg på
+              denne måten!
+            </aside>
+          </section>
+
+          <section data-transition="fade-in slide">
+            <p>2 funn å ta med oss videre:</p>
+            <ul>
+              <li class="fragment">
+                <a href="http://twitterhai.tech/min_hemmelige_mappe/haimat">
+                  http://twitterhai.tech/min_hemmelige_mappe/haimat</a
+                >
+              </li>
+              <li class="fragment">
+                <p><b>HAI1337</b></p>
+              </li>
+            </ul>
+            <p class="fragment fade-up">😃</p>
+          </section>
+        </section>
+
+        <!-- =================== HAIMAT =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>haimat</h2>
+          </section>
+
+          <section data-transition="fade-in">
+            <p>
+              <b>Linux</b>: binæranalyse med
+              <span class="fragment highlight-green">file</span>
+            </p>
+            <pre
+              class="fragment fade-up"
+            ><code class="shell smaller" data-trim data-noescape>
+                  root@c04ddcc8bccd:~# file haimat
+
+                  pcap-ng capture file - version 1.0
+                </code></pre>
+          </section>
+
+          <section>
+            <p>
+              <b>Windows</b>: binæranalyse med
+              <span class="fragment highlight-green"
+                >filegenskaper/Notepad</span
+              >
+            </p>
+            <pre class="fragment fade-up">
+              <code class="shell smaller" data-trim data-noescape>
+                  C:\haimat>notepad haimat
+
+                  [...] Dumpcap (Wireshark) 2.4.6 [...]
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <p>
+              haimat er en
+              <a href="https://en.wikipedia.org/wiki/Pcap">pcap</a> fil!
+            </p>
+            <p class="fragment">Brukes til å lagre nettverkstrafikk</p>
+            <p class="fragment">Vi har ca 400 TCP-pakker å analysere</p>
+          </section>
+
+          <section>
+            <h3>Linux</h3>
+            <p class="fragment">
+              Nettverksanalyse med
+              <span class="fragment highlight-green">tcpdump/NetworkMiner</span>
+            </p>
+          </section>
+
+          <section>
+            <h3>Windows</h3>
+            <p class="fragment">
+              Nettverksanalyse med
+              <span class="fragment highlight-green"
+                >Wireshark/tshark/NetworkMiner</span
+              >
+            </p>
+            <aside class="notes">
+              NetworkMiner er god hvis det er mye trafikk å analysere. Wireshark
+              er ellers fint GUI-verktøy. Jeg brukte Wireshark.
+            </aside>
+          </section>
+
+          <section data-transition="fade-out" data-source="wireshark">
+            <img data-src="img/haimat/haimat-wireshark.png" class="plain" />
+            <aside class="notes">
+              Vi åpner Wireshark og begynner å kikke litt rundt.
+            </aside>
+          </section>
+
+          <section data-transition="fade-in" data-source="wireshark">
+            <img
+              data-src="img/haimat/haimat-wireshark-webserver-root.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-transition="none fade-out" data-source="wireshark">
+            <img
+              data-src="img/haimat/haimat-wireshark-webserver-root-highlighted.png"
+              class="plain"
+            />
+            <aside class="notes">
+              Det første vi ser er en HTTP-forespørsel mot rotmappen på server
+              192.168.230.129. Vi ser deretter en HTTP-respons med text-html.
+              Innholdet er en HTML-side med link til en "secret_data"
+              zip-fil!<br />
+              Det vi gjør nå er godt spionhåndtverk, nemlig kikke og lytte på
+              åpen web-trafikk. Dette er hvorfor vi må bruke SSL/TLS-kryptering
+              på nettsidene våre og krypterte meldingstjenester!
+            </aside>
+          </section>
+
+          <section>
+            <h3>Første observasjon</h3>
+            <p class="fragment">
+              I nettverkspakke 146 gjøres det en HTTP-forespørsel mot
+              <a href="http://192.168.230.129">http://192.168.230.129</a>
+            </p>
+            <p class="fragment">
+              I HTTP-svaret er det en HTML-side med link til
+              <a href="/secret_data.zip">/secret_data.zip</a>
+            </p>
+          </section>
+
+          <section data-transition="none fade-in" data-source="wireshark">
+            <img
+              data-src="img/haimat/haimat-wireshark-request-secret_data_zip.png"
+              class="plain"
+            />
+            <img
+              data-src="img/haimat/haimat-wireshark-response-secret_data_zip.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-transition="none" data-source="wireshark">
+            <img
+              data-src="img/haimat/haimat-wireshark-request-secret_data_zip-highlighted.png"
+              class="plain"
+            />
+            <img
+              data-src="img/haimat/haimat-wireshark-response-secret_data_zip-highlighted.png"
+              class="plain"
+            />
+            <aside class="notes">
+              Litt senere i trafikken ser vi en HTTP-forespørsel for å laste ned
+              denne zip-filen.
+            </aside>
+          </section>
+
+          <section>
+            <h3>Andre observasjon</h3>
+            <p class="fragment">
+              I nettverkspakke 326 og 362 er det henholdsvis en HTTP-forespørsel
+              og -svar på å laste ned zip-filen:
+              <a href="http://192.168.230.129/secret_data.zip"
+                >http://192.168.230.129/secret_data.zip</a
+              >
+            </p>
+            <p class="fragment">
+              Trafikken er over TCP-port 80 og dermed ukryptert
+              <span class="fragment fade-in">👍</span>
+            </p>
+            <p class="fragment">
+              La oss plukke ut zip-filen for nærmere analyse
+            </p>
+            <aside class="notes">
+              Hadde trafikken her gått over TCP-port 433 hadde vi stått ovenfor
+              HTTPS og TLS-krypterte pakker å hacke.
+            </aside>
+          </section>
+
+          <section>
+            <h3>Forresten...</h3>
+            <p>Siste observasjon fra nettverkstrafikken:</p>
+            <p class="fragment">
+              Et forsøk på å laste siden
+              <a href="http://192.168.230.129/trying_to_hide"
+                >http://192.168.230.129/trying_to_hide</a
+              >
+              gir
+            </p>
+            <p class="fragment">
+              <span class="fragment highlight-green">404 Not Found 😜</span>
+            </p>
+            <aside class="notes">
+              Kanskje spionen som plantet filen panikk og glemte å skjule sine
+              spor, og ble desperat etter å finne "Gjemme seg"-urlen?
+            </aside>
+          </section>
+
+          <section>
+            <p>Vi henter ut <b>secret_data.zip</b> med Wireshark</p>
+            <aside class="notes">
+              Tilbake til zip-filen. Vi bruker Wireshark til å eksportere ut
+              råbytes fra nettverkspakke 362 og lagrer som zip-fil. Jeg viser en
+              av flere måter man kan gjøre dette på.
+            </aside>
+          </section>
+
+          <section data-transition="none fade-in" data-source="wireshark">
+            <img
+              data-src="img/haimat/haimat-wireshark-export-secret_data_zip.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-transition="none fade-out" data-source="wireshark">
+            <img
+              data-src="img/haimat/haimat-wireshark-export-secret_data_zip-highlighted.png"
+              class="plain"
+            />
+            <aside class="notes">
+              Vi velger pakken med HTTP-svaret som inneholder zip-filen.
+              Høyreklikker på Media Type (selve binærdataene) og velger "Export
+              Packet Bytes". Lagrer filen som "secret_data.zip".
+            </aside>
+          </section>
+
+          <section data-transition="none fade-in" data-source="windows10">
+            <p>Vi har eksportert ut filen <b>secret_data.zip</b>:</p>
+            <img
+              data-src="img/secret_data-zip/secret_data-zip-file.png"
+              class="plain"
+            />
+            <p class="fragment">😀</p>
+            <aside class="notes">
+              Filen inneholder et bilde "insignificant_shark.png"! Får prøve å
+              åpne bildet i zip-filen
+            </aside>
+          </section>
+        </section>
+
+        <!-- =================== SECRET_DATA.ZIP =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>secret_data.zip</h2>
+          </section>
+
+          <section data-transition="none fade-in" data-source="windows10">
+            <p>Åpner bildet <b>insignificant_shark.png</b>:</p>
+            <img
+              data-src="img/secret_data-zip/secret_data-zip-file.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-transition="none fade-out" data-source="windows10">
+            <p>Passordbeskyttet! 😢</p>
+            <img
+              data-src="img/secret_data-zip/secret_data-zip-file-password.png"
+              class="plain"
+            />
+            <aside class="notes">
+              Det er en passordbeskyttet zip-fil!
+            </aside>
+          </section>
+
+          <section>
+            <p>🤔</p>
+            <p class="fragment">
+              Vi fikk beskjed om at vi allerede hadde passordet...
+            </p>
+            <p class="fragment">
+              Hva hvis vi prøver <b>HAI1337</b> som passord?
+            </p>
+            <aside class="notes">
+              Hm (NESTE)<br />
+              * I forrige avsnitt fant vi en HTML-fil som sa at "passordet har
+              jeg allerede". Fikk vi med oss noe fra tidligere som kan passe som
+              passord? (NESTE)<br />
+              * HAI1337 er en god kandidat
+            </aside>
+          </section>
+
+          <section
+            data-background="img/secret_data-zip/secret_data-zip-insignificant_shark.png"
+            data-source="roy_solberg_fra_pst"
+          >
+            <aside class="notes">
+              Så vi klarte å hente ut zip-filen og åpne bildet som lå i
+              zip-filen med passordet fra Twitter. Det er noe funky med denne
+              haien...
+            </aside>
+          </section>
+        </section>
+
+        <!-- =================== INSIGNIFICANT_SHARK =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>Insignifikant hai</h2>
+          </section>
+
+          <section>
+            <p>
+              Vi zippet ut filen
+              <span class="fragment highlight-green"
+                >insignificant_shark.png</span
+              >
+            </p>
+            <p class="fragment">Åpenbart en kandidat for grundig analyse</p>
+            <p class="fragment">
+              Først steganografi-analyse, deretter se nærmere på tegnene på
+              haien
+            </p>
+          </section>
+
+          <section data-source="stegsolve_caesum">
+            <pre><code data-trim class="shell">
+                root@c04ddcc8bccd:~# java -jar stegsolve.jar</code></pre>
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-stegsolve.gif"
+              class="plain"
+              style="width: 75%;"
+            />
+            <aside class="notes">
+              * Vi ser en QR-kode gjemt i fargefiltere for rød, grønn og blå
+            </aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-qrcode.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-source="zxing_decode">
+            <p>QR-koden dekodet:</p>
+            <span class="fragment">
+              <img
+                src="img/insignificant_shark/insignificant_shark-qrcode-decoded-highlighted.png"
+                class="plain"
+              />
+              <p>
+                "You thought we would hide anything of
+                <span class="fragment highlight-green">SIGNIFICANCE</span>? Not
+                the <span class="fragment highlight-green">LEAST</span>..."
+              </p>
+            </span>
+            <aside class="notes">
+              Veldig fokus på signifikans og siste "ett-eller-annet"
+            </aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/secret_data-zip/secret_data-zip-insignificant_shark.png"
+              class="plain"
+            />
+            <aside class="notes">
+              La oss se nærmere på disse tegnene
+            </aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-lsb-runer.jpg"
+              class="plain"
+            />
+            <p class="fragment">Ligner litt på runer?</p>
+          </section>
+
+          <section data-transition="none" data-source="snl_runer">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-snl-runer.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <aside class="notes">
+              "Normalisert" utgave av det eldre runealfabetet
+            </aside>
+          </section>
+
+          <section data-transition="none" data-source="snl_runer">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-snl-runer-l.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <h3>L</h3>
+          </section>
+
+          <section data-transition="none" data-source="snl_runer">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-snl-runer-s.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <h3>LS</h3>
+          </section>
+
+          <section data-transition="none" data-source="snl_runer">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-snl-runer-b.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <h3>LSB</h3>
+          </section>
+
+          <section>
+            <p><b>LSB</b> betyr i IT-sammenheng ofte:</p>
+            <p class="fragment">
+              <a
+                href="https://bit-calculator.com/most-and-least-significant-bit"
+                >Least Significant Bit</a
+              >
+            </p>
+            <p class="fragment smaller">
+              (i motsetning til MSB: Most Significant Bit)
+            </p>
+          </section>
+
+          <section>
+            <p>Alle filer består av binærdata (Bytes) med "0" og "1"-tall</p>
+            <p class="fragment">
+              Vi blir sterkt oppfordret til å se på siste Bit av hver Byte
+              (LSB-dekoding)
+            </p>
+            <aside class="notes">
+              Å gjemme data i LSB/MSB er en velkjent måte på å "skjule" data i
+              bilder. Det er gunstig måte å skjule data på fordi det påvirker
+              orginalbildet i liten grad å bare endre en Bit i hver Byte.
+            </aside>
+          </section>
+
+          <section>
+            <p>Det vil si...</p>
+            <p class="fragment">
+              Plukk ut hvert siste binærtall i hver Byte: 1010101<span
+                class="fragment highlight-green"
+                >1</span
+              >
+            </p>
+            <p class="fragment">og sett de sammen til ny fil</p>
+          </section>
+
+          <section data-source="incoherency_image_steganografi">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-lsb.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <aside class="notes">
+              Og et nyttig verktøy til å lese ut LSB fra en fil er denne jeg har
+              brukt her.<br />
+              Her ser vi at vi får bare QR-kode bildet fra LSB-dekoding.<br />
+            </aside>
+          </section>
+
+          <section>
+            <p>
+              LSB-dekoding gir oss bildet med QR-koden og er et sidespor 😈
+            </p>
+            <p class="fragment">
+              Hva med MSB-dekoding (most significant bit)?
+            </p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <p>Det vil si...</p>
+            <p class="fragment">
+              Plukk ut hvert første binærtall i hver Byte:
+              <span class="fragment highlight-green">1</span>1010101
+            </p>
+            <p class="fragment">og sett de sammen til en ny fil</p>
+          </section>
+
+          <section data-source="georgeom_stegonline">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-msb-highlighted.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <aside class="notes">
+              Her har jeg allerede lastet opp bildet. Velger alle første bits i
+              hver byte.
+            </aside>
+          </section>
+
+          <section
+            data-transition="none fade-in"
+            data-source="georgeom_stegonline"
+          >
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-msb-decoded.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-transition="none" data-source="georgeom_stegonline">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-msb-decoded-highlighted.png"
+              class="plain"
+            />
+          </section>
+
+          <section>
+            <p>
+              <a href="http://twitterhai.tech/u_are_th3_winrar.jpg"
+                >http://twitterhai.tech/u_are_th3_winrar.jpg ➡</a
+              >
+            </p>
+            <p class="fragment fade-up">👍</p>
+            <aside class="notes">
+              Oppsummert: i haibildet var det runer, de sa vi skulle bry oss om
+              LSB. Vi hentet ut LSB-bytes og det ble til QR-kodebildet, samme
+              bilde vi fant med Stegsolve. Da vi istedet hentet ut MSB-bytes
+              finner vi tekst som er en URL til et nytt bilde.
+            </aside>
+          </section>
+        </section>
+
+        <!-- =================== U_ARE_TH3_WINRAR =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>u_are_th3_winrar.jpg</h2>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/u_are_th3_winrar-jpg/u_are_th3_winrar.png"
+              class="plain"
+            />
+          </section>
+
+          <section>
+            <p>2 observasjoner...</p>
+            <p class="fragment">
+              8,56 MB stort JPG-bilde!
+            </p>
+            <p class="fragment">
+              Filnavnet inneholder <b>WinRar</b> (kompresjonsformat)
+            </p>
+            <aside class="notes">
+              Et par observasjoner (NESTE) <br />
+              Veldig stort bilde. (NESTE)<br />
+              * Filnavnet hinter om WinRar: et format for å komprimere filer.
+              Ekvivalent til ZIP-filformatet<br />
+              * Hva kan vi bruke til å plukke ut flere ledetråder?
+            </aside>
+          </section>
+
+          <section>
+            <p>
+              <b>Linux</b>: binæranalyse med
+              <span class="fragment highlight-green">file</span>
+            </p>
+            <pre
+              class="fragment fade-up"
+            ><code class="shell smaller" data-trim data-noescape>
+              root@c04ddcc8bccd:~# file u_are_th3_winrar.jpg
+
+              u_are_th3_winrar.jpg: JPEG image data, JFIF standard 1.01, \
+              resolution (DPI), density 96x96, segment length 16, \
+              Exif Standard: [TIFF image data, big-endian, direntries=1, \
+              orientation=upper-left], \
+              comment: "CREATOR: gd-jpeg v1.0 (using IJG JPEG v62), quality = 82", \
+              baseline, precision 8, 664x636, components 3
+            </code></pre>
+            <aside class="notes">Ikke noe som stikker seg ut her.</aside>
+          </section>
+
+          <section>
+            <p>
+              <b>Windows</b>: binæranalyse med
+              <span class="fragment highlight-green">filegenskaper</span>
+            </p>
+            <p class="fragment">
+              Finner ikke noen ledetråder ved å kikke i filen så langt.
+            </p>
+          </section>
+
+          <section>
+            <p>
+              <b>Linux</b>: binæranalyse med
+              <span class="fragment highlight-green">binwalk</span>
+            </p>
+            <pre
+              class="fragment fade-up"
+            ><code class="shell smaller" data-trim data-noescape>
+              root@c04ddcc8bccd:~# binwalk u_are_th3_winrar.jpg
+
+              DECIMAL       HEXADECIMAL     DESCRIPTION
+              --------------------------------------------------------------------------------
+              0             0x0             JPEG image data, JFIF standard 1.01
+              30            0x1E            TIFF image data, big-endian, offset of first image directory: 8
+              66398         0x1035E         <mark class="fragment">RAR archive data</mark>, version 5.x
+              2552386       0x26F242        Certificate in DER format (x509 v3), header length: 4, sequence length: 30088
+            </code></pre>
+
+            <p class="fragment">
+              I ❤️ <a href="https://github.com/ReFirmLabs/binwalk">binwalk</a>
+            </p>
+            <p class="fragment fade-up">❤️ Open Source ❤️</p>
+            <aside class="notes">
+              Vi ser at det skjuler seg en RAR-fil (WinRar) i bildet.<br />
+              Artig at det også ligger en binær sertifikatfil gjemt her...<br />
+              Jeg digger binwalk fordi den finner alt!<br />
+              OG binwalk er Open Source, som varmer mitt Open Source hjerte!
+            </aside>
+          </section>
+
+          <section data-source="bobu_sumisu_pst_writeup">
+            <p>
+              Vi plukker ut binærdataene til RAR-filen fra filen
+              <b>u_are_th3_winrar.jpg</b> med
+              <span class="fragment highlight-green">dd</span> (Linux)
+            </p>
+
+            <pre
+              class="fragment fade-up"
+            ><code class="shell smaller" data-trim data-noescape>
+              root@c04ddcc8bccd:~# dd
+              if=u_are_th3_winrar.jpg \
+              of=u_are_th3_winrar.rar \
+              bs=1 \
+              skip=66398
+
+              8914231+0 records in
+              8914231+0 records out
+              8914231 bytes (8.9 MB, 8.5 MiB) copied, 11.1746 s, 798 kB/s
+            </code></pre>
+
+            <p class="fragment">
+              Ny fil:
+              <span class="fragment highlight-green">u_are_th3_winrar.rar</span>
+            </p>
+            <aside class="notes">
+              * Vi skal plukke ut data fra en fil. På mange måter som å finne en
+              sang på en gammeldags musikk-kassett. Vi må spole fram til dataene
+              (sangen) som vi er interessert i (NESTE) <br />
+              * Nå har vi plukket ut en RAR-fil fra JPG-bildefilen vi fant i
+              ZIP-filen tidligere.<br />
+              * Å finne filer gjemt i andre filer er klassisk CTF-oppgave og med
+              litt trening får man øye på sånt, og finner raskt skjulte filer
+            </aside>
+          </section>
+
+          <section>
+            <p>
+              Vi pakker <b>u_are_th3_winrar.rar</b> med
+              <span class="fragment highlight-green">WinRAR</span> på Windows.
+            </p>
+            <p class="fragment">
+              Tilsvarer <span class="fragment highlight-green">unrar</span> på
+              Linux
+            </p>
+            <aside class="notes">
+              Jeg bruker WinRar i Windows. Unrar for Linux gjør det samme.
+            </aside>
+          </section>
+
+          <section data-source="winrar">
+            <img
+              data-src="img/u_are_th3_winrar-jpg/u_are_th3_winrar-filer.png"
+              class="plain"
+            />
+            <aside class="notes">
+              Hva finner vi i rar-filen?<br />
+              To filer: <b>gratulerer.gif</b> og <b>gratulerer.txt</b><br />
+              La oss kikke på GIF'en først.
+            </aside>
+          </section>
+
+          <section
+            data-source="pst"
+            data-background="img/u_are_th3_winrar-jpg/u_are_th3_winrar-jpg-gratulerer.gif"
+          ></section>
+
+          <section>
+            <p>Ser ut som vi har klart det! 👏👏</p>
+            <p class="fragment">Hva finner vi i <b>gratulerer.txt</b>?</p>
+            <aside class="notes">
+              Vi blir gratulert av Leo fra Great Gatsby. Ikke hverdags!
+              (NESTE)<br />
+              Hva finner vi i den andre filen: <b>gratulerer.txt</b>?
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>
+              Gratulerer, du har løst de oppgavene vi hadde i denne omgang. Hvis
+              du har lyst på reelle utfordringer og å løse oppgaver som kan
+              bidra til å utgjøre en forskjell så håper vi at du tar deg tid til
+              å søke. Bruk gjerne kodeordet [FJERNET, red.anm.] i søknaden din,
+              så vi vet at du har fullført challengen! Vi ser frem til å høre
+              fra deg! [...]
+            </blockquote>
+            <aside class="notes">
+              Filen gratulerer oss og oppfordrer oss til å søke på
+              stillingen.<br />
+              Hvis vi søker så blir vi bedt om å nevne det
+              <b>hemmelige kodeordet</b> som vi nå har fått tilgang til ved å
+              løse oppgavene. Hva det var får du finne ut selv...<br />
+              Resten av filen er fyllstoff med Lorem Ipsum dummytekst.
+            </aside>
+          </section>
+        </section>
+
+        <!-- =================== OPPSUMMERING =================== -->
+        <section data-transition="concave">
+          <section>
+            <h2>Hva har vi lært?</h2>
+          </section>
+
+          <section>
+            <h3>Kodeknekking</h3>
+            <ul>
+              <li class="fragment fade-up">er lærerikt</li>
+              <li class="fragment fade-up">er utfordrende</li>
+              <li class="fragment fade-up">er en tålmodighetsprøve</li>
+              <li class="fragment fade-up">
+                er en stor dopamin-hit når man lykkes 💉
+              </li>
+            </ul>
+            <aside class="notes">
+              -OUTRO-<br />
+              Hvordan blir vi gode kodeknekkere? Vi må øve og ha gode verktøy
+              (NESTE)
+            </aside>
+          </section>
+
+          <section>
+            <h3>Verktøy</h3>
+            <ul>
+              <li class="fragment fade-up">
+                <p>
+                  Steganografi og bildeanalyse:
+                  <a
+                    href="https://github.com/zardus/ctf-tools/blob/master/stegsolve"
+                    >StegSolve</a
+                  >,
+                  <a href="https://stylesuxx.github.io/steganography/"
+                    >Bildeverktøy 1</a
+                  >,
+                  <a href="https://incoherency.co.uk/image-steganography"
+                    >Bildeverktøy 2</a
+                  >
+                </p>
+              </li>
+              <li class="fragment fade-up">
+                Binæranalyse:
+                <a href="https://github.com/ReFirmLabs/binwalk">binwalk</a>,
+                strings, file, dd, Sublime/Notepad
+              </li>
+              <li class="fragment fade-up">
+                <p>
+                  Nettverksanalyse: Wireshark
+                </p>
+              </li>
+              <li class="fragment fade-up">
+                <p>OS: Windows og Docker</p>
+                <pre
+                  class="fragment fade-up"
+                ><code class="shell smaller" data-trim data-noescape>
+                    docker run -t -i -v c:/projects:/projects \
+                    kalilinux/kali-linux-docker \
+                    /bin/bash
+                  </code></pre>
+              </li>
+            </ul>
+            <aside class="notes">
+              Dette er verktøyene jeg brukte på å løse PST-gåten.<br />
+              Jeg brukte flere verktøy enn det jeg nevner her...<br />
+
+              Kombinasjonen av å bruke Windows og ha et Docker-image å hoppe inn
+              i hvor jeg har spesialverktøy, er ganske digg. Som eksempelet
+              viser så gir jeg også imaget tilgang til min prosjektmappe, så jeg
+              deler filer mellom Windows og Linux-imaget jeg bruker<br />
+              Hvorfor bruker jeg Kali Linux? Det får du Google litt på.<br /><br />
+
+              Så hvordan blir vi gode kodeknekkere? Vi må øve... (NESTE)
+            </aside>
+          </section>
+
+          <section>
+            <h3>Bygg kompetanse!</h3>
+            <ul>
+              <li class="fragment fade-up">
+                <a href="https://ctf.hacker101.com">Hacker101 CTF</a>
+              </li>
+              <li class="fragment fade-up">
+                <a href="https://19.tghack.no">TGHack</a>
+              </li>
+              <li class="fragment fade-up">
+                <a href="https://hackthebox.eu">Hackthebox</a>
+              </li>
+              <li class="fragment fade-up">
+                <a href="https://hack-yourself-first.com"
+                  >hack-yourself-first.com</a
+                >
+              </li>
+              <li class="fragment fade-up">
+                <a
+                  href="https://www.owasp.org/index.php/OWASP_Juice_Shop_Project"
+                  >OWASP Juice Shop</a
+                >
+              </li>
+            </ul>
+            <aside class="notes">
+              Bygg kompetanse! Hvordan kan du bli en bedre kodeknekker og lære
+              mer om etisk hacking?<br />
+              * HackerOne sin Hacker101 er et supert sted å lære, kommer stadig
+              nye oppgaver innen web, reverse engineering, crypto m.fl.<br />
+              * The Gathering har fine oppgaver på flere kategorier, blir en god
+              hacker på mye forskjellig. Veldig lærerikt!<br />
+              * Hackthebox for deg som vil opp noen hakk i vanskelighetsgrad.
+              Ofte kreves koding for å løse oppgaver, mer avanserte løsninger
+              ofte<br />
+              * hack-yourself-first.com er en åpen nettside full av sårbarheter,
+              bare å hacke ivei. Troy Hunt står bak.<br />
+              * OWASP Juice Shop er perfekt for å hoste intern CTF-konkurranse.
+              Jag sårbarheter, få poeng, vinn! Lagd av OWASP (Open Web
+              Application Security Project).
+            </aside>
+          </section>
+
+          <section>
+            <h3>Konferanser</h3>
+            <p class="fragment fade-up">
+              Dra på konferanser:<br />
+              <a href="https://owaspnorwayday.org/">OWASP Norway Day</a>,
+              <a href="https://sikkerhetsfestivalen.no/">Sikkerhetsfestivalen</a
+              >,
+              <a href="https://www.blackhat.com/">BlackHat</a>
+            </p>
+            <p class="fragment fade-up">
+              Samle sammen kollegaer og venner og kjemp om premier på
+              CTF-konkurranser:<br />
+              <a href="https://realworldctf.com/">Real World CTF</a>,
+              <a href="https://capturetheflag.withgoogle.com/">Google CTF</a>
+            </p>
+            <aside class="notes">
+              Vi må også dele med hverandre - gå på konferanser, hold
+              foredrag<br />
+              * OWASP Norway Day<br />
+              * Sikkerhetsfestivalen<br />
+              * BlackHat (NESTE)<br />
+              Hvorfor ikke kjempe mot andre i CTF-konkurranser - vinn premier
+              (og jobb?)!
+            </aside>
+          </section>
+
+          <section>
+            <h3>Fortsatt ikke motivert?</h3>
+            <p class="fragment fade-in">
+              Hva hvis du fikk betalt for spisskompetansen din, og samtidig
+              hjelper selskaper i å gjøre sine tjenester sikrere? 💪
+            </p>
+          </section>
+
+          <section>
+            <h3>Bug-bounties! 🐛</h3>
+            <p class="fragment fade-in">
+              Registrer deg på
+              <a href="https://www.hackerone.com/">HackerOne</a> og følg
+              <a href="https://twitter.com/Hacker0x01">@Hacker0x01</a>
+            </p>
+            <p class="fragment fade-in">
+              Se etter <a href="/">/security.txt</a>
+            </p>
+            <p class="fragment fade-in">Les reglene og slå deg løs! 🤑</p>
+            <aside class="notes">
+              En god motivasjon for å bygge kompetanse er å finne bugs man kan
+              få betalt for å finne.<br />
+              Virker som etisk hacking er noe som er voksende trend. Noe som
+              alle tjener på<br />
+              Se også etter security.txt, litt som robots.txt bare for
+              sikkerhetshensyn (rapportere sårbarheter, søke jobb etc.)<br />
+              Alltid, alltid les igjennom reglene før du begynner!<br /><br />
+              Jeg tenkte å avslutte med en liten appell.
+            </aside>
+          </section>
+
+          <!-- <section data-source="bbc_ethical_hackers">
+            <img
+              data-src="img/oppsummering/oppsummering-bbc-ethical-hackers.png"
+              class="plain"
+              style="width: 60%"
+            />
+            <aside class="notes">
+              Etisk hacking er en god greie, og Santiago Lopez er en av de
+              første til å tjene $1m dollar.<br />
+              Vant HackerOne sitt forrige hackathon med laget sitt, hvor de
+              representerer Information Security hos Verizon Media.<br />
+              Rekordutbetaling på totalt $1,5m til teamet.<br /><br />
+
+              Jeg tenkte å avslutte med en liten appell.
+            </aside>
+          </section> -->
+
+          <section>
+            <h3>Alle kan bidra til økt IT-sikkerhet</h3>
+            <ul>
+              <li class="fragment fade-up">
+                øk sikkerhetskompetansen på prosjekter
+              </li>
+              <li class="fragment fade-up">
+                prioriter sikkerhetsoppgaver på prosjekter på lik linje med
+                andre ikke-funksjonelle oppgaver
+              </li>
+              <li class="fragment fade-up">
+                ...men ikke bli John (CISO) fra The Phoenix Project!
+              </li>
+            </ul>
+            <aside class="notes">
+              Med ikke-funksjonelle oppgaver mener jeg da oppgaver som går på
+              universell utforming, ytelse, robusthet osv. For hver funksjonelle
+              oppgave, hvilken ikke-funksjonelle oppgave nedprioriterer man?<br />
+
+              John i The Phoenix Project utnytter sin makt som Chief Information
+              Security Officer og er en nei-person som vil gjøre ting på sin
+              måte. Prøv å ikke bli som John.
+            </aside>
+          </section>
+
+          <section>
+            <h3>Typisk norsk å være god</h3>
+            <p class="fragment fade-up">
+              ...også på
+              <span class="fragment highlight-green">IT-sikkerhet</span>?
+            </p>
+            <aside class="notes">
+              Vi har ikke mye å stille opp med sammenlignet med andre større
+              aktørers cyber-budsjetter.<br />
+              Men kanskje vi allikevel klarer å ta igjen noe av skjevheten med å
+              være gode på effektivitet og å være effektfulle i hva vi gjør<br />
+              Med kloke hoder og gode verktøy, og allianser, tror jeg vi kommer
+              et godt stykke i å beskytte Norske interesser i det offentlige og
+              private rom
+            </aside>
+          </section>
+
+          <section>
+            <h3>La oss bygge en sikrere framtid for Norge!</h3>
+            <p class="fragment fade-up">
+              Økt fokus på sikkerhetskompetanse på prosjekt!
+            </p>
+            <aside class="notes">
+              Vi bør øke fokus på sikkerhetskompetanse på våre prosjekter!<br />
+              Det er mange måter å gjøre det på, jeg har delt en del ideer om
+              det idag.
+            </aside>
+          </section>
+
+          <section>
+            <p class="fragment fade-in">
+              Bli en spion - <span class="fragment">søk jobb i PST 🕵️‍♂️</span>
+            </p>
+            <aside class="notes">
+              Så til slutt, hvis det høres fristende ut å være en
+              fulltidskodeknekker - gi deg selv en utfordring! Bli en etisk
+              hacker og/eller jobbe med IT-etteretning? (NESTE)<br /><br />
+              Eventuelt, kanskje bli en spion! (NESTE)<br />
+              Søk jobb i PST idag!
+            </aside>
+          </section>
+        </section>
+
+        <!-- =================== TAKK =================== -->
+        <section data-transition="concave">
+          <h2>Takk!</h2>
+          <br />
+          <div class="columns">
+            <div class="col">
+              <div
+                class="qrcode"
+                align="center"
+                title="https://henrikwm.github.io/kodeknekking_for_spioner"
+              ></div>
+              <div class="half-size"><a class="qrcode-link"></a></div>
+            </div>
+            <div class="col">
+              <img
+                src="img/oppsummering/oppsummering-takk2.png"
+                class="plain"
+                style="width: 70%"
+              />
+            </div>
+          </div>
+        </section>
+        <aside class="notes">
+          Tusen takk for at dere kom og hørte på. Ha en super JavaZone
+          videre!<br />
+          Takk for meg!
+        </aside>
+      </div>
+    </div>
+
+    <script src="js/reveal.min.js"></script>
+
+    <!-- Reveal-listeners -->
+    <script type="text/javascript" async defer>
+      // Sources
+      var sources = {
+        background_image: "Foto: iStock.com, rami_hakala",
+        bitmoji: "Bitmoji Avatar Ⓒ Snap Group Limited",
+        henrikwm: "Kilde: Henrik Walker Moe, Lisens: CC BY 4.0",
+        abcnyheter_hydro:
+          "Kilde: https://www.abcnyheter.no/nyheter/norge/2019/03/20/195562644/etterforskere-ser-til-utlandet-etter-dataangrepet-mot-hydro, Foto: abcnyheter.no",
+        dagbladet_pst:
+          "Kilde: https://www.dagbladet.no/nyheter/pst-fjernet-hai-fra-twitter-feeden/70377787, Foto: Dagbladet",
+        stillingsannonsen_nrk:
+          "Kilde: https://www.nrk.no/norge/pst-ber-jobbsokarar-loyse-gate-i-jobbannonse-1.14371000, Foto: NRK",
+        pst: "Kilde: PST",
+        roy_solberg_fra_pst: "Kilde: Roy Solberg, Foto: PST",
+        roy_solberg: "Kilde: Roy Solberg, Foto: Twitter",
+        stegsolve_caesum: "Foto: StegSolve, Caesum, Windows 10",
+        roy_solberg_blogg:
+          "Kilde: https://blog.roysolberg.com/2019/01/pst-challenge",
+        twitter: "Kilde: https://twitter.com/twitt3rhai, Foto: Twitter",
+        joshua_reynolds:
+          "Foto: https://en.wikipedia.org/wiki/File:Samuel_Johnson_by_Joshua_Reynolds_2.png, Lisens: CC BY-SA",
+        exif_regex_info: "Kilde: http://exif.regex.info/exif.cgi",
+        ceasar_wheel:
+          "Foto: https://commons.wikimedia.org/wiki/File:CipherDisk2000.jpg, Lisens: Public",
+        ceasar_cipher_decryption_tool:
+          "Kilde: https://www.xarg.org/tools/caesar-cipher",
+        wireshark: "Foto: Wireshark, Windows 10",
+        windows10: "Foto: Windows 10",
+        snl_runer:
+          "Kilde: Heyerdahl, Gerd Høst. (2019, 30. mai). runer. I Store norske leksikon. Hentet 25. august 2019 fra https://snl.no/runer",
+        zxing_decode: "Kilde: https://zxing.org/w/decode",
+        incoherency_image_steganografi:
+          "Kilde: https://incoherency.co.uk/image-steganography",
+        georgeom_stegonline: "Kilde: https://georgeom.net/StegOnline/extract",
+        bobu_sumisu_pst_writeup:
+          "Kilde: https://gist.github.com/BobuSumisu/501dafd4d7166d2a295a68c20bc3eb41",
+        winrar: "Foto: WinRAR, Windows 10",
+        bbc_ethical_hackers:
+          "Kilde: https://www.bbc.com/news/technology-47894497, Foto: BBC"
+      };
+
+      function setFooterSource() {
+        var currentSlide = Reveal.getCurrentSlide();
+
+        var footer = document.getElementById("title-footer");
+        if (footer) {
+          footer.parentNode.removeChild(footer);
+        }
+
+        var source = currentSlide.getAttribute("data-source");
+        if (source !== null) {
+          title_footer.initialize(sources[source]);
+        }
+      }
+
+      Reveal.addEventListener("ready", function(event) {
+        setFooterSource();
+      });
+
+      Reveal.addEventListener(
+        "slidechanged",
+        function() {
+          setFooterSource();
+        },
+        false
+      );
+
+      var twitterhai_pwd_letter_1 = "H";
+      var twitterhai_pwd_letter_2 = "HA";
+      var twitterhai_pwd_letter_3 = "HAI";
+      var twitterhai_pwd_letter_4 = "HAI1";
+      var twitterhai_pwd_letter_5 = "HAI13";
+      var twitterhai_pwd_letter_6 = "HAI133";
+      var twitterhai_pwd_letter_7 = "HAI1337 🦈";
+
+      // prettier-ignore
+      var twitterhai_pwd_1 =
+        "Tigerhai HvithaiHammerhaiHvalhai Oksehai Domenehai Brugde\n\
+Brugde DomenehaiTigerhaiHvithai Hvalhai Hammerhai Oksehai\n\
+HammerhaiJaws   Fish   Hvalhai Oksehai Domenehai Tigerhai\n\
+HvithaiHaiene   Tail   Tigerhai DomenehaiBrugde Hammerhai\n\
+HåbrannBrugde   Fins   HammerhaiBrugde HvithaiHvalhaiJaws\n\
+HvithaiHammer          Domenehai Tigerhai Oksehai Hvalhai\n\
+DomenehaiJaws   Mako   HåbrannHvithai HvalhaiTigerhaiMako\n\
+BrugdeOksehai   Apex   Tigerhai HvalhaiDomenehaiHammerhai\n\
+HvithaiBrugde   Jaws   HammerhaiOksehai BrugdeTigerhaiHai\n\
+Brugde HvalhaiHvithaiDomenehai Oksehai Tigerhai Hammerhai\n";
+
+      // prettier-ignore
+      var twitterhai_pwd_2 =
+"TigerhaiHvithaiOksehai BrugdeHammerhaiHvalhaiDomenehaiHai\n\
+HvithaiHvalhai   BrugdeOksehaiDomenehai HammerhaiTigerhai\n\
+HvithaiSjøen   H   TigerhaiOksehai DomenehaiHvalhaiBrugde\n\
+Hammerhaien   Hai   Domenehai HvalhaiBrugdeHvithaiOksehai\n\
+HvithaiHai           DomenehaiHvalhai Hammerhai Oksehaien\n\
+HvithaiHai   Havet   Oksehai TigerhaiHvalhaiDomenehaiApex\n\
+OksehaiHai   Sjøen   HvalhaiBrugde HvithaiHammerhaiBrugde\n\
+BrugdeJaws   Finne   Brugde HvithaiHvalhaiTigerhai Haiene\n\
+HammerhaiDomenehaiBrugdeOksehaiTigerhai HvalhaiHvithaiHai\n";
+
+      // prettier-ignore
+      var twitterhai_pwd_3 =
+        "HvalhaiBrugdeTigerhaiHammerhaiHvithai Oksehai Domenehaien\n\
+Domenehaier           OksehaiHvithai HammerhaiHvalhai Hai\n\
+OksehaiTigerhai   HvalhaiDomenehaiHammerhai BrugdeHvithai\n\
+DomenehaiBrugde   TigerhaiHammerhai HvithaiHvalhaiOksehai\n\
+BrugdeHvithaien   HammerhaiDomenehaiHvalhai Tigerhai Mako\n\
+TigerhaiHvalhai   BrugdeDomenehaiHvithai OksehaiHammerhai\n\
+BrugdeOksehaien   HammerhaiHvalhaiDomenehai HvithaiBrugde\n\
+HvithaiJaws           HaiHvalhaiHammerhai BrugdeDomenehai\n\
+DomenehaiTigerhaiHammerhaiHvithaiBrugdeOksehai HvalhaiHai\n";
+
+      // prettier-ignore
+      var twitterhai_pwd_4 =
+        "TigerhaiHvithaiBrugdeHvalhaiOksehai Domenehai Hammerhaien\n\
+BrugdeTigerhaiHammerhai   DomenehaiHvalhai OksehaiHvithai\n\
+DomenehaiOksehaiSjøen     HammerhaiHvalhaiTigerhaiHåbrann\n\
+Hammerhai HvithaiBrugde   OksehaiHvalhai BrugdeTigerhaien\n\
+HvithaiBrugdeOksehaiHai   TigerhaiDomenehai HvalhaiBrugde\n\
+HvalhaiOksehaiDomenehai   TigerhaiBrugde HammerhaiHvithai\n\
+Tigerhai HvithaiOksehai   HammerhaiDomenehaiBrugdeHvalhai\n\
+HvithaiOksehaiBrugde         Hammerhai Tigerhai Domenehai\n\
+HvalhaiHammerhaiHvithaiBrugdeTigerhai OksehaiDomenehaiHai\n";
+
+      // prettier-ignore
+      var twitterhai_pwd_5 =
+        "DomenehaiHvithaiBrugdeTigerhaiHammerhai Hvalhai Oksehaien\n\
+OksehaiBrugdeBrugde         Hvithai DomenehaiTigerhaiApex\n\
+HvalhaiHvithaiJaws   Haier   DomenehaiHammerhaiTigerhaien\n\
+TigerhaiBrugdeOksehaiSjøen   Domenehai HvalhaiHammerhaien\n\
+DomenehaiHammerhaiHavet     BrugdeOksehai HvithaiTigerhai\n\
+HvalhaiHammerhaiHvithaiHai   Brugde Oksehaien Domenehaien\n\
+DomenehaiBrugdeHai   Havet   Hammerhai Hvalhai Tigerhaien\n\
+HvalhaiOksehaiBrugde        BrugdeDomenehaiTigerhaiBrugde\n\
+Hvithai DomenehaiBrugdeHammerhaiTigerhaiHvalhai Oksehaien\n";
+
+      // prettier-ignore
+      var twitterhai_pwd_6 =
+        "HvalhaiBrugdeHvithaiDomenehaiOksehai Tigerhai Hammerhaien\n\
+BrugdeHvithaiBrugde         HammerhaiTigerhaiHvalhaiSjøen\n\
+Domenehai Tigerhai   Sjøen   HvithaiHammerhai Brugde Jaws\n\
+OksehaiBrugdeHvalhaiHvitha   Domenehai Tigerhai Hammerhai\n\
+TigerhaiHammerhaiHavet     HvalhaiHvithai BrugdeDomenehai\n\
+TigerhaiDomenehaiHammerhai   Hvalhai HvithaiOksehaiBrugde\n\
+HvithaiDomenehaien   Finne   HammerhaiHvalhaiBrugdeBrugde\n\
+BrugdeOksehaiBrugden        Hammerhai Hvithai Domenehaien\n\
+HvithaiBrugde TigerhaiOksehaiDomenehaiHammerhai Hvalhaien\n";
+
+      // prettier-ignore
+      var twitterhai_pwd_7 =
+        "DomenehaiHammerhaiOksehaiHvithaiHvalhai Brugde Tigerhaien\n\
+HammerhaiTigerhai           DomenehaiHvithaiBrugdeHvalhai\n\
+HvalhaiBrugdeHvit   Haier   OksehaiTigerhai Domenehai Hai\n\
+OksehaiBrugdeHvithaiJaws   HavetDomenehai TigerhaiHvalhai\n\
+DomenehaiHvithaiHåbrann   Hammerhai Brugde OksehaiHvalhai\n\
+DomenehaiHvalhaiBrugde   OksehaiBrugdeHammerhai Hvithaien\n\
+DomenehaiTigerhaiApex   Hammerhai Hvithai Hvalhai Oksehai\n\
+OksehaiHammerhaiJaws   DomenehaiTigerhaiBrugdeHvalhaiJaws\n\
+Hvalhai HvithaiTigerhaiDomenehaiBrugdeHammerhai Oksehaien\n\
+Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
+
+      var twitterhaiTextWriter = function(
+        target,
+        message,
+        passwordText,
+        index,
+        interval,
+        resolve
+      ) {
+        if (index < message.length) {
+          var element = document.getElementById(target);
+          element.innerHTML += message[index++];
+
+          window.dispatchEvent(new Event("resize"));
+
+          element.scrollTop = element.scrollHeight;
+
+          setTimeout(function() {
+            twitterhaiTextWriter(
+              target,
+              message,
+              passwordText,
+              index,
+              interval,
+              resolve
+            );
+          }, interval);
+        }
+
+        if (index === message.length) {
+          var element = document.getElementById(target + "-password");
+          element.innerHTML = passwordText;
+
+          if (resolve !== undefined) resolve();
+        }
+      };
+
+      Reveal.addEventListener("stillingsannonsen-scrambler-start", function() {
+        // Scrambler
+        Scrambler({
+          target: "#scramble-id",
+          random: [1000, 12000],
+          speed: 100,
+          text: "TWITTERHAI.EU",
+          beforeEach: function(element) {
+            console.log("About to scramble");
+          },
+          afterAll: function(elements) {
+            console.log("all done!");
+          }
+        });
+      });
+
+      Reveal.addEventListener("twitt3rhai-textwriter-start", function() {
+        var element = document.getElementById("twitt3rhai-textwriter-target");
+        element.innerHTML = "";
+
+        var twitterhaiPromise = new Promise(function(resolve, reject) {
+          twitterhaiTextWriter(
+            "twitt3rhai-textwriter-target",
+            twitterhai_pwd_1,
+            twitterhai_pwd_letter_1,
+            0,
+            isProd ? 10 : 1,
+            resolve
+          );
+        });
+
+        twitterhaiPromise
+          .then(function(result) {
+            return new Promise(function(resolve, reject) {
+              twitterhaiTextWriter(
+                "twitt3rhai-textwriter-target",
+                twitterhai_pwd_2,
+                twitterhai_pwd_letter_2,
+                0,
+                isProd ? 9 : 1,
+                resolve
+              );
+            });
+          })
+          .then(function(result) {
+            return new Promise(function(resolve, reject) {
+              twitterhaiTextWriter(
+                "twitt3rhai-textwriter-target",
+                twitterhai_pwd_3,
+                twitterhai_pwd_letter_3,
+                0,
+                isProd ? 8 : 1,
+                resolve
+              );
+            });
+          })
+          .then(function(result) {
+            return new Promise(function(resolve, reject) {
+              twitterhaiTextWriter(
+                "twitt3rhai-textwriter-target",
+                twitterhai_pwd_4,
+                twitterhai_pwd_letter_4,
+                0,
+                isProd ? 7 : 1,
+                resolve
+              );
+            });
+          })
+          .then(function(result) {
+            return new Promise(function(resolve, reject) {
+              twitterhaiTextWriter(
+                "twitt3rhai-textwriter-target",
+                twitterhai_pwd_5,
+                twitterhai_pwd_letter_5,
+                0,
+                isProd ? 6 : 1,
+                resolve
+              );
+            });
+          })
+          .then(function(result) {
+            return new Promise(function(resolve, reject) {
+              twitterhaiTextWriter(
+                "twitt3rhai-textwriter-target",
+                twitterhai_pwd_6,
+                twitterhai_pwd_letter_6,
+                0,
+                isProd ? 3 : 1,
+                resolve
+              );
+            });
+          })
+          .then(function(result) {
+            return new Promise(function(resolve, reject) {
+              twitterhaiTextWriter(
+                "twitt3rhai-textwriter-target",
+                twitterhai_pwd_7,
+                twitterhai_pwd_letter_7,
+                0,
+                isProd ? 2 : 1,
+                resolve
+              );
+            });
+          });
+      });
+    </script>
+
+    <!-- QR Codes -->
+    <script type="text/javascript">
+      // Get presentation URL
+      var qrcode_url = "https://henrikwm.github.io/kodeknekking_for_spioner";
+
+      // Generate QR Codes : class="qrcode"
+      var qrcode_elements = document.getElementsByClassName("qrcode");
+      for (var i = 0; i < qrcode_elements.length; i++) {
+        var qrcode_el = qrcode_elements[i];
+
+        var qrcode = new QRCode(qrcode_el, {
+          text: qrcode_url,
+          width: 350,
+          height: 350
+        });
+
+        // Alter generated image
+        var img_el = qrcode._el.childNodes[1];
+        img_el.classList.add("plain"); // remove border
+      }
+
+      // Add text to links : class="qrcode-link"
+      var qrcode_link_elements = document.getElementsByClassName("qrcode-link");
+      for (var i = 0; i < qrcode_link_elements.length; i++) {
+        var link_el = qrcode_link_elements[i];
+        link_el.textContent = qrcode_url;
+        link_el.href = qrcode_url;
+      }
+    </script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        history: true,
+
+        // 1,4 vs 1,3
+        // width: 1300,
+        // height: 900,
+
+        transition: "slide", // none/fade/slide/convex/concave/zoom
+
+        // Parallax scrolling
+        //background: "#28306a",
+        parallaxBackgroundImage: "img/background_bond2.png",
+        parallaxBackgroundSize: "3700px 1600px",
+
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+          {
+            src: "lib/js/classList.js",
+            condition: function() {
+              return !document.body.classList;
+            }
+          },
+
+          // Interpret Markdown in <section> elements
+          {
+            src: "plugin/markdown/marked.js",
+            condition: function() {
+              return !!document.querySelector("[data-markdown]");
+            }
+          },
+          {
+            src: "plugin/markdown/markdown.js",
+            condition: function() {
+              return !!document.querySelector("[data-markdown]");
+            }
+          },
+
+          // Syntax highlight for <code> elements
+          { src: "plugin/highlight/highlight.js", async: true },
+
+          { src: "plugin/search/search.js", async: true },
+
+          // Speaker notes
+          { src: "plugin/notes/notes.js", async: true },
+
+          // Zoom in and out with Alt+click
+          { src: "plugin/zoom-js/zoom.js", async: true },
+
+          // Title-Footer plugin
+          { src: "plugin/title-footer/title-footer.js" }
+        ]
+      });
+    </script>
+
+    <script src="//localhost:35729/livereload.js"></script>
+  </body>
 </html>

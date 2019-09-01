@@ -1,0 +1,7 @@
+#title-footer {
+  height: 1.3vh !important;
+}
+#title-footer p {
+  line-height: 1;
+  font-size: 0.7em;
+}

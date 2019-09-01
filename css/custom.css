@@ -1,0 +1,68 @@
+@media screen and (max-width: 800px),
+  screen and (max-height: 800px),
+  screen and (max-aspect-ratio: 4/3) {
+  .hidden-mobile {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+.reveal .no-box {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img.plain {
+  background: none;
+}
+
+/* Code */
+.reveal pre {
+  box-shadow: none;
+}
+.reveal pre code.smaller {
+  font-size: 0.9em;
+}
+.reveal p.smaller {
+  font-size: 0.9em;
+}
+
+/* Columns */
+/* ref: https://stackoverflow.com/questions/30861845/how-to-use-two-column-layout-with-reveal-js#answer-44392145 */
+.columns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.col {
+  flex: 1;
+}
+
+/* Colours */
+.text-red {
+  color: #f00;
+}
+.text-green {
+  color: #0f0;
+}
+.text-yellow {
+  color: #ff0;
+}
+.text-blue {
+  color: #00f;
+}
+
+/* QR Code */
+.qrcode {
+  background-color: #fff;
+  padding: 1px 1px 1px 1px;
+  display: inline-block;
+}
+
+.half-size {
+  font-size: 0.5em !important;
+}
