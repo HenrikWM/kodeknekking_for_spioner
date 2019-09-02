@@ -35,8 +35,6 @@
 /* ref: https://stackoverflow.com/questions/30861845/how-to-use-two-column-layout-with-reveal-js#answer-44392145 */
 .columns {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .col {
   flex: 1;
