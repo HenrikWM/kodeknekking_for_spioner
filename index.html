@@ -888,7 +888,7 @@
               skal scanne raskt igjennom en fil på utkikk etter ledetråder
               (NESTE)<br />
               (NESTE)<br />
-              * Vi ser at det skjuler seg en tekst i JPG-filens kommentarfelt!
+              * Vi ser at det skjuler seg en tekst i bildefilens kommentarfelt!
               (haitech_secure.html)<br />
               * Bildekommentarer er et typisk sted å lete etter ledetråder på
               CTF'er
@@ -902,8 +902,8 @@
             </p>
             <aside class="notes">
               * Hvis du bruker Windows er alltids høyreklikk på filen og
-              "Egenskaper" (NESTE) en god start. * Ellers bare åpne i et
-              tekstprogram for å kikke etter ledetråder
+              "Egenskaper" (NESTE) en god start. <br />
+              * Ellers bare åpne i et tekstprogram for å kikke etter ledetråder
             </aside>
           </section>
 
@@ -916,8 +916,8 @@
             <aside class="notes">
               * I CTF'er gjelder det av og til å være effektiv så da bruker man
               Google for å finne et verktøy, enn å gjøre altfor mye jobb selv<br />
-              * Denne nettsiden henter ut metadata fra et bilde, her ser vi også
-              JPG-kommentaren vi fant tidligere
+              * Her har vi en nettside som henter ut metadata fra et bilde, og
+              her samme bildekommentar som den vi fant tidligere
             </aside>
           </section>
 
@@ -926,6 +926,10 @@
               >http://twitterhai.eu/haitech_secure.html ➡</a
             >
             <p class="fragment fade-up">👍</p>
+            <aside class="notes">
+              Kult! (NESTE)<br />
+              Vi har en ny nettside å gå videre til
+            </aside>
           </section>
         </section>
 
@@ -938,6 +942,13 @@
               data-src="img/innlogging/innlogging_haitech_secure-html.png"
               class="plain"
             />
+            <aside class="notes">
+              * Vi kommer til nok en side med tips om å skrive en god
+              jobbsøknad. Og at du vil bli testet på intervjuet.<br />
+              * Vi legger merke til at vi skal logge inn med et passord<br />
+              * Vi har ikke så mange ledetråder her så vi får kikke på
+              HTML-kildekoden igjen
+            </aside>
           </section>
 
           <section data-transition="fade-in" data-source="roy_solberg_fra_pst">
@@ -946,6 +957,9 @@
               class="plain"
               width="75%"
             />
+            <aside class="notes">
+              Her er det visst en del som skjer
+            </aside>
           </section>
 
           <section data-transition="none" data-source="roy_solberg_fra_pst">
@@ -955,9 +969,10 @@
               width="75%"
             />
             <aside class="notes">
-              Det vi ser er JavaScript-kode som gjør passordvalidering. Som er
-              flaks for oss, da kan vi se lese og prøve å forstå hva som skal
-              til for å <b>knekke</b> passordet!<br />
+              Det vi ser er JavaScript-kode som gjør passordvalidering. At det
+              er i JavaSciprt er flaks for oss, da kan vi se lese og prøve å
+              forstå hva som skjer der passordet blir forsøkt validert<br />
+
               1. Det første som skjer etter at vi har tastet inn passordet og
               trykker ENTER, er å trigge funksjonen "login()"<br />
               2. I login()-funksjonen er det en chiffertekst på pkt. 2, hva
@@ -967,13 +982,11 @@
               Hvis hele uttrykket blir sant:<br />
               * så blir funksjonen <b>decrypt()</b> brukt med chifferteksten og
               passordet vårt som parametere. Tilbake får man dekryptert
-              chiffertekst. * deretter spretter det opp en pop-up med denne
-              dekrypterte chifferteksten. Spennende!<br />
-              Ellers når vi forsøker med å oppgi feil passord får vi bare en
-              "Beklager, feil passord"-feilmelding.<br />
-              Vi er nødt til å finne ut hva passordet er! Hvis vi tar en nærmere
-              kikk på if-uttrykket, klarer vi å forstå valideringslogikken og
-              kalkulere oss fram til passordet?
+              chiffertekst. <br />
+              * deretter spretter det opp en pop-up med denne dekrypterte
+              chifferteksten. Spennende!<br /><br />
+
+              Vi er nødt til å finne ut hva passordet er!
             </aside>
           </section>
 
@@ -983,21 +996,16 @@
               For å komme videre må vi ha
               <span class="fragment highlight-green">riktig passord</span>
             </p>
-            <p class="fragment fade-up">
-              Når vi nå vet logikken i passordvalideringen...
-            </p>
-            <p class="fragment fade-up">
-              Klarer vi å
-              <span class="fragment highlight-green">beregne</span> oss fram til
-              hva passordet er?
-            </p>
             <aside class="notes">
+              Det er på tide å hacke!<br />
+              (NESTE)<br />
+
               Dette handler om å reverseengineere logikken i
-              JavaScript-kodesnutten som validerer passordet, for å "hacke" seg
-              inn når man ikke har passordet som kreves<br /><br />
+              JavaScript-kodesnutten som validerer passordet, slik at vi finner
+              passordet ut ifra hva den godtar<br /><br />
 
               Denne typen "kodeknekking"/hacking finner man ofte på enklere
-              CTF-oppgaver (forstå logikken og regne ut passord)<br /><br />
+              CTF-oppgaver (forstå logikken og kalkulere seg til et passord)<br /><br />
 
               La oss ta en nærmere kikk på denne passordvalideringen
             </aside>
@@ -1025,18 +1033,16 @@
             >
             <aside class="notes">
               Her har vi logikken vi må knekke:<br />
-              * For hver bokstav i passordet må vi regne ut et tall.<br />
-              * Tallet må vi gjøre om til en bokstav. Det gjør vi ved å slå opp
-              tallet i noe som kalles ASCII-tabellen, en liste over alle
-              bokstaver, tall, tegn osv. hvor hver bokstav har en tallverdi.<br />
-              * Uttrykket validerer tallet vi finner mot bokstavens
-              ASCII-tallverdi, så vi må gå andre veien og bruke tallet til å
-              finne en bokstav, slik at vi kan taste inn passordet som
-              bokstaver<br />
-              * Hver bokstav blir tilsammen passordet vi er på jakt etter.<br />
+              * For hver tegn i passordet må vi finne et tall.<br />
+              * Tallet må vi gjøre om til et tegn. Det gjør vi ved å slå opp
+              tallet i noe som kalles ASCII-tabellen, en liste over alle tegn på
+              tastaturet ditt, hvor hver tegn har en tallverdi.<br />
+              * Hver tegn vi finner blir tilsammen passordet vi er på jakt
+              etter<br /><br />
 
+              (NESTE)<br />
               Veldig kjekt å bruke et verktøy for å gå til/fra tall og
-              ASCII-tegn. Her er den jeg ofte bruker.
+              ASCII-tegn. Dette er en side jeg ofte bruker
             </aside>
           </section>
 
@@ -1175,9 +1181,10 @@
             </pre>
             <p>H4m</p>
             <aside class="notes">
-              password.charCodeAt(2): <br />
+              Tallverdien på det 4. tegnet i passordet må være lik det 3. tegnet
+              (charCodeAt): <br />
               Artig. Uttrykket blir sant når verdien er lik det svaret er på
-              forrige bokstav.<br />
+              forrige linje<br />
             </aside>
           </section>
 
@@ -1217,8 +1224,8 @@
             </pre>
             <p>H4mm</p>
             <aside class="notes">
-              Neste bokstavs tegn ser vi i uttrykket må være 3-tall, fordi det
-              er en konstant.<br />
+              Neste tegn ser vi i uttrykket må være 3-tall, fordi det er en
+              konstant.<br />
             </aside>
           </section>
 
@@ -1300,7 +1307,8 @@
             <p>H4mm3r</p>
             <aside class="notes">
               password.charCodeAt(0):<br />
-              Vi skal ha ASCII-tallet til passordets første tegn.
+              Vi skal ha ASCII-tallet til passordets første tegn. Hva har vi
+              funnet ut er passordets første tegn?
             </aside>
           </section>
 
@@ -1319,7 +1327,7 @@
               </code>
             </pre>
             <p>H4mm3rH</p>
-            <aside class="notes"><b>72, H</b>, det fant vi ut på steg 1.</aside>
+            <aside class="notes"><b>72, H</b></aside>
           </section>
 
           <section data-transition="none">
@@ -1339,7 +1347,8 @@
             <p>H4mm3rH</p>
             <aside class="notes">
               password.charCodeAt(1):<br />
-              Vi skal ha ASCII-tallet til passordets andre tegn.
+              Vi skal ha ASCII-tallet til passordets andre tegn. Hva har vi
+              funnet ut er passordets andre tegn?
             </aside>
           </section>
 
@@ -1359,7 +1368,7 @@
             </pre>
             <p>H4mm3rH4</p>
             <aside class="notes">
-              <b>52, 4</b>, det fant vi ut på steg 2.<br />
+              <b>52, 4</b><br />
               De av dere som er observante ser kanskje hva passordet ser ut til
               å bli...
             </aside>
@@ -1381,8 +1390,7 @@
             </pre>
             <p>H4mm3rH4</p>
             <aside class="notes">
-              Vi må finne ut hva hexadesimalet <b>0x69</b> er som en
-              tallrepresentasjon (desimal).
+              Vi må finne ut hva tallet til hexadesimalet <b>0x69</b> er.
             </aside>
           </section>
 
@@ -1402,61 +1410,16 @@
             </pre>
             <p>H4mm3rH4i 🦈</p>
             <aside class="notes">
-              <b>105, i</b>
-            </aside>
-          </section>
+              <b>105, i</b><br />
+              Vi har klart å tolke valideringen og kalkulert oss fram til et
+              passord som vil glatt passere valideringen!<br /><br />
 
-          <section>
-            <p class="fragment">
-              Oppgir passord:
-              <span
-                style="display: inline-block;"
-                class="fragment highlight-green"
-                >H4mm3H4i
-              </span>
-            </p>
-            <p class="fragment">
-              <span style="display: inline-block;"
-                >if ()-uttrykket for passordvalidering blir
-              </span>
-              <span
-                style="display: inline-block;"
-                class="fragment highlight-green"
-                >true
-              </span>
-            </p>
-            <p class="fragment">
-              <span
-                style="display: inline-block;"
-                class="fragment highlight-green"
-                >decrypt(ciphertext, passord)
-              </span>
-              dekrypterer <b>ciphertext</b>-strengen med XOR-operasjon mot
-              <span
-                style="display: inline-block;"
-                class="fragment highlight-green"
-                >H4mm3H4i
-              </span>
-            </p>
-            <p class="fragment">
-              Melding vises ved passordfeltet:
-              <span
-                style="display: inline-block;"
-                class="fragment highlight-green"
-                >Kult! Du er en råing!
-              </span>
-            </p>
-            <p class="fragment">
-              Alert-boks vises med dekryptert
-              <span
-                style="display: inline-block;"
-                class="fragment highlight-green"
-                >ciphertext
-              </span>
-              -tekst:
-            </p>
-            <aside class="notes">
-              Vi klarte å finne et fornuftig forslag til et passord!
+              * På siden med passordfeltet taster jeg inn <b>H4mm3H4i</b><br />
+              * if ()-uttrykket for passordvalidering blir <b>true</b><br />
+              * decrypt(ciphertext, passord) dekrypterer ciphertext-strengen<br />
+              * En melding vises ved passordfeltet: <b>Kult! Du er en råing!</b
+              ><br />
+              * Til slutt: alert-boks vises med dekryptert chiffertekst
             </aside>
           </section>
 
@@ -1466,12 +1429,12 @@
               class="plain"
             />
             <p class="fragment">
+              uggc:// = http:// med 13 rotasjoner
+            </p>
+            <p class="fragment">
               <a href="https://www.boxentriq.com/code-breaking/caesar-cipher"
                 >Ceasar chiffer?</a
               >
-            </p>
-            <p class="fragment">
-              uggc:// = http:// med 13 rotasjoner
             </p>
             <p class="fragment">
               altså
@@ -1484,6 +1447,13 @@
             </p>
             <aside class="notes">
               Ser vi noe mønster i den rare teksten? Hva ligner det på?
+              (NESTE)<br />
+              * Hint: :// - ligner på en url med rare tegn? Forskjøvet? <br />
+              * Hint: Ceasar er nevnt<br />
+              * Kan det være Ceasar chiffer? (NESTE) (hva er det?)<br />
+              (NESTE) <br />
+              * Dette er en tekst som er kryptert med en teknikk som kalles
+              <b>ROT-13 Ceasar chiffer</b>
             </aside>
           </section>
 
@@ -1494,10 +1464,12 @@
               style="width: 60%"
             />
             <aside class="notes">
-              Disse skivene demonstrerer hvordan man krypterer en tekst uten å
-              bruke en krypteringsnøkkel. Istedet roteres skiven hvor hver
-              bokstav 13 ganger. Den som skal lese en krypterte meldingen
-              roterer tilbake 13 ganger, og kan dermed lese teksten.
+              * Disse skivene demonstrerer hvordan man krypterer en tekst uten å
+              bruke en krypteringsnøkkel. <br />
+              * Istedet roteres skiven for hver bokstav i en tekst 13 ganger.
+              Den som skal lese den krypterte teksten, roterer tilbake 13
+              ganger, og kan dermed lese teksten.<br />
+              * Populært i romertiden, effektiv, billig og enkel kryptering
             </aside>
           </section>
 
@@ -1512,6 +1484,13 @@
                 >http://twitterhai.tech/hai_there.html ➡
               </a>
             </p>
+            <aside class="notes">
+              * Som nevnt tidligere, vil man være rask finnes det nesten alltid
+              en løsning hvis man Googler litt.<br />
+              * Kan også lage kodesnutt som gjør dette<br />
+              (NESTE)<br />
+              * Vi har en ny nettside å gå videre til!
+            </aside>
           </section>
 
           <section
@@ -1523,16 +1502,19 @@
               class="plain"
             />
             <p class="fragment fade-up">👌</p>
+            <aside class="notes">
+              Ser ut som vi skal på Twitter!<br />
+              (NESTE)<br />
+
+              (ANEKDOTE) <br />
+              Hvis man gjør en "reverse DNS-lookup", altså finne hvilke andre
+              domener twitterhai.eu er koblet til, så finner vi twitterhai.tech:
+              http://reverseip.domaintools.com/search/?q=twitterhai.eu. Hvis man
+              navigerer dit får man samme melding som vi ser her. Dvs. med det
+              trikset kunne man ha hoppet helt fra slutten av steg 1 til her vi
+              er nå.
+            </aside>
           </section>
-          <aside class="notes">
-            Ser ut som vi skal på Twitter. En artig fotnote her: hvis man gjør
-            en "reverse DNS-lookup", altså finne hvilke andre domener
-            twitterhai.eu er koblet til, så finner vi twitterhai.tech:
-            http://reverseip.domaintools.com/search/?q=twitterhai.eu. Hvis man
-            navigerer dit får man samme melding som vi ser her. Dvs. med det
-            trikset kunne man ha hoppet helt fra slutten av steg 1 til her vi er
-            nå.
-          </aside>
         </section>
 
         <!-- =================== TWITT3Rhai =================== -->
@@ -1546,15 +1528,24 @@
               data-src="img/twitt3rhai/twitt3rhai-twitterkonto-aug-2019.png"
               class="plain"
             />
+            <aside class="notes">
+              Vi kommer da til profilen til <b>twitt3rhai</b>
+            </aside>
           </section>
 
           <section>
             <p>2 observasjoner...</p>
             <p class="fragment">
-              Noe om roboter og å flytte teksten til et tekstprogram
+              Står noe om roboter og å flytte teksten til et tekstprogram
             </p>
             <p class="fragment">Og 65 tweets om ulike haiarter...</p>
-            <aside class="notes">* 65 hairelaterte tweets!<br /></aside>
+            <aside class="notes">
+              Et par observasjoner:<br />
+              (NESTE)<br />
+              * Noe om roboter og tekst til tekstprogram nevnes<br />
+              (NESTE)<br />
+              * 65 hairelaterte tweets!<br />
+            </aside>
           </section>
 
           <section data-source="twitter">
@@ -1563,22 +1554,30 @@
               class="plain"
             />
             <aside class="notes">
-              * ROBOTS - kan de mene robots.txt? (hva er denne filen?)<br />
+              * ROBOTS - kan de mene denne robots.txt-filen? (som alltid er
+              kjekk å se etter)<br />
               * Hvilken tekst skal jeg flytte til et tekstprogram?
             </aside>
           </section>
 
           <section data-source="roy_solberg_fra_pst">
-            <p>La oss finne robots.txt</p>
-            <a href="http://twitterhai.eu/robots.txt" class="fragment"
-              >http://twitterhai.eu/robots.txt ➡</a
+            <p>La oss først finne robots.txt</p>
+            <a href="http://twitterhai.tech/robots.txt" class="fragment"
+              >http://twitterhai.tech/robots.txt ➡</a
             >
             <img
               data-src="img/twitt3rhai/twitt3rhai-twitterkonto-robots_txt-highlighted.png"
               class="plain fragment"
             />
             <aside class="notes">
-              Hva ligger i mappen '/min_hemmelige_mappe' tro?
+              * La oss først finne robots.txt<br />
+              (NESTE)<br />
+              * Vi går til twitterhai.tech/robots.txt<br />
+              (NESTE)<br />
+              * Se der! <b>Disallow: /min_hemmelige_mappe</b> (hva betyr
+              det?)<br />
+              * Hvis vi går til twitterhai.tech/min_hemmelige_mappe, hva finner
+              vi der?
             </aside>
           </section>
 
@@ -1589,7 +1588,10 @@
             />
             <p class="fragment">👍</p>
             <aside class="notes">
-              Vi fant en fil! Så var det de twitterhaiene.
+              Vi fant en fil! <b>haimat</b><br />
+              (NESTE)<br /><br />
+
+              Så var det de twitterhaiene
             </aside>
           </section>
 
@@ -1599,21 +1601,24 @@
               class="plain"
             />
             <aside class="notes">
-              Ser ikke noe mønster i haitweetene. Får ta ut tekstene til et
-              tekstprogram.
+              (ZOOM INN)<br />
+              Ser ikke noe mønster i haitweetene. For mye hai. <br />
+              Får ta ut tekstene til et tekstprogram.
             </aside>
           </section>
 
           <section>
             <p>*klipper ut og limer inn en og en tweet til Sublime*</p>
             <aside class="notes">
-              Sublime er et tekstprogram, kunne likegjerne vært Notepad, VIM
-              etc.<br />
+              * Sublime er et tekstprogram jeg liker men kunne likegjerne vært
+              Notepad, VIM etc.<br />
 
-              Vurderte å lage en liten kodesnutt i JavaScript. Gadd ikke å bruke
-              tid på det da det ikke tok lang tid å "brute force" klipp og lim.
-              Av og til i CTF'er er det en helt grei måte å komme kjapt videre
-              på.
+              * Vurderte å lage en liten kodesnutt i JavaScript for å kopiere.
+              <br />
+
+              * Gadd ikke å bruke tid på det da det ikke tok lang tid å "brute
+              force" klippe og lime. Av og til i CTF'er er det en helt grei måte
+              å komme kjapt videre på.
             </aside>
           </section>
 
@@ -1627,6 +1632,7 @@
             </pre>
             <h3 id="twitt3rhai-textwriter-target-password"></h3>
             <aside class="notes">
+              Så se for dere at jeg klipper og limer her.<br />
               Veldig kult med negativ tekst! Gøy å se løsningen åpenbare seg på
               denne måten!
             </aside>
@@ -1645,6 +1651,13 @@
               </li>
             </ul>
             <p class="fragment fade-up">😃</p>
+            <aside class="notes">
+              * Så vi har 2 funn å ta med oss til neste steg <br />
+              (NESTE)<br />
+              * denne mystiske hemmelige filen<br />
+              (NESTE) * og HAI1337<br />
+              (NESTE)
+            </aside>
           </section>
         </section>
 
