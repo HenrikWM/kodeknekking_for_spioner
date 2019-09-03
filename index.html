@@ -1655,7 +1655,8 @@
               * Så vi har 2 funn å ta med oss til neste steg <br />
               (NESTE)<br />
               * denne mystiske hemmelige filen<br />
-              (NESTE) * og HAI1337<br />
+              (NESTE) <br />
+              * og HAI1337<br />
               (NESTE)
             </aside>
           </section>
@@ -1672,13 +1673,20 @@
               <b>Linux</b>: binæranalyse med
               <span class="fragment highlight-green">file</span>
             </p>
-            <pre
-              class="fragment fade-up"
-            ><code class="shell smaller" data-trim data-noescape>
-                  root@c04ddcc8bccd:~# file haimat
+            <pre class="fragment fade-up">
+              <code class="shell smaller" data-trim data-noescape>
+                root@c04ddcc8bccd:~# file haimat
 
-                  pcap-ng capture file - version 1.0
-                </code></pre>
+                pcap-ng capture file - version 1.0
+              </code>
+            </pre>
+            <aside class="notes">
+              Vi tar en kikk med (NESTE) <b>file</b> i Linux for å se på
+              filen<br />
+              (NESTE)<br />
+              * Legger umiddelbart merke til <b>pcap</b>! <br />
+              * Dette er en fil som inneholder nettverkstrafikk
+            </aside>
           </section>
 
           <section>
@@ -1695,6 +1703,13 @@
                   [...] Dumpcap (Wireshark) 2.4.6 [...]
               </code>
             </pre>
+            <aside class="notes">
+              * Tilsvarende på Windows er å bare åpne filen med (NESTE)
+              <b>filegenskaper/Notepad</b><br />
+              (NESTE)<br />
+              * Da ser vi t.o.m. at Wireshark er nevnt, er helt sikker på at
+              dette er nettverkstrafikk
+            </aside>
           </section>
 
           <section>
@@ -1704,6 +1719,14 @@
             </p>
             <p class="fragment">Brukes til å lagre nettverkstrafikk</p>
             <p class="fragment">Vi har ca 400 TCP-pakker å analysere</p>
+            <aside class="notes">
+              * Så da vet vi at <b>haimat</b> er en <b>pcap</b> fil!<br />
+              (NESTE)<br />
+              * Filen lages når man tar opp trafikken som avlyttes mellom to
+              maskiner<br />
+              (NESTE)<br />
+              * I filen ser vi at det er 400 TCP-pakker vi må analysere
+            </aside>
           </section>
 
           <section>
@@ -1712,6 +1735,12 @@
               Nettverksanalyse med
               <span class="fragment highlight-green">tcpdump/NetworkMiner</span>
             </p>
+            <aside class="notes">
+              (NESTE)<br />
+              * Hvis man foretrekker Linux er (NESTE)<b>tcpdump/NetworkMiner</b>
+              fine programmer for å jobbe med pcap-filer.<br />
+              * NetworkMiner er god hvis det er mye trafikk å analysere.
+            </aside>
           </section>
 
           <section>
@@ -1723,8 +1752,10 @@
               >
             </p>
             <aside class="notes">
-              NetworkMiner er god hvis det er mye trafikk å analysere. Wireshark
-              er ellers fint GUI-verktøy. Jeg brukte Wireshark.
+              (NESTE)<br />
+              * På Windows brukte jeg (NESTE) Wireshark. Gir god oversikt og
+              grei å bla igjennom datapakkene med <br />
+              * tshark/NetworkMiner er også alternativer på Windows
             </aside>
           </section>
 
@@ -1740,6 +1771,10 @@
               data-src="img/haimat/haimat-wireshark-webserver-root.png"
               class="plain"
             />
+            <aside class="notes">
+              * Vi ser fort spor etter mye HTTP-pakker, så mest sannsynlig noen
+              som har avlyttet trafikken mellom bruker og en webserver.
+            </aside>
           </section>
 
           <section data-transition="none fade-out" data-source="wireshark">
@@ -1751,15 +1786,16 @@
               Det første vi ser er en HTTP-forespørsel mot rotmappen på server
               192.168.230.129. Vi ser deretter en HTTP-respons med text-html.
               Innholdet er en HTML-side med link til en "secret_data"
-              zip-fil!<br />
+              zip-fil!<br /><br />
               Det vi gjør nå er godt spionhåndtverk, nemlig kikke og lytte på
-              åpen web-trafikk. Dette er hvorfor vi må bruke SSL/TLS-kryptering
-              på nettsidene våre og krypterte meldingstjenester!
+              åpen web-trafikk. Dette er forresten hvorfor vi må bruke
+              SSL/TLS-kryptering på nettsidene våre og krypterte
+              meldingstjenester! Da unngår du snoking som vi driver med nå
             </aside>
           </section>
 
           <section>
-            <h3>Første observasjon</h3>
+            <p>Første observasjon...</p>
             <p class="fragment">
               I nettverkspakke 146 gjøres det en HTTP-forespørsel mot
               <a href="http://192.168.230.129">http://192.168.230.129</a>
@@ -1768,6 +1804,14 @@
               I HTTP-svaret er det en HTML-side med link til
               <a href="/secret_data.zip">/secret_data.zip</a>
             </p>
+            <aside class="notes">
+              Vi har altså sett..<br />
+              (NESTE)<br />
+              * En forespørsel mot en side på en webserver<br />
+              (NESTE)<br />
+              * Et svar som viser en nettside med en link til
+              <b>secret_data.zip</b>
+            </aside>
           </section>
 
           <section data-transition="none fade-in" data-source="wireshark">
@@ -1779,6 +1823,9 @@
               data-src="img/haimat/haimat-wireshark-response-secret_data_zip.png"
               class="plain"
             />
+            <aside class="notes">
+              Hvis vi ser videre i datapakkene...<br />
+            </aside>
           </section>
 
           <section data-transition="none" data-source="wireshark">
@@ -1791,13 +1838,15 @@
               class="plain"
             />
             <aside class="notes">
-              Litt senere i trafikken ser vi en HTTP-forespørsel for å laste ned
-              denne zip-filen.
+              * Så finner vi en HTTP-forespørsel for å laste ned denne
+              zip-filen.<br />
+
+              * Veldig nysgjerrig på hva som er i denne zip-filen!
             </aside>
           </section>
 
           <section>
-            <h3>Andre observasjon</h3>
+            <p>Andre observasjon...</p>
             <p class="fragment">
               I nettverkspakke 326 og 362 er det henholdsvis en HTTP-forespørsel
               og -svar på å laste ned zip-filen:
@@ -1813,8 +1862,20 @@
               La oss plukke ut zip-filen for nærmere analyse
             </p>
             <aside class="notes">
-              Hadde trafikken her gått over TCP-port 433 hadde vi stått ovenfor
-              HTTPS og TLS-krypterte pakker å hacke.
+              Så her ser vi...<br />
+              (NESTE)<br />
+
+              * En forespørsel fra en klient til webserveren om å hente ned
+              <b>secret_data.zip</b> og selve svaret som inneholder zip-filen
+              som ble lastet ned<br />
+              (NESTE)<br />
+
+              * Og heldigvis for oss går trafikken over TCP-port 80 som gjør at
+              vi ser all trafikk <br />
+              (NESTE)<br />
+
+              (NESTE)<br />
+              * Vi får plukke ut denne filen og kikke nærmere på den!
             </aside>
           </section>
 
@@ -1832,8 +1893,14 @@
               <span class="fragment highlight-green">404 Not Found 😜</span>
             </p>
             <aside class="notes">
-              Kanskje spionen som plantet filen panikk og glemte å skjule sine
-              spor, og ble desperat etter å finne "Gjemme seg"-urlen?
+              Og forresten, en siste observasjon av trafikken:<br />
+              (NESTE) <br />
+              * Bruker prøver å navigere til <b>/trying_to_hide</b> som ga
+              (NESTE)<br />
+              * 404 (NESTE) <br /><br />
+
+              Kanskje spionen som plantet filen fikk panikk prøvde alle triks
+              for å skjule sine spor?
             </aside>
           </section>
 
@@ -1841,8 +1908,11 @@
             <p>Vi henter ut <b>secret_data.zip</b> med Wireshark</p>
             <aside class="notes">
               Tilbake til zip-filen. Vi bruker Wireshark til å eksportere ut
-              råbytes fra nettverkspakke 362 og lagrer som zip-fil. Jeg viser en
-              av flere måter man kan gjøre dette på.
+              binærdataene fra nettverkspakke 362 og lagrer dataene til disk som
+              en zip-fil. <br />
+
+              * Mange måter å gjøre dette på med Wireshark. Jeg viser en av
+              flere måter man kan gjøre dette på.
             </aside>
           </section>
 
@@ -1851,6 +1921,10 @@
               data-src="img/haimat/haimat-wireshark-export-secret_data_zip.png"
               class="plain"
             />
+            <aside class="notes">
+              Vi finner pakken det gjelder som inneholder svaret fra webserveren
+              med zip-filen
+            </aside>
           </section>
 
           <section data-transition="none fade-out" data-source="wireshark">
@@ -1859,9 +1933,10 @@
               class="plain"
             />
             <aside class="notes">
-              Vi velger pakken med HTTP-svaret som inneholder zip-filen.
-              Høyreklikker på Media Type (selve binærdataene) og velger "Export
-              Packet Bytes". Lagrer filen som "secret_data.zip".
+              Vi velger pakken og høyreklikker på Media Type (selve
+              binærdataene) og velger "Export Packet Bytes". <br /><br />
+
+              Lagrer filen som <b>secret_data.zip</b>.
             </aside>
           </section>
 
@@ -1873,8 +1948,11 @@
             />
             <p class="fragment">😀</p>
             <aside class="notes">
-              Filen inneholder et bilde "insignificant_shark.png"! Får prøve å
-              åpne bildet i zip-filen
+              Nå har jeg lagret zip-filen og har åpnet den i WinZip (NESTE)
+              <br />
+
+              Vi kan se at i zip-filen ligger det et bilde
+              <b>insignificant_shark.png</b>! Spennende!
             </aside>
           </section>
         </section>
@@ -1891,6 +1969,9 @@
               data-src="img/secret_data-zip/secret_data-zip-file.png"
               class="plain"
             />
+            <aside class="notes">
+              Vi får åpne bildet da...
+            </aside>
           </section>
 
           <section data-transition="none fade-out" data-source="windows10">
@@ -1926,9 +2007,11 @@
             data-source="roy_solberg_fra_pst"
           >
             <aside class="notes">
-              Så vi klarte å hente ut zip-filen og åpne bildet som lå i
-              zip-filen med passordet fra Twitter. Det er noe fishy med denne
-              haien...
+              Nice! Så vi klarte å hente ut zip-filen fra nettverkstrafikken, og
+              åpne bildet som lå i zip-filen med passordet fra Twitter.
+              <br /><br />
+
+              Det er noe fishy med denne haien...
             </aside>
           </section>
         </section>
@@ -1941,7 +2024,7 @@
 
           <section>
             <p>
-              Vi zippet ut filen
+              Vi zipper ut filen
               <span class="fragment highlight-green"
                 >insignificant_shark.png</span
               >
@@ -1951,6 +2034,14 @@
               Først steganografi-analyse, deretter se nærmere på tegnene på
               haien
             </p>
+            <aside class="notes">
+              * Vi henter ut (NESTE) <b>insignificant_shark.png</b> fra
+              zip-filen og lagrer det til disk.<br />
+              (NESTE)<br />
+              * Her blir det igjen full binæranalyse av filen (NESTE) <br />
+              * 2 ting jeg vil analysere grundig; steganografi-analyse av bildet
+              og se nærmere på de rare tegnene
+            </aside>
           </section>
 
           <section data-source="stegsolve_caesum">
@@ -1962,7 +2053,9 @@
               style="width: 75%;"
             />
             <aside class="notes">
-              * Vi ser en QR-kode gjemt i fargefiltere for rød, grønn og blå
+              * Starter opp Stegsolve igjen og laster inn bildet<br />
+              (VENTE 10s) <br />
+              * Der fant vi noe!
             </aside>
           </section>
 
@@ -1971,6 +2064,9 @@
               data-src="img/insignificant_shark/insignificant_shark-qrcode.png"
               class="plain"
             />
+            <aside class="notes">
+              * Vi fant en QR-kode gjemt i fargefiltrene for rød, grønn og blå
+            </aside>
           </section>
 
           <section data-source="zxing_decode">
@@ -1987,7 +2083,13 @@
               </p>
             </span>
             <aside class="notes">
-              Veldig fokus på signifikans og siste "ett-eller-annet"
+              * Vi trenger å dekode QR-koden, mange måter å løse dette på
+              (NESTE)<br />
+              * Jeg fant en nettside som tolker QR-kode. Man kan også kode dette
+              selv<br />
+              * QR-koden var en tekst: (LES TEKSTEN) (NESTE) (NESTE)<br />
+              * Så veldig fokus på signifikans og siste "ett-eller-annet" <br />
+              * Vi får ikke mer her, så vi får huske på dette til senere
             </aside>
           </section>
 
@@ -2007,6 +2109,11 @@
               class="plain"
             />
             <p class="fragment">Ligner litt på runer?</p>
+            <aside class="notes">
+              (NESTE)<br />
+              * Ligner veldig på runer <br />
+              * Klarer vi å lese hva som står?
+            </aside>
           </section>
 
           <section data-transition="none" data-source="snl_runer">
@@ -2016,7 +2123,8 @@
               style="width: 60%"
             />
             <aside class="notes">
-              "Normalisert" utgave av det eldre runealfabetet
+              * Her har vi en "Normalisert" utgave av det eldre runealfabetet<br />
+              * Vi får prøve å finne en og en bokstav
             </aside>
           </section>
 
@@ -2027,6 +2135,7 @@
               style="width: 60%"
             />
             <h3>L</h3>
+            <aside class="notes"><b>L</b></aside>
           </section>
 
           <section data-transition="none" data-source="snl_runer">
@@ -2036,6 +2145,7 @@
               style="width: 60%"
             />
             <h3>LS</h3>
+            <aside class="notes"><b>S</b></aside>
           </section>
 
           <section data-transition="none" data-source="snl_runer">
@@ -2045,6 +2155,7 @@
               style="width: 60%"
             />
             <h3>LSB</h3>
+            <aside class="notes"><b>B</b></aside>
           </section>
 
           <section>
@@ -2058,6 +2169,13 @@
             <p class="fragment smaller">
               (i motsetning til MSB: Most Significant Bit)
             </p>
+            <aside class="notes">
+              * LSB betyr i denne sammenhengen: (NESTE)<br />
+              ** Least Significant Bit<br />
+              (NESTE)<br />
+              * I motsetning til det motsatte: (NESTE)<br />
+              ** Most Significant Bit
+            </aside>
           </section>
 
           <section>
@@ -2067,7 +2185,12 @@
               (LSB-dekoding)
             </p>
             <aside class="notes">
-              Å gjemme data i LSB/MSB er en velkjent måte på å "skjule" data i
+              * Alle filer på en datamaskin består av binære data, representert
+              med 0 og 1-tall<br />
+              * Samlet kaller vi disse tallene, 8 av gangen, for Bytes. Et tall
+              er en Bit.<br />
+              (NESTE) <br />
+              * Å gjemme data i LSB/MSB er en velkjent måte på å "skjule" data i
               bilder. Det er gunstig måte å skjule data på fordi det påvirker
               orginalbildet i liten grad å bare endre en Bit i hver Byte.
             </aside>
@@ -2082,6 +2205,13 @@
               >
             </p>
             <p class="fragment">og sett de sammen til ny fil</p>
+            <aside class="notes">
+              * Det vil si... (NESTE)<br />
+              * Vi plukker ut det <b>siste</b> tallet i hver Byte (lengst til
+              høyre)<br />
+              (NESTE) (NESTE)<br />
+              * Og setter de sammen til nye Bytes i en ny fil
+            </aside>
           </section>
 
           <section data-source="incoherency_image_steganografi">
@@ -2091,9 +2221,8 @@
               style="width: 60%"
             />
             <aside class="notes">
-              Og et nyttig verktøy til å lese ut LSB fra en fil er denne jeg har
-              brukt her.<br />
-              Her ser vi at vi får bare QR-kode bildet fra LSB-dekoding.<br />
+              * Fant et nyttig verktøy til å lese ut LSB fra en fil på nettet<br />
+              * Her ser vi at vi får bare QR-kodebildet fra LSB-dekodingen.<br />
             </aside>
           </section>
 
@@ -2104,7 +2233,11 @@
             <p class="fragment">
               Hva med MSB-dekoding (most significant bit)?
             </p>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              * LSB-dekoding var et sidespor bare til forvirring <br />
+              (NESTE) <br />
+              * Hva istedet med MSB?
+            </aside>
           </section>
 
           <section>
@@ -2114,6 +2247,13 @@
               <span class="fragment highlight-green">1</span>1010101
             </p>
             <p class="fragment">og sett de sammen til en ny fil</p>
+            <aside class="notes">
+              * Det vil si... (NESTE)<br />
+              * Vi plukker ut det <b>første</b> tallet i hver Byte (lengst til
+              venstre)<br />
+              (NESTE) (NESTE)<br />
+              * Og setter de sammen til nye Bytes i en ny fil
+            </aside>
           </section>
 
           <section data-source="georgeom_stegonline">
@@ -2123,8 +2263,10 @@
               style="width: 60%"
             />
             <aside class="notes">
-              Her har jeg allerede lastet opp bildet. Velger alle første bits i
-              hver byte.
+              * Fant også en nettside for MSB-dekoding<br />
+              * Her har jeg allerede lastet opp bildet, og valgt å hente ut alle
+              første Bits i hver Byte<br />
+              * Jeg klikker på "Go"-knappen og...
             </aside>
           </section>
 
@@ -2136,6 +2278,9 @@
               data-src="img/insignificant_shark/insignificant_shark-msb-decoded.png"
               class="plain"
             />
+            <aside class="notes">
+              * Se der! Vi har en tekstsnutt!
+            </aside>
           </section>
 
           <section data-transition="none" data-source="georgeom_stegonline">
@@ -2143,6 +2288,9 @@
               data-src="img/insignificant_shark/insignificant_shark-msb-decoded-highlighted.png"
               class="plain"
             />
+            <aside class="notes">
+              * Vi skal videre til en ny fil (bilde)
+            </aside>
           </section>
 
           <section>
@@ -2153,10 +2301,16 @@
             </p>
             <p class="fragment fade-up">👍</p>
             <aside class="notes">
-              Oppsummert: i haibildet var det runer, de sa vi skulle bry oss om
-              LSB. Vi hentet ut LSB-bytes og det ble til QR-kodebildet, samme
-              bilde vi fant med Stegsolve. Da vi istedet hentet ut MSB-bytes
-              finner vi tekst som er en URL til et nytt bilde.
+              Oppsummert: <br />
+              * I haibildet var det runer, de sa vi skulle bry oss om LSB.<br />
+              * Vi hentet ut <b>Least Significant Bit</b> fra filen og det ble
+              til QR-kodebildet, samme bilde vi fant med Stegsolve. Sidespor der
+              altså.<br /><br />
+
+              * Da vi istedet hentet ut <b>Most Significant Bit</b> fra filen,
+              fant vi tekst som er en URL til et nytt bilde<br />
+
+              (NESTE)
             </aside>
           </section>
         </section>
@@ -2181,10 +2335,13 @@
               Filnavnet inneholder <b>WinRar</b> (kompresjonsformat)
             </p>
             <aside class="notes">
-              Et par observasjoner (NESTE) <br />
-              Veldig stort bilde. (NESTE)<br />
-              * Filnavnet hinter om WinRar: et format for å komprimere filer<br />
-              * Hva kan vi bruke til å plukke ut flere ledetråder?
+              Et par observasjoner: <br />
+              (NESTE) <br />
+              * Veldig stort bilde (over 8 MB) <br />
+              (NESTE)<br />
+              * Filnavnet hinter om programmet WinRar: et format for å
+              komprimere filer<br />
+              * Vi har en ny fil. Hva gjør vi når vi får en ny fil?
             </aside>
           </section>
 
@@ -2206,8 +2363,8 @@
               baseline, precision 8, 664x636, components 3
             </code></pre>
             <aside class="notes">
+              Vi kjører full analyse! Begynner med <b>file</b><br />
               (NESTE)<br />
-              Vi bruker file på Linux for å se nærmere på filen<br />
               (NESTE)<br />
               Ikke noe som stikker seg ut her.
             </aside>
@@ -2222,10 +2379,11 @@
               Finner ikke noen ledetråder ved å kikke i filen så langt.
             </p>
             <aside class="notes">
+              På Windows kan vi gjøre det samme med
+              <b>filegenskaper/Notepad</b> (NESTE)<br />
               (NESTE)<br />
-              (NESTE)<br />
-              Finner ingen ledetråder med filegenskaper heller, ikke noe som
-              stikker seg ut
+              Finner ingen ledetråder med dette heller, ikke noe som stikker seg
+              ut
             </aside>
           </section>
 
@@ -2252,16 +2410,15 @@
             </p>
             <p class="fragment fade-up">❤️ Open Source ❤️</p>
             <aside class="notes">
-              Vi bruker <b>binwalk</b> igjen for å analysere filen<br />
-              (NESTE)<br />
-              (NESTE)<br />
-              Og vi ser at det skjuler seg en RAR-fil (WinRar) i bildet!<br />
-              Artig at det også ligger en binær sertifikatfil gjemt her...<br /><br />
-
+              * Vi bruker (NESTE) <b>binwalk</b> igjen for å analysere filen<br />(NESTE)<br />
+              * Litt artig, det ligger også en binær sertifikatfil gjemt
+              her...<br />
+              * Men... (NESTE)<br />
+              * vi ser at det skjuler seg en RAR-fil (WinRar) i bildet!<br />
               (NESTE)<br />
               * Jeg <b>digger binwalk</b> fordi den finner alt!<br />
               (NESTE)<br />
-              * OG binwalk er Open Source, som varmer mitt Open Source hjerte!
+              * OG binwalk er Open Source, som varmer mitt Open Source-hjerte!
             </aside>
           </section>
 
@@ -2291,11 +2448,17 @@
               <span class="fragment highlight-green">u_are_th3_winrar.rar</span>
             </p>
             <aside class="notes">
-              * Vi skal plukke ut data fra en fil. På mange måter som å finne en
-              sang på en gammeldags musikk-kassett. Vi må spole fram til dataene
-              (sangen) som vi er interessert i (NESTE) <br />
-              * Nå har vi plukket ut en RAR-fil fra JPG-bildefilen vi fant i
-              ZIP-filen tidligere.<br />
+              * Vi trenger å plukke ut WinRAR-dataene ut av filen. Til dette
+              bruker jeg (NESTE) <b>dd</b> <br />
+
+              * På mange måter som å finne en sang på en gammeldags
+              musikk-kassett. Vi må spole fram til dataene (sangen) som vi er
+              interessert i (NESTE)<br />
+
+              * Her ser vi at vi har plukket ut filen fra bildet og lagd en ny
+              fil: (NESTE) <b>u_are_th3_winrar.rar</b><br /><br />
+
+              (ANEKDOTE)<br />
               * Å finne filer gjemt i andre filer er klassisk CTF-oppgave og med
               litt trening får man øye på sånt, og finner raskt skjulte filer
             </aside>
@@ -2311,7 +2474,9 @@
               Linux
             </p>
             <aside class="notes">
-              Jeg bruker WinRar i Windows. Unrar for Linux gjør det samme.
+              * Vi får pakke ut hva som ligger i denne WinRar-filen<br />
+              * Jeg bruker <b>WinRar</b> i Windows. <b>Unrar</b> for Linux gjør
+              det samme.
             </aside>
           </section>
 
@@ -2353,10 +2518,12 @@
             </blockquote>
             <aside class="notes">
               Filen gratulerer oss og oppfordrer oss til å søke på
-              stillingen.<br />
+              stillingen.<br /><br />
+
               Hvis vi søker så blir vi bedt om å nevne det
               <b>hemmelige kodeordet</b> som vi nå har fått tilgang til ved å
-              løse oppgavene. Hva det var får du finne ut selv...<br />
+              løse oppgavene. Hva det var får du finne ut selv...<br /><br />
+
               Resten av filen er fyllstoff med Lorem Ipsum dummytekst.
             </aside>
           </section>
@@ -2445,7 +2612,7 @@
               deler filer mellom Windows og Linux-imaget jeg bruker<br /><br />
               Hvorfor bruker jeg Kali Linux? Google it!<br /><br />
 
-              Så hvordan blir vi gode kodeknekkere? Vi må øve... (NESTE)
+              Så hvordan blir vi gode kodeknekkere? Vi må øve...
             </aside>
           </section>
 
@@ -2474,17 +2641,22 @@
               </li>
             </ul>
             <aside class="notes">
-              Og hvordan blir vi dyktige kodeknekkere? Vi må øve! (NESTE)<br />
+              Og hvordan blir vi dyktige kodeknekkere? Vi må øve! (NESTE)<br /><br />
+
               * HackerOne sin Hacker101 er et supert sted å lære, kommer stadig
               nye oppgaver innen web, reverse engineering, crypto m.fl.
-              (NESTE)<br />
+              (NESTE)<br /><br />
+
               * The Gathering har fine oppgaver på flere kategorier, blir en god
-              hacker på mye forskjellig. Veldig lærerikt! (NESTE)<br />
+              hacker på mye forskjellig. Veldig lærerikt! (NESTE)<br /><br />
+
               * Hackthebox for deg som vil opp noen hakk i vanskelighetsgrad.
               Ofte kreves koding for å løse oppgaver, mer avanserte løsninger
-              ofte (NESTE)<br />
+              ofte (NESTE)<br /><br />
+
               * hack-yourself-first.com er en åpen nettside full av sårbarheter,
-              bare å hacke ivei. Troy Hunt står bak (NESTE)<br />
+              bare å hacke ivei. Troy Hunt står bak (NESTE)<br /><br />
+
               * OWASP Juice Shop er perfekt hvis du vil holde en intern
               CTF-konkurranse. Jag sårbarheter, få poeng, vinn! Lagd av OWASP
               (Open Web Application Security Project).
@@ -2508,8 +2680,7 @@
             </p>
             <aside class="notes">
               Kompetansebygging handler også om å dele med hverandre - gå på
-              konferanser, hold foredrag om det <b>du</b> synes er spennende
-              (NESTE)<br /><br />
+              konferanser eller hold foredrag (NESTE)<br /><br />
 
               * Av de som fokuserer på IT- og fysisk sikkerhet har vi bl.a.:<br />
               * OWASP Norway Day<br />
@@ -2517,7 +2688,8 @@
               * BlackHat<br /><br />
 
               * Hvis det å være på lag og jobbe til seint på natten høres
-              fristende ut (NESTE)<br />
+              fristende ut (NESTE)<br /><br />
+
               Hvorfor ikke delta i CTF-konkurranser - vinn premier (og jobb?)!
               Det finnes mange eventer å velge blant, <b>Real World CTF</b> og
               <b>Google CTF</b> er bare et par eksempler
@@ -2531,9 +2703,10 @@
               hjelper selskaper i å gjøre sine tjenester sikrere?
             </p>
             <aside class="notes">
-              Hvis du etter alle mulighetene jeg har presentert, fortsatt ikke
+              * Hvis du etter alle mulighetene jeg har presentert, fortsatt ikke
               er motivert til å lære mer om kodeknekking og etisk hacking...
-              <br />
+              (NESTE)<br /><br />
+
               * Hva hvis du kunne få betalt for spisskompetansen din og hjelpe
               til å gjøre tjenester sikrere?
             </aside>
@@ -2549,10 +2722,12 @@
             <p class="fragment fade-in">Les reglene og slå deg løs! 🤑</p>
             <aside class="notes">
               En god motivasjon for å bygge kompetanse er å finne bugs man kan
-              få betalt for å finne (NESTE)<br />
+              få betalt for å finne (NESTE)<br /><br />
+
               * HackerOne er en plattform for bedrifter som har
-              bugbounty-programmer for sine tjenester (Twitter, Facebook
-              m.fl)<br />
+              bugbounty-programmer for sine tjenester (Twitter, Facebook m.fl)
+              (NESTE)<br /><br />
+
               * Registrer deg og slå deg løs! Tjen penger!<br /><br />
 
               (ANEKDOTE): På HackerOnes hackaton på Black Hat-konferansen i Las
@@ -2574,16 +2749,20 @@
                 øk sikkerhetskompetansen
               </li>
               <li class="fragment fade-up">
-                prioriter sikkerhetsoppgaver på prosjekter på lik linje med
-                andre ikke-funksjonelle oppgaver
+                prioriter sikkerhet på prosjekter på lik linje med andre
+                ikke-funksjonelle oppgaver
               </li>
             </ul>
             <aside class="notes">
-              For å gjøre det vanskeligere for hackerne må vi ha grunnleggende
-              mekanismer på plass (NESTE)<br />
-              * øk kompetansen blant oss selv, kollegar og venner (NESTE)<br />
-              * prioriter sikkerhet på lik linje med andre ikke-funksjonelle
-              krav i det vi lager
+              Avslutningsvis:<br />
+              For å gjøre det vanskeligere for hackerne må vi ha det
+              grunnleggende på plass (NESTE)<br />
+              * vi må øke sikkerhetskompetansen blant oss selv, kollegar,
+              familie og venner (NESTE)<br />
+              * vi må priorite sikkerhet på lik linje med andre
+              ikke-funksjonelle krav i programvaren vi lager<br /><br />
+
+              Dette er vårt ansvar!
             </aside>
           </section>
 
@@ -2596,12 +2775,14 @@
             <aside class="notes">
               Vi har ikke mye å stille opp med sammenlignet med andre større
               aktørers cyber-forsvarsbudsjetter (NESTE)<br />
+
               Men kanskje vi allikevel klarer å ta igjen noe av skjevheten med å
               være gode på effektivitet og å være effektfulle i hva vi gjør
               (NESTE)<br />
-              Med kloke hoder og gode verktøy, og allianser, tror jeg vi kommer
-              et godt stykke i å beskytte Norske interesser i det offentlige og
-              private rom
+
+              Med kloke hoder, gode verktøy og allianser, tror jeg vi kommer et
+              godt stykke i å beskytte våre kunders, bedrifters og Norges
+              interesser i det offentlige og private rom
             </aside>
           </section>
 
@@ -2614,12 +2795,16 @@
               Bli en spion - <span class="fragment">søk jobb i PST 🕵️‍♂️</span>
             </p>
             <aside class="notes">
-              Hvis det høres fristende ut å være en fulltidskodeknekker - gi deg
-              selv en utfordring! Bli en etisk hacker gjør det til en hobby
-              eller jobb<br /><br />
-              Eventuelt, hvis du er god nok, hvorfor ikke vurdere å bli en
-              spion? (NESTE)<br />
-              Hører at PST trenger folk.
+              Og hvis det høres fristende ut å være en
+              <b>fulltidskodeknekker</b> - gi deg selv en utfordring! <br />
+
+              * Bli en <b>etisk hacker</b> og gjør det til en hobby eller
+              jobb<br /><br />
+
+              * Eventuelt, hvis du er god nok, hvorfor ikke vurdere å bli en
+              spion? (NESTE)<br /><br />
+
+              * Hører at PST trenger folk.
             </aside>
           </section>
         </section>
