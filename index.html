@@ -2542,29 +2542,26 @@
 
           <section>
             <h3>Kodeknekking</h3>
-            <ul>
-              <li class="fragment fade-up">er lærerikt</li>
-              <li class="fragment fade-up">er utfordrende</li>
-              <li class="fragment fade-up">er en tålmodighetsprøve</li>
-              <li class="fragment fade-up">
-                er et dopamin-kick når man lykkes!
-              </li>
-            </ul>
+            <p>lærerikt</p>
+            <p>utfordrende</p>
+            <p>tålmodighetsprøve</p>
+            <p>dopamin-kick!</p>
             <aside class="notes">
-              (NESTE)<br />
-              (NESTE)<br />
-              (NESTE)<br />
-              (NESTE)<br />
+              * er lærerikt<br />
+              * er utfordrende<br />
+              * er en skikkelig tålmodighetsprøve<br />
+              * er et realt dopamin-kick når man løse noe!<br /><br />
 
-              * Hvordan blir vi gode kodeknekkere? (Verktøy og kunnskap)<br />
-              * La oss se på verktøyene som ble brukt til å løse gåten
+              * Hvordan blir vi gode kodeknekkere? (Verktøy og kunnskap)<br /><br />
+
+              La oss se på verktøyene jeg brukte til å løse gåten
             </aside>
           </section>
 
           <section>
             <h3>Verktøy</h3>
             <ul>
-              <li class="fragment fade-up">
+              <li class="">
                 <p>
                   Steganografi og bildeanalyse:
                   <a
@@ -2572,24 +2569,24 @@
                     >StegSolve</a
                   >,
                   <a href="https://stylesuxx.github.io/steganography/"
-                    >Bildeverktøy 1</a
+                    >Steganografi-dekoder</a
                   >,
                   <a href="https://incoherency.co.uk/image-steganography"
-                    >Bildeverktøy 2</a
+                    >LSB-dekoder</a
                   >
                 </p>
               </li>
-              <li class="fragment fade-up">
+              <li class="">
                 Binæranalyse:
                 <a href="https://github.com/ReFirmLabs/binwalk">binwalk</a>,
                 strings, file, dd, Sublime/Notepad
               </li>
-              <li class="fragment fade-up">
+              <li class="">
                 <p>
                   Nettverksanalyse: Wireshark
                 </p>
               </li>
-              <li class="fragment fade-up">
+              <li class="">
                 <p>OS: Windows og Docker</p>
                 <pre
                   class="fragment fade-up"
@@ -2601,13 +2598,17 @@
               </li>
             </ul>
             <aside class="notes">
-              Dette er verktøyene jeg brukte på å løse PST-gåten.<br />
-              Jeg brukte flere verktøy enn det jeg nevner her...<br />
+              Verktøyene jeg brukte på å løse PST-gåten<br />
+              * StegSolve, nettsider<br />
+              * binwalk, strings, file, dd, tekstverktøy<br />
+              * Wireshark<br />
+              * Windows + Linux<br /><br />
 
-              Kombinasjonen av å bruke Windows og ha et Docker-image å hoppe inn
-              i hvor jeg har spesialverktøy, er ganske digg. Som eksempelet
-              viser så gir jeg også imaget tilgang til min prosjektmappe, så jeg
-              deler filer mellom Windows og Linux-imaget jeg bruker<br /><br />
+              * Å bruke Windows og ha en Virtuell maskin med Linux, så jeg kan
+              hoppe inn i Linux og bruke spesialverktøy er ganske digg
+              (NESTE)<br />
+              Slik satte jeg opp Docker på Windows så jeg kunne bruke en Linux
+              VM. Og Linux har her tilgang til min prosjektmappe (dele filer)<br /><br />
               Hvorfor bruker jeg Kali Linux? Google it!<br /><br />
 
               Så hvordan blir vi gode kodeknekkere? Vi må øve...
@@ -2616,81 +2617,80 @@
 
           <section>
             <h3>Bygg kompetanse!</h3>
-            <ul>
-              <li class="fragment fade-up">
+            <ul class="">
+              <li class="">
                 <a href="https://ctf.hacker101.com">Hacker101 CTF</a>
               </li>
-              <li class="fragment fade-up">
+              <li class="">
                 <a href="https://19.tghack.no">TGHack</a>
               </li>
-              <li class="fragment fade-up">
+              <li class="">
                 <a href="https://hackthebox.eu">Hackthebox</a>
               </li>
-              <li class="fragment fade-up">
+              <li class="">
                 <a href="https://hack-yourself-first.com"
                   >hack-yourself-first.com</a
                 >
               </li>
-              <li class="fragment fade-up">
+              <li class="">
                 <a
                   href="https://www.owasp.org/index.php/OWASP_Juice_Shop_Project"
                   >OWASP Juice Shop</a
                 >
               </li>
             </ul>
+            <p class="fragment fade-in">
+              Løs CTF-er som lag:<br />
+              <a href="https://realworldctf.com/">Real World CTF</a>,
+              <a href="https://capturetheflag.withgoogle.com/">Google CTF</a>
+            </p>
             <aside class="notes">
-              Og hvordan blir vi dyktige kodeknekkere? Vi må øve! (NESTE)<br /><br />
+              Og hvordan blir vi dyktige kodeknekkere? Vi må øve! En glimrende
+              måte å starte på er å løse CTF'er<br /><br />
 
-              * HackerOne sin Hacker101 er et supert sted å lære, kommer stadig
-              nye oppgaver innen web, reverse engineering, crypto m.fl.
-              (NESTE)<br /><br />
+              * HackerOne sin <b>Hacker101</b> er et supert sted å lære, kommer
+              stadig nye oppgaver innen web, reverse engineering, crypto
+              m.fl.<br />
 
-              * The Gathering har fine oppgaver på flere kategorier, blir en god
-              hacker på mye forskjellig. Veldig lærerikt! (NESTE)<br /><br />
+              * <b>The Gathering</b> har fine oppgaver på flere kategorier, blir
+              en god hacker på mye forskjellig. Veldig lærerikt!<br />
 
-              * Hackthebox for deg som vil opp noen hakk i vanskelighetsgrad.
-              Ofte kreves koding for å løse oppgaver, mer avanserte løsninger
-              ofte (NESTE)<br /><br />
+              * <b>Hackthebox</b> for deg som vil opp noen hakk i
+              vanskelighetsgrad. Ofte kreves koding for å løse oppgaver, mer
+              avanserte løsninger ofte<br />
 
-              * hack-yourself-first.com er en åpen nettside full av sårbarheter,
-              bare å hacke ivei. Troy Hunt står bak (NESTE)<br /><br />
+              * <b>hack-yourself-first.com</b> er en åpen nettside full av
+              sårbarheter, bare å hacke ivei. Troy Hunt står bak<br />
 
-              * OWASP Juice Shop er perfekt hvis du vil holde en intern
+              * <b>OWASP Juice Shop</b> er perfekt hvis du vil holde en intern
               CTF-konkurranse. Jag sårbarheter, få poeng, vinn! Lagd av OWASP
-              (Open Web Application Security Project).
+              (Open Web Application Security Project).<br /><br />
+
+              * Hvis det å være på lag og jobbe til seint på natten
+              frister...(NESTE)<br /><br />
+
+              Hvorfor ikke delta i CTF-konkurranser - vinn premier (og
+              jobb?)!<br />
+              <b>Real World CTF</b> og <b>Google CTF</b> er bare et par
+              eksempler, mange fler
             </aside>
           </section>
 
           <section>
             <h3>Konferanser</h3>
-            <p class="fragment fade-up">
-              Dra på konferanser:<br />
-              <a href="https://owaspnorwayday.org/">OWASP Norway Day</a>,
-              <a href="https://sikkerhetsfestivalen.no/">Sikkerhetsfestivalen</a
-              >,
-              <a href="https://www.blackhat.com/">BlackHat</a>
-            </p>
-            <p class="fragment fade-up">
-              Samle sammen kollegaer og venner og kjemp om premier på
-              CTF-konkurranser:<br />
-              <a href="https://realworldctf.com/">Real World CTF</a>,
-              <a href="https://capturetheflag.withgoogle.com/">Google CTF</a>
-            </p>
+            <div class="fragment fade-up">
+              <p><a href="https://owaspnorwayday.org/">OWASP Norway Day</a></p>
+              <p><a href="https://sikkerhetsfestivalen.no/">Sikkerhetsfestivalen</a
+              ></p>
+              <p></p><a href="https://www.blackhat.com/">BlackHat</a></p>
+            </div>
             <aside class="notes">
               Kompetansebygging handler også om å dele med hverandre - gå på
               konferanser eller hold foredrag (NESTE)<br /><br />
 
-              * Av de som fokuserer på IT- og fysisk sikkerhet har vi bl.a.:<br />
               * OWASP Norway Day<br />
               * Sikkerhetsfestivalen<br />
-              * BlackHat<br /><br />
-
-              * Hvis det å være på lag og jobbe til seint på natten høres
-              fristende ut (NESTE)<br /><br />
-
-              Hvorfor ikke delta i CTF-konkurranser - vinn premier (og jobb?)!
-              Det finnes mange eventer å velge blant, <b>Real World CTF</b> og
-              <b>Google CTF</b> er bare et par eksempler
+              * BlackHat (Vegas, Europa)
             </aside>
           </section>
 
