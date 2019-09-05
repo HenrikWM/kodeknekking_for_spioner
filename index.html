@@ -206,7 +206,8 @@
           <section>
             <h3>I ❤️ CTF-er</h3>
             <aside class="notes">
-              * Hva er min favoritt kompetanseaktivitet om dagen? (CTF'er)<br />
+              Og jeg digger CTF-er!<br />
+              * Min favoritt kompetanseaktivitet om dagen<br />
               * Hva er en CTF? (en nøtt, hacke seg igjennom sårbarheter og finne
               en skjult kode)<br />
               * Hvorfor liker jeg CTF'er? (måldrevet, må analysere, etterforske
@@ -215,7 +216,7 @@
               * PST-gåten viste seg å være en stor CTF, så jeg ble ganske gira!
               Gleder meg til å ta dere igjennom løsningen straks<br /><br />
 
-              Det bringer meg over til PST og stillingsutlysningen fra i vinter
+              PST søkte etter flere folk, hvorfor?
             </aside>
           </section>
 
@@ -363,8 +364,8 @@
               NRK lagde en sak om stillingsutlysningen og det var denne som jeg
               kom over en morgen på vei til jobb<br /><br />
 
-              Ble umiddelbart nysgjerrig da det var en kode å knekke, så ville
-              gjerne prøve meg på litt kodeknekking<br /><br />
+              * Ble umiddelbart nysgjerrig<br />
+              * Gjerne prøve meg på litt kodeknekking<br /><br />
 
               Og det er med et dikt i stillingsutlysningen vår reise begynner
             </aside>
@@ -645,8 +646,7 @@
               style="width: 50%;"
             />
             <aside class="notes">
-              * Vi får kikke på diktet da, det rimer men ikke noe åpenbart å
-              finne her<br />
+              * Use the source: vi får kikke i kildekoden på nettsiden<br />
               * Ofte lurt å kikke på kildekoden på nettsidene man skal hacke
             </aside>
           </section>
@@ -884,8 +884,9 @@
               * Bildekommentarer er et typisk sted å lete etter ledetråder på
               CTF'er<br /><br />
 
-              (ANEKDOTE) * Hvorfor er tekst i bildekommentarer/data-chunks i
-              PNG-bilder farlig?
+              (ANEKDOTE) <br />
+              * Hvorfor er tekst i bildekommentarer/data-chunks i PNG-bilder
+              farlig?
             </aside>
           </section>
 
@@ -1180,10 +1181,10 @@
             </pre>
             <p>H4m</p>
             <aside class="notes">
-              Tallverdien på det 4. tegnet i passordet må være lik det 3. tegnet
-              (charCodeAt): <br />
-              Artig. Uttrykket blir sant når verdien er lik det svaret er på
-              forrige linje<br />
+              Tallverdien på det 4. tegnet i passordet må være lik det 3.
+              tegnet:<br />
+              Artig. Uttrykket blir sant når verdien er lik svaret på forrige
+              linje
             </aside>
           </section>
 
@@ -1243,10 +1244,6 @@
               </code>
             </pre>
             <p>H4mm3</p>
-            <aside class="notes">
-              <b>substring(4,5</b>) betyr at tegnet "3" er passordets 5.
-              tegn.<br />
-            </aside>
           </section>
 
           <section data-transition="none">
@@ -1306,8 +1303,8 @@
             <p>H4mm3r</p>
             <aside class="notes">
               password.charCodeAt(0):<br />
-              Vi skal ha ASCII-tallet til passordets første tegn. Hva har vi
-              funnet ut er passordets første tegn?
+              Vi skal ha ASCII-tallet til passordets <b>første tegn</b>. Hva har
+              vi funnet ut er passordets første tegn?
             </aside>
           </section>
 
@@ -1346,8 +1343,8 @@
             <p>H4mm3rH</p>
             <aside class="notes">
               password.charCodeAt(1):<br />
-              Vi skal ha ASCII-tallet til passordets andre tegn. Hva har vi
-              funnet ut er passordets andre tegn?
+              Vi skal ha ASCII-tallet til passordets <b>andre tegn</b>. Hva har
+              vi funnet ut er passordets andre tegn?
             </aside>
           </section>
 
@@ -1515,12 +1512,12 @@
               class="plain"
             />
             <aside class="notes">
-              * Hvis man gjør en "reverse DNS-lookup", altså finne hvilke andre
-              domener eier av <b>twitterhai.eu</b> er koblet til, så finner vi
-              <b>twitterhai.tech</b><br /><br />
+              * Hvis man gjør en "Reverse IP lookup", altså finne hvilke andre
+              domener eier av IP-adressen <b>twitterhai.eu</b> er assosiert med,
+              så finner vi <b>twitterhai.tech</b><br /><br />
 
               * Hvis man gikk til <b>twitterhai.tech</b> fikk man samme melding
-              om å sjekke ut Twitter-kontoen som vi så nettopp. Artig!<br />
+              om å sjekke ut Twitter-kontoen som vi så nettopp. Artig!<br /><br />
 
               Så det bringer oss til Twitter!
             </aside>
@@ -1542,7 +1539,7 @@
               Vi kommer da til profilen til <b>twitt3rhai</b><br /><br />
 
               Et par observasjoner:<br />
-              * Noe om roboter og flytte tekst til tekstprogram nevnes<br />
+              * Roboter og å flytte tekst til tekstprogram nevnes<br />
               * 65 tweets med haiarter!<br />
             </aside>
           </section>
@@ -1713,7 +1710,7 @@
 
           <section>
             <p>
-              haimat er en
+              <b>haimat</b> er en
               <a href="https://en.wikipedia.org/wiki/Pcap">pcap</a> fil!
             </p>
             <p class="fragment">Brukes til å lagre nettverkstrafikk</p>
@@ -1808,7 +1805,8 @@
               (NESTE)<br />
               * En forespørsel mot en side på en webserver<br />
               (NESTE)<br />
-              * Et svar som viser en nettside med en link til
+              * Et svar som viser en nettside med teksten "Her er dataene dine,
+              passordet har du allerede" og en link til
               <b>secret_data.zip</b>
             </aside>
           </section>
@@ -1866,7 +1864,6 @@
 
               * En forespørsel fra en klient til webserveren om å hente ned
               <b>secret_data.zip</b> og selve svaret som inneholder zip-filen
-              som ble lastet ned<br />
               (NESTE)<br />
 
               * Og heldigvis for oss går trafikken over TCP-port 80 som gjør at
@@ -1995,7 +1992,7 @@
             <aside class="notes">
               Hm (NESTE)<br />
               * I forrige avsnitt fant vi en HTML-fil som sa at "passordet har
-              jeg allerede". Fikk vi med oss noe fra tidligere som kan passe som
+              du allerede". Fikk vi med oss noe fra tidligere som kan passe som
               passord? (NESTE)<br />
               * HAI1337 er en god kandidat
             </aside>
@@ -2006,8 +2003,9 @@
             data-source="roy_solberg_fra_pst"
           >
             <aside class="notes">
-              Nice! Så vi klarte å hente ut zip-filen fra nettverkstrafikken, og
-              åpne bildet som lå i zip-filen med passordet fra Twitter.
+              Oppsummert:<br />
+              * Vi klarte å hente ut zip-filen fra nettverkstrafikken, og åpne
+              bildet som lå i zip-filen med passordet fra Twitter.
               <br /><br />
 
               Det er noe fishy med denne haien...
@@ -2119,7 +2117,7 @@
               * LSB betyr i denne sammenhengen: (NESTE)<br />
               ** Least Significant Bit<br />
               (NESTE)<br />
-              * I motsetning til det motsatte: (NESTE)<br />
+              * I motsetning til det motsatte<br />
               ** Most Significant Bit
             </aside>
           </section>
@@ -2180,7 +2178,6 @@
           </section>
 
           <section data-source="zxing_decode">
-            <p>QR-koden dekodet:</p>
             <span class="fragment">
               <img
                 src="img/insignificant_shark/insignificant_shark-qrcode-decoded-highlighted.png"
@@ -2193,8 +2190,7 @@
               </p>
             </span>
             <aside class="notes">
-              * Vi trenger å dekode QR-koden, mange måter å løse dette på
-              (NESTE)<br />
+              * Vi trenger å dekode QR-koden, mange måter å løse dette på<br />
               * Jeg fant en nettside som tolker QR-koder. Man kan også kode
               dette selv<br />
               * QR-koden var en tekst: (LES TEKSTEN) (NESTE) (NESTE)<br />
@@ -2294,9 +2290,9 @@
               * I haibildet var det runer, de sa vi skulle bry oss om LSB (<b
                 >Least Significant Bit</b
               >)<br />
-              * Vi brukte LSB-dekoding på filen og vi fant QR-kodebildet * Vi
-              dekodet QR-kodebildet som hintet igjen om LSB-dekoding. Vi lærte
-              ikke noe mer, LSB-dekoding et sidespor<br /><br />
+              * Vi brukte LSB-dekoding på filen og vi fant QR-kodebildet <br />
+              * Vi dekodet QR-kodebildet som hintet igjen om LSB-dekoding. Vi
+              lærte ikke noe mer, LSB-dekoding et sidespor<br /><br />
 
               * Da vi istedet brukte MSB-dekoding (<b>Most Significant Bit</b>)
               på filen, fant vi tekst som er en URL til et nytt bilde (NESTE)
@@ -2315,6 +2311,9 @@
               data-src="img/u_are_th3_winrar-jpg/u_are_th3_winrar.png"
               class="plain"
             />
+            <aside class="notes">
+              (PAUSE, 3s)
+            </aside>
           </section>
 
           <section>
@@ -2413,8 +2412,7 @@
 
           <section data-source="bobu_sumisu_pst_writeup">
             <p>
-              Vi plukker ut binærdataene til RAR-filen fra filen
-              <b>u_are_th3_winrar.jpg</b> med
+              Ekstraherer RAR-filen ut av <b>u_are_th3_winrar.jpg</b> med
               <span class="fragment highlight-green">dd</span> (Linux)
             </p>
 
@@ -2437,8 +2435,8 @@
               <span class="fragment highlight-green">u_are_th3_winrar.rar</span>
             </p>
             <aside class="notes">
-              * Vi trenger å plukke ut WinRAR-dataene ut av filen. Til dette
-              bruker jeg (NESTE) <b>dd</b> <br />
+              * Vi trenger å plukke ut RAR-filens binærdata ut av bildet. Til
+              dette bruker jeg (NESTE) <b>dd</b> <br />
 
               * På mange måter som å finne en sang på en gammeldags
               musikk-kassett. Vi må spole fram til dataene (sangen) som vi er
@@ -2489,7 +2487,7 @@
           ></section>
 
           <section>
-            <p>Ser ut som vi har klart det! 👏👏</p>
+            <p>Vi klarte det! 👏👏</p>
             <p class="fragment">Hva finner vi i <b>gratulerer.txt</b>?</p>
             <aside class="notes">
               Vi blir gratulert av Leo fra Great Gatsby. Ikke hverdags!
@@ -2543,7 +2541,7 @@
               * er lærerikt<br />
               * er utfordrende<br />
               * er en skikkelig tålmodighetsprøve<br />
-              * er et realt dopamin-kick når man løse noe!<br /><br />
+              * er et realt dopamin-kick når man løser noe!<br /><br />
 
               * Hvordan blir vi gode kodeknekkere? (Verktøy og kunnskap)<br /><br />
 
@@ -2580,7 +2578,7 @@
                 </p>
               </li>
               <li class="">
-                <p>OS: Windows og Docker</p>
+                <p>OS: Windows og Linux</p>
                 <pre
                   class="fragment fade-up"
                 ><code class="shell smaller" data-trim data-noescape>
@@ -2638,8 +2636,7 @@
               <a href="https://capturetheflag.withgoogle.com/">Google CTF</a>
             </p>
             <aside class="notes">
-              Og hvordan blir vi dyktige kodeknekkere? Vi må øve! En glimrende
-              måte å starte på er å løse CTF'er<br /><br />
+              En glimrende måte å starte på er å løse CTF'er<br /><br />
 
               * HackerOne sin <b>Hacker101</b> er et supert sted å lære, kommer
               stadig nye oppgaver innen web, reverse engineering, crypto
@@ -2665,7 +2662,8 @@
               Hvorfor ikke delta i CTF-konkurranser - vinn premier (og
               jobb?)!<br />
               <b>Real World CTF</b> og <b>Google CTF</b> er bare et par
-              eksempler, mange fler
+              eksempler fra utlandet, men hvorfor ikke arrangere internt og
+              konkurrere med kollegaer?
             </aside>
           </section>
 
@@ -2689,10 +2687,10 @@
               * BlackHat (Vegas, Europa)<br /><br />
 
               * Er du fortsatt ikke motivert til å lære mer om kodeknekking og
-              etisk hacking...
+              etisk hacking, etter alt du har sett idag...
               <br />
               * Hva hvis du kunne få betalt for spisskompetansen din og hjelpe
-              til å gjøre tjenester sikrere?
+              bedrifter i å finne sårbarheter i sine tjenester?
             </aside>
           </section>
 
@@ -2707,8 +2705,7 @@
               <p>Les reglene og slå deg løs! 🤑</p>
             </div>
             <aside class="notes">
-              En god motivasjon for å bygge kompetanse er å finne bugs man kan
-              få betalt for å finne (NESTE)<br /><br />
+              Få betalt for å finne sårbarheter og bugs (NESTE)<br /><br />
 
               * HackerOne er en plattform for bedrifter som har
               bugbounty-programmer for sine tjenester (Twitter, Facebook
@@ -2761,9 +2758,9 @@
               Vi har ikke mye å stille opp med sammenlignet med andre større
               aktørers cyber-forsvarsbudsjetter (NESTE)<br />
 
-              Men kanskje det er typisk norsk (NESTE) å allikevel å ta igjen noe
-              av skjevheten med å være gode på effektivitet og å være
-              effektfulle i hva vi gjør
+              Men kanskje det er typisk norsk (NESTE) å allikevel klare å ta
+              igjen skjevheten med dyktighet, og at vi er effektive og
+              effektfulle i det vi gjør
             </aside>
           </section>
 
@@ -2776,7 +2773,7 @@
               Bli en spion - <span class="fragment">søk jobb i PST 🕵️‍♂️</span>
             </p>
             <aside class="notes">
-              Og hvis det høres fristende ut å være en
+              Så hvis det høres fristende ut å være en
               <b>kodeknekker</b> - gi deg selv en utfordring! <br />
 
               * Bli en <b>etisk hacker</b> og gjør det til en hobby eller
@@ -2819,9 +2816,12 @@
           </p>
 
           <aside class="notes">
-            Det var alt jeg hadde for idag. Tusen takk for at dere kom og hørte
-            på, og ha en flott JavaZone videre!<br /><br />
-            Takk for meg!
+            * Det var alt jeg hadde for idag. Tusen takk for at dere kom og
+            hørte på. <br /><br />
+
+            * Ha en flott JavaZone videre!<br /><br />
+
+            * Takk for meg!
           </aside>
         </section>
       </div>
@@ -3080,7 +3080,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_3,
                 twitterhai_pwd_letter_3,
                 0,
-                isProd ? 5 : 1,
+                isProd ? 3 : 1,
                 resolve
               );
             });
@@ -3092,7 +3092,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_4,
                 twitterhai_pwd_letter_4,
                 0,
-                isProd ? 3 : 1,
+                isProd ? 2 : 1,
                 resolve
               );
             });
@@ -3104,7 +3104,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_5,
                 twitterhai_pwd_letter_5,
                 0,
-                isProd ? 3 : 1,
+                isProd ? 1 : 1,
                 resolve
               );
             });
@@ -3116,7 +3116,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_6,
                 twitterhai_pwd_letter_6,
                 0,
-                isProd ? 2 : 1,
+                isProd ? 1 : 1,
                 resolve
               );
             });
