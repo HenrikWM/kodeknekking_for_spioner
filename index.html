@@ -2028,67 +2028,14 @@
                 >insignificant_shark.png</span
               >
             </p>
-            <p class="fragment">Åpenbart en kandidat for grundig analyse</p>
             <p class="fragment">
-              Først steganografi-analyse, deretter se nærmere på tegnene på
-              haien
+              Legger merke til kryptiske tegn på haien
             </p>
             <aside class="notes">
               * Vi henter ut (NESTE) <b>insignificant_shark.png</b> fra
-              zip-filen og lagrer det til disk.<br />
-              (NESTE)<br />
-              * Her blir det igjen full binæranalyse av filen (NESTE) <br />
-              * 2 ting jeg vil analysere grundig; steganografi-analyse av bildet
-              og se nærmere på de rare tegnene
-            </aside>
-          </section>
+              zip-filen og lagrer det til disk.<br />(NESTE)<br />
 
-          <section data-source="stegsolve_caesum">
-            <pre><code data-trim class="shell">
-                root@c04ddcc8bccd:~# java -jar stegsolve.jar</code></pre>
-            <img
-              data-src="img/insignificant_shark/insignificant_shark-stegsolve.gif"
-              class="plain"
-              style="width: 75%;"
-            />
-            <aside class="notes">
-              * Starter opp Stegsolve igjen og laster inn bildet<br />
-              (VENTE 10s) <br />
-              * Der fant vi noe!
-            </aside>
-          </section>
-
-          <section data-source="roy_solberg_fra_pst">
-            <img
-              data-src="img/insignificant_shark/insignificant_shark-qrcode.png"
-              class="plain"
-            />
-            <aside class="notes">
-              * Vi fant en QR-kode gjemt i fargefiltrene for rød, grønn og blå
-            </aside>
-          </section>
-
-          <section data-source="zxing_decode">
-            <p>QR-koden dekodet:</p>
-            <span class="fragment">
-              <img
-                src="img/insignificant_shark/insignificant_shark-qrcode-decoded-highlighted.png"
-                class="plain"
-              />
-              <p>
-                "You thought we would hide anything of
-                <span class="fragment highlight-green">SIGNIFICANCE</span>? Not
-                the <span class="fragment highlight-green">LEAST</span>..."
-              </p>
-            </span>
-            <aside class="notes">
-              * Vi trenger å dekode QR-koden, mange måter å løse dette på
-              (NESTE)<br />
-              * Jeg fant en nettside som tolker QR-kode. Man kan også kode dette
-              selv<br />
-              * QR-koden var en tekst: (LES TEKSTEN) (NESTE) (NESTE)<br />
-              * Så veldig fokus på signifikans og siste "ett-eller-annet" <br />
-              * Vi får ikke mer her, så vi får huske på dette til senere
+              * Legger først merke til kryptiske tegn, la oss se nærmere på de
             </aside>
           </section>
 
@@ -2111,7 +2058,7 @@
             <aside class="notes">
               (NESTE)<br />
               * Ligner veldig på runer <br />
-              * Klarer vi å lese hva som står?
+              * Hva kan vi bruke for å tolke runene?
             </aside>
           </section>
 
@@ -2189,7 +2136,7 @@
               * Samlet kaller vi disse tallene, 8 av gangen, for Bytes. Et tall
               er en Bit.<br />
               (NESTE) <br />
-              * Å gjemme data i LSB/MSB er en velkjent måte på å "skjule" data i
+              * Å gjemme data i LSB er en velkjent måte på å "skjule" data i
               bilder. Det er gunstig måte å skjule data på fordi det påvirker
               orginalbildet i liten grad å bare endre en Bit i hver Byte.
             </aside>
@@ -2221,21 +2168,64 @@
             />
             <aside class="notes">
               * Fant et nyttig verktøy til å lese ut LSB fra en fil på nettet<br />
-              * Her ser vi at vi får bare QR-kodebildet fra LSB-dekodingen.<br />
+              * Etter LSB-dekoding ser vi en <b>QR-kode</b> gjemt i bildet<br />
+            </aside>
+          </section>
+
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/insignificant_shark/insignificant_shark-qrcode.png"
+              class="plain"
+            />
+          </section>
+
+          <section data-source="zxing_decode">
+            <p>QR-koden dekodet:</p>
+            <span class="fragment">
+              <img
+                src="img/insignificant_shark/insignificant_shark-qrcode-decoded-highlighted.png"
+                class="plain"
+              />
+              <p>
+                "You thought we would hide anything of
+                <span class="fragment highlight-green">SIGNIFICANCE</span>? Not
+                the <span class="fragment highlight-green">LEAST</span>..."
+              </p>
+            </span>
+            <aside class="notes">
+              * Vi trenger å dekode QR-koden, mange måter å løse dette på
+              (NESTE)<br />
+              * Jeg fant en nettside som tolker QR-koder. Man kan også kode
+              dette selv<br />
+              * QR-koden var en tekst: (LES TEKSTEN) (NESTE) (NESTE)<br />
+              * Så veldig fokus på signifikans og siste "ett-eller-annet" <br />
+              * Vi får ikke mer her, vi har jo allerede prøvd oss på
+              LSB-dekoding
             </aside>
           </section>
 
           <section>
             <p>
-              LSB-dekoding gir oss bildet med QR-koden og er et sidespor 😈
+              Runene hintet om
+              <span class="fragment highlight-green">LSB-dekoding</span>
             </p>
-            <p class="fragment">
-              Hva med MSB-dekoding (most significant bit)?
+            <p>
+              Skjult QR-kode hintet også om
+              <span class="fragment highlight-green">LSB-dekoding</span>
+            </p>
+            <p class="fragment fade-in">
+              Hva med
+              <span class="fragment highlight-green">MSB-dekoding</span>? 😄
             </p>
             <aside class="notes">
-              * LSB-dekoding var et sidespor bare til forvirring <br />
-              (NESTE) <br />
-              * Hva istedet med MSB?
+              * Runene hintet om LSB-dekoding (NESTE)<br />
+              * QR-koden hintet også om LSB-dekoding (NESTE)<br />
+              * Hvor går man videre nå? LSB-dekoding var bare et sidespor til
+              forvirring<br />
+              * Har jeg prøvd alle dekodingsmuligheter?<br />
+              (NESTE) <br /><br />
+
+              * Hva med Most Significant Bit dekoding? (NESTE)
             </aside>
           </section>
 
@@ -2301,13 +2291,15 @@
             <p class="fragment fade-up">👍</p>
             <aside class="notes">
               Oppsummert: <br />
-              * I haibildet var det runer, de sa vi skulle bry oss om LSB.<br />
-              * Vi hentet ut <b>Least Significant Bit</b> fra filen og det ble
-              til QR-kodebildet, samme bilde vi fant med Stegsolve. Sidespor der
-              altså.<br /><br />
+              * I haibildet var det runer, de sa vi skulle bry oss om LSB (<b
+                >Least Significant Bit</b
+              >)<br />
+              * Vi brukte LSB-dekoding på filen og vi fant QR-kodebildet * Vi
+              dekodet QR-kodebildet som hintet igjen om LSB-dekoding. Vi lærte
+              ikke noe mer, LSB-dekoding et sidespor<br /><br />
 
-              * Da vi istedet hentet ut <b>Most Significant Bit</b> fra filen,
-              fant vi tekst som er en URL til et nytt bilde (NESTE)
+              * Da vi istedet brukte MSB-dekoding (<b>Most Significant Bit</b>)
+              på filen, fant vi tekst som er en URL til et nytt bilde (NESTE)
             </aside>
           </section>
         </section>
