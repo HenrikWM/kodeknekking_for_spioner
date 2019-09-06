@@ -2178,7 +2178,7 @@
           </section>
 
           <section data-source="zxing_decode">
-            <span class="fragment">
+            <span>
               <img
                 src="img/insignificant_shark/insignificant_shark-qrcode-decoded-highlighted.png"
                 class="plain"
@@ -2190,9 +2190,8 @@
               </p>
             </span>
             <aside class="notes">
-              * Vi trenger å dekode QR-koden, mange måter å løse dette på<br />
-              * Jeg fant en nettside som tolker QR-koder. Man kan også kode
-              dette selv<br />
+              * Vi trenger å dekode QR-koden, bruker nettside som tolker
+              QR-koder. Man kan også kode dette selv<br />
               * QR-koden var en tekst: (LES TEKSTEN) (NESTE) (NESTE)<br />
               * Så veldig fokus på signifikans og siste "ett-eller-annet" <br />
               * Vi får ikke mer her, vi har jo allerede prøvd oss på
@@ -2209,6 +2208,7 @@
               Skjult QR-kode hintet også om
               <span class="fragment highlight-green">LSB-dekoding</span>
             </p>
+            <p>🤷‍♂️</p>
             <p class="fragment fade-in">
               Hva med
               <span class="fragment highlight-green">MSB-dekoding</span>? 😄
@@ -2260,32 +2260,20 @@
             data-source="georgeom_stegonline"
           >
             <img
-              data-src="img/insignificant_shark/insignificant_shark-msb-decoded.png"
-              class="plain"
-            />
-            <aside class="notes">
-              * Se der! Vi har en tekstsnutt!
-            </aside>
-          </section>
-
-          <section data-transition="none" data-source="georgeom_stegonline">
-            <img
               data-src="img/insignificant_shark/insignificant_shark-msb-decoded-highlighted.png"
               class="plain"
             />
-            <aside class="notes">
-              * Vi skal videre til en ny fil (bilde)
-            </aside>
-          </section>
-
-          <section>
             <p>
               <a href="http://twitterhai.tech/u_are_th3_winrar.jpg"
                 >http://twitterhai.tech/u_are_th3_winrar.jpg ➡</a
               >
             </p>
             <p class="fragment fade-up">👍</p>
+
             <aside class="notes">
+              * Se der! Vi har en tekstsnutt!<br />
+              * Vi skal videre til en ny fil (et bilde) (NESTE)<br /><br />
+
               Oppsummert: <br />
               * I haibildet var det runer, de sa vi skulle bry oss om LSB (<b
                 >Least Significant Bit</b
@@ -2295,7 +2283,7 @@
               lærte ikke noe mer, LSB-dekoding et sidespor<br /><br />
 
               * Da vi istedet brukte MSB-dekoding (<b>Most Significant Bit</b>)
-              på filen, fant vi tekst som er en URL til et nytt bilde (NESTE)
+              på filen, fant vi tekst som er en URL til et nytt bilde
             </aside>
           </section>
         </section>
@@ -2312,6 +2300,7 @@
               class="plain"
             />
             <aside class="notes">
+              Og her ser vi bildet: <b>Do we have a winner?</b><br />
               (PAUSE, 3s)
             </aside>
           </section>
@@ -3068,7 +3057,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_2,
                 twitterhai_pwd_letter_2,
                 0,
-                isProd ? 9 : 1,
+                isProd ? 6 : 1,
                 resolve
               );
             });
@@ -3080,7 +3069,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_3,
                 twitterhai_pwd_letter_3,
                 0,
-                isProd ? 3 : 1,
+                isProd ? 1 : 1,
                 resolve
               );
             });
@@ -3092,7 +3081,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_4,
                 twitterhai_pwd_letter_4,
                 0,
-                isProd ? 2 : 1,
+                isProd ? 1 : 1,
                 resolve
               );
             });
