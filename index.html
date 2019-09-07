@@ -1696,7 +1696,7 @@
             <h2>haimat</h2>
           </section>
 
-          <section data-transition="fade-in">
+          <section>
             <p>
               <b>Linux</b>: binæranalyse med
               <span class="fragment highlight-green">file</span>
@@ -1887,7 +1887,7 @@
             </p>
             <p class="fragment">
               Trafikken er over TCP-port 80 og dermed ukryptert
-              <span class="fragment fade-in">👍</span>
+              <span class="fragment fade-up">👍</span>
             </p>
             <p class="fragment">
               La oss plukke ut zip-filen for nærmere analyse
@@ -2176,19 +2176,18 @@
 
           <section>
             <p>Det vil si...</p>
-            <p class="fragment">
-              Plukk ut hvert siste binærtall i hver Byte: 1010101<span
-                class="fragment highlight-green"
-                >1</span
-              >
-            </p>
+            <p class="fragment">Plukk ut <b>siste</b> Bit i hver Byte</p>
+            <h3 class="fragment">
+              1010101<span class="fragment highlight-green">1</span>
+            </h3>
             <p class="fragment">og sett de sammen til ny fil</p>
             <aside class="notes">
               * Det vil si... (NESTE)<br />
-              * Vi plukker ut det <b>siste</b> tallet i hver Byte (lengst til
-              høyre)<br />
+              * Vi plukker <b>siste</b> Bit i hver Byte <br />
               (NESTE) (NESTE)<br />
-              * Og setter de sammen til nye Bytes i en ny fil
+              (lengst til høyre)<br />
+              (NESTE)<br />
+              * Og setter de sammen til en ny fil
             </aside>
           </section>
 
@@ -2261,17 +2260,18 @@
 
           <section>
             <p>Det vil si...</p>
-            <p class="fragment">
-              Plukk ut hvert første binærtall i hver Byte:
+            <p class="fragment">Plukk ut <b>første</b> Bit i hver Byte</p>
+            <h3 class="fragment">
               <span class="fragment highlight-green">1</span>1010101
-            </p>
+            </h3>
             <p class="fragment">og sett de sammen til en ny fil</p>
             <aside class="notes">
               * Det vil si... (NESTE)<br />
-              * Vi plukker ut det <b>første</b> tallet i hver Byte (lengst til
-              venstre)<br />
+              * Vi plukker <b>første</b> Bit i hver Byte <br />
               (NESTE) (NESTE)<br />
-              * Og setter de sammen til nye Bytes i en ny fil
+              (lengst til venstre)<br />
+              (NESTE)<br />
+              * Og setter de sammen til en ny fil
             </aside>
           </section>
 
@@ -2478,7 +2478,7 @@
 
           <section>
             <p>
-              Vi pakker <b>u_are_th3_winrar.rar</b> med
+              Vi pakker ut <b>u_are_th3_winrar.rar</b> med
               <span class="fragment highlight-green">WinRAR</span> på Windows
             </p>
             <p class="fragment">
@@ -2765,20 +2765,23 @@
 
           <section>
             <h3>IT-sikkerhet er alles ansvar</h3>
-            <p>
+            <p class="fragment fade-in">
               Øk sikkerhetskompetansen
             </p>
-            <p>
+            <p class="fragment fade-in">
               Prioriter sikkerhet
             </p>
             <aside class="notes">
               Avslutningsvis:<br />
 
               For å gjøre det vanskeligere for hackerne må vi ha det
-              grunnleggende på plass<br />
+              grunnleggende på plass (NESTE)<br /><br />
 
               * vi må øke sikkerhetskompetansen blant oss selv, kollegar,
-              familie og venner<br />
+              familie og venner<br /><br />
+
+              (NESTE)<br /><br />
+
               * vi må priorite sikkerhet på lik linje med andre
               ikke-funksjonelle krav i programvaren vi lager<br /><br />
 
