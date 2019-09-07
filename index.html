@@ -73,8 +73,8 @@
     <link rel="stylesheet" href="plugin/title-footer/title-footer-custom.css" />
 
     <!-- Globals -->
-    <script type="text/javascript" async defer>
-      var isProd = true;
+    <script type="text/javascript">
+      var isPresenting = true;
       var defaultFooterText = "Kodeknekking for spioner - JavaZone 2019";
     </script>
 
@@ -113,9 +113,15 @@
             <aside class="notes">
               Heisann alle sammen! Og takk for at dere kom for å høre på meg
               idag! Setter stor pris på at så mange av dere stiller opp på
-              dagens siste foredrag.<br />
-              (NESTE)<br />
-              Mitt navn er Henrik Walker Moe og (NESTE) jeg jobber i (NESTE)<br />
+              dagens siste foredrag. <br /><br />
+
+              Fordi det er siste foredrag, hvis det er noen spørsmål dere kommer
+              på underveis, kom bort til meg etterpå slik at vi runder av i god
+              tid<br />
+
+              (NESTE)<br /><br />
+
+              Mitt navn er Henrik Walker Moe og jeg jobber i (NESTE) (NESTE)<br />
               Bekk.<br /><br />
               Og idag skal jeg snakke om...
             </aside>
@@ -128,7 +134,18 @@
             </div>
             <aside class="notes">
               <b>Kodeknekking for spioner</b><br />
-              * Hvordan var mitt første møte med kodeknekking
+              * Idag skal vi <b>leke at vi er spioner</b> og sammen
+              <b>løse PST-gåten</b> som var gjemt i PSTs jobbannonse fra i
+              vinter<br /><br />
+
+              * Det viste seg jo at PST-gåten var
+              <b>en eneste stor Capture The Flag (CTF)</b> oppgave, så for meg
+              som digger CTF'er var det en nøtt å bare <b>hive seg over</b>!
+              <br />
+              * Jeg gleder meg til å ta dere igjennom løsningen straks<br /><br />
+
+              * Men før det, tenkte jeg først <b>å starte med å fortelle</b> om
+              <b>mitt første møte</b> med kodeknekking
             </aside>
           </section>
         </section>
@@ -144,13 +161,14 @@
             <aside class="notes">
               * I 1999 kjøpte foreldrene mine denne boken av Margit Sandemo:
               Skattejakten<br />
-              * Roman fylt med gåter, leder til en begravd skatt i Norge
+              * Roman fylt med <b>gåter</b>, leder til en begravd skatt i Norge
               (skatten er funnet)<br />
-              * Hele familien leste igjennom boken og fordelte oppgaver<br />
-              * For min del: selvstudie i Kalevala (Finlands nasjonalepos) og
-              myten om den greske guden Pan (han som er geit fra livet ned og
-              spiller fløyte)<br />
-              * Hvordan prøvde vi å løse gåten? (programmering)<br /><br />
+              * <b>Hele familien</b> leste igjennom boken og fordelte
+              oppgaver<br />
+              * For <b>min del</b>: selvstudie i Kalevala (Finlands
+              nasjonalepos) og myten om den greske guden Pan (han som er geit
+              fra livet ned og spiller fløyte)<br />
+              * <b>Hvordan</b> prøvde vi å løse gåten? (programmering)<br /><br />
 
               Tanken at programmeringskunnskaper kan bidra til å løse
               hverdagsutfordringer tror jeg inspirerte meg til å senere bli en
@@ -175,48 +193,36 @@
               * er sta, har pågangsmot <br />
               * liker utfordringer med klare mål<br /><br />
 
-              Dette er egenskaper tilfeldigvis også egner seg veldig godt til
-              kodeknekking
-            </aside>
-          </section>
-
-          <section
-            data-background="img/intro/intro_henrik_nnug.jpg"
-            data-source="henrikwm"
-          >
-            <aside class="notes">
-              Jeg...<br />
-              * er med i NNUG-styret (Norwegian .NET User Group)<br />
-              * og bidrar bl.a. med å arrangere våre NNUG-meetups<br />
-              * er med på å arrangere Microsofts årlige Global Azure
-              Bootcamp-meetup her i Oslo, hvor vi bruker en hel dag på å lære
-              masse om sky og Azure<br /><br />
-
-              I Bekk har vi faggrupper<br />
-              * Hvilke faggrupper har jeg deltatt i? (2 år i Sikkerhet,
-              faggruppeleder iår i Open Source)<br /><br />
+              * Hvilke faggrupper har jeg deltatt i? (2 år i <b>Sikkerhet</b>,
+              faggruppeleder iår i <b>Open Source</b>)<br /><br />
 
               (ANEKDOTE):<br />
-              Appropos sikkeret: holdt foredrag på JavaZone i forfjor og snakket
-              om hvordan lage sømløse innloggingsløsninger - tydelig at
-              sikkerhet har blitt et fagområde jeg trives i
+              Appropos sikkerhet: holdt foredrag på JavaZone i forfjor og
+              snakket om hvordan lage sømløse innloggingsløsninger - tydelig at
+              sikkerhet har blitt et fagområde jeg trives i<br /><br />
+
+              Alle disse egenskapene egner seg tilfeldigvis også veldig godt til
+              kodeknekking
             </aside>
           </section>
 
           <section>
             <h3>I ❤️ CTF-er</h3>
             <aside class="notes">
-              Og jeg digger CTF-er!<br />
-              * Min favoritt kompetanseaktivitet om dagen<br />
-              * Hva er en CTF? (en nøtt, hacke seg igjennom sårbarheter og finne
-              en skjult kode)<br />
-              * Hvorfor liker jeg CTF'er? (måldrevet, må analysere, etterforske
-              og forstå før man kan hacke, belønning)<br /><br />
+              Og som nevnt, jeg digger CTF-er! Min favoritt
+              kompetanseaktivitet<br />
 
-              * PST-gåten viste seg å være en stor CTF, så jeg ble ganske gira!
-              Gleder meg til å ta dere igjennom løsningen straks<br /><br />
+              * Hva er en CTF?<br />
+              ** <b>Capture The Flag</b>-spill/nøtt, hacker seg igjennom
+              sårbarheter - finne skjult kode (flagget)<br /><br />
 
-              PST søkte etter flere folk, hvorfor?
+              * Hvorfor liker jeg CTF'er? <br />
+              ** Måldrevne. Krever rekognosering, analyse og etterforskning for
+              å forstå hvordan man kan hacke en sårbarhet<br />
+              ** Belønning! (koden, viktig spisskompetanse)<br /><br />
+
+              Før vi begynner, la oss dvele litt over hvorfor PST søker etter
+              flere folk
             </aside>
           </section>
 
@@ -348,9 +354,9 @@
         <!-- =================== STILLINGSANNONSEN =================== -->
         <section>
           <section>
-            <h2>Stillingsannonsen</h2>
+            <h2>Jobbannonsen</h2>
             <aside class="notes">
-              La oss starte med stillingsutlysningen PST la ut i vinter
+              La oss starte med jobbannonsen PST la ut i vinter
             </aside>
           </section>
 
@@ -361,13 +367,13 @@
               style="width: 75%"
             />
             <aside class="notes">
-              NRK lagde en sak om stillingsutlysningen og det var denne som jeg
-              kom over en morgen på vei til jobb<br /><br />
+              NRK lagde en sak om jobbannonsen og det var denne som jeg kom over
+              en morgen på vei til jobb<br /><br />
 
               * Ble umiddelbart nysgjerrig<br />
               * Gjerne prøve meg på litt kodeknekking<br /><br />
 
-              Og det er med et dikt i stillingsutlysningen vår reise begynner
+              Og det er med et dikt i jobbannonsen vår reise begynner
             </aside>
           </section>
 
@@ -528,7 +534,7 @@
           </section>
 
           <section
-            data-transition="default fade-in"
+            data-transition="slide fade-in"
             data-source="roy_solberg_fra_pst"
           >
             <img
@@ -543,7 +549,7 @@
 
           <section
             data-state="stillingsannonsen-scrambler-start"
-            data-transition="fade-in default"
+            data-transition="fade-in slide"
           >
             <h3>ERTHAIITWT.EU</h3>
             <h3>=</h3>
@@ -750,7 +756,7 @@
           </section>
 
           <section
-            data-transition="fade-in default"
+            data-transition="fade-in slide"
             data-source="roy_solberg_fra_pst"
           >
             <img
@@ -917,7 +923,7 @@
             </aside>
           </section>
 
-          <section data-transition="fade-in default">
+          <section data-transition="fade-in slide">
             <a href="http://twitterhai.eu/haitech_secure.html"
               >http://twitterhai.eu/haitech_secure.html ➡</a
             >
@@ -1490,7 +1496,7 @@
           </section>
 
           <section
-            data-transition="fade-in default"
+            data-transition="fade-in slide"
             data-source="roy_solberg_fra_pst"
           >
             <img
@@ -1634,7 +1640,7 @@
             </aside>
           </section>
 
-          <section data-transition="fade-in default">
+          <section data-transition="fade-in slide">
             <p>2 funn å ta med oss videre:</p>
             <ul>
               <li class="fragment">
@@ -2178,7 +2184,7 @@
           </section>
 
           <section data-source="zxing_decode">
-            <span class="fragment">
+            <span>
               <img
                 src="img/insignificant_shark/insignificant_shark-qrcode-decoded-highlighted.png"
                 class="plain"
@@ -2190,9 +2196,8 @@
               </p>
             </span>
             <aside class="notes">
-              * Vi trenger å dekode QR-koden, mange måter å løse dette på<br />
-              * Jeg fant en nettside som tolker QR-koder. Man kan også kode
-              dette selv<br />
+              * Vi trenger å dekode QR-koden, bruker nettside som tolker
+              QR-koder. Man kan også kode dette selv<br />
               * QR-koden var en tekst: (LES TEKSTEN) (NESTE) (NESTE)<br />
               * Så veldig fokus på signifikans og siste "ett-eller-annet" <br />
               * Vi får ikke mer her, vi har jo allerede prøvd oss på
@@ -2209,6 +2214,7 @@
               Skjult QR-kode hintet også om
               <span class="fragment highlight-green">LSB-dekoding</span>
             </p>
+            <p>🤷‍♂️</p>
             <p class="fragment fade-in">
               Hva med
               <span class="fragment highlight-green">MSB-dekoding</span>? 😄
@@ -2260,32 +2266,20 @@
             data-source="georgeom_stegonline"
           >
             <img
-              data-src="img/insignificant_shark/insignificant_shark-msb-decoded.png"
-              class="plain"
-            />
-            <aside class="notes">
-              * Se der! Vi har en tekstsnutt!
-            </aside>
-          </section>
-
-          <section data-transition="none" data-source="georgeom_stegonline">
-            <img
               data-src="img/insignificant_shark/insignificant_shark-msb-decoded-highlighted.png"
               class="plain"
             />
-            <aside class="notes">
-              * Vi skal videre til en ny fil (bilde)
-            </aside>
-          </section>
-
-          <section>
             <p>
               <a href="http://twitterhai.tech/u_are_th3_winrar.jpg"
                 >http://twitterhai.tech/u_are_th3_winrar.jpg ➡</a
               >
             </p>
             <p class="fragment fade-up">👍</p>
+
             <aside class="notes">
+              * Se der! Vi har en tekstsnutt!<br />
+              * Vi skal videre til en ny fil (et bilde) (NESTE)<br /><br />
+
               Oppsummert: <br />
               * I haibildet var det runer, de sa vi skulle bry oss om LSB (<b
                 >Least Significant Bit</b
@@ -2295,7 +2289,7 @@
               lærte ikke noe mer, LSB-dekoding et sidespor<br /><br />
 
               * Da vi istedet brukte MSB-dekoding (<b>Most Significant Bit</b>)
-              på filen, fant vi tekst som er en URL til et nytt bilde (NESTE)
+              på filen, fant vi tekst som er en URL til et nytt bilde
             </aside>
           </section>
         </section>
@@ -2312,6 +2306,7 @@
               class="plain"
             />
             <aside class="notes">
+              Og her ser vi bildet: <b>Do we have a winner?</b><br />
               (PAUSE, 3s)
             </aside>
           </section>
@@ -2364,7 +2359,7 @@
               <span class="fragment highlight-green">filegenskaper</span>
             </p>
             <p class="fragment">
-              Finner ikke noen ledetråder ved å kikke i filen så langt.
+              Ingen ledetråder så langt
             </p>
             <aside class="notes">
               På Windows kan vi gjøre det samme med
@@ -2454,7 +2449,7 @@
           <section>
             <p>
               Vi pakker <b>u_are_th3_winrar.rar</b> med
-              <span class="fragment highlight-green">WinRAR</span> på Windows.
+              <span class="fragment highlight-green">WinRAR</span> på Windows
             </p>
             <p class="fragment">
               Tilsvarer <span class="fragment highlight-green">unrar</span> på
@@ -2475,7 +2470,7 @@
               class="plain"
             />
             <aside class="notes">
-              Hva finner vi i rar-filen?<br />
+              Hva finner vi i RAR-filen?<br />
               To filer: <b>gratulerer.gif</b> og <b>gratulerer.txt</b><br />
               La oss kikke på GIF'en først.
             </aside>
@@ -2527,7 +2522,14 @@
               ** blindsporbokstaver til koordinater, 1 arb.dag effektivt<br />
               ** lærte meg Linux og verktøy<br /><br />
 
-              * Lærte å skrive ned både løsning og oppgave, til evt. senere bruk
+              * Lærte å skrive ned både løsning og oppgave, til evt. senere
+              bruk<br /><br />
+
+              (ANEKDOTE)<br />
+              * Hva slet jeg mest med? (ineffektivt i starten før man kan
+              verktøyene)<br />
+              * Hvordan hjalp CTF-erfaringene med å løse gåten? (definere målet,
+              sikte inn på en ting)
             </aside>
           </section>
 
@@ -2544,12 +2546,13 @@
               * er et realt dopamin-kick når man løser noe!<br /><br />
 
               * Hvordan blir vi gode kodeknekkere? (Verktøy og kunnskap)<br /><br />
-
-              La oss se på verktøyene jeg brukte til å løse gåten
+              ** Verktøyene jeg brukte har vi allerede gått igjennom<br />
+              ** Når det gjelder kunnskap har jeg noen tips...
             </aside>
           </section>
 
-          <section>
+          <!-- TODO: skjule i presentasjonsmodus -->
+          <!-- <section>
             <h3>Verktøy</h3>
             <ul>
               <li class="">
@@ -2595,16 +2598,15 @@
               * Wireshark<br />
               * Windows + Linux<br /><br />
 
-              * Å bruke Windows og ha en Virtuell maskin med Linux, så jeg kan
-              hoppe inn i Linux og bruke spesialverktøy er ganske digg
-              (NESTE)<br />
+              * Å bruke Windows med en Virtuell maskin med Linux er ganske digg
+              (ref. spesialverktøy) (NESTE)<br />
               Slik satte jeg opp Docker på Windows så jeg kunne bruke en Linux
               VM. Og Linux har her tilgang til min prosjektmappe (dele filer)<br /><br />
               Hvorfor bruker jeg Kali Linux? Google it!<br /><br />
 
               Så hvordan blir vi gode kodeknekkere? Vi må øve...
             </aside>
-          </section>
+          </section> -->
 
           <section>
             <h3>Bygg kompetanse!</h3>
@@ -2656,20 +2658,21 @@
               CTF-konkurranse. Jag sårbarheter, få poeng, vinn! Lagd av OWASP
               (Open Web Application Security Project).<br /><br />
 
-              * Hvis det å være på lag og jobbe til seint på natten
-              frister...(NESTE)<br /><br />
+              * Hvis det å være <b>på lag</b> og jobbe til
+              <b>seint på natten</b> frister...(NESTE)<br /><br />
 
-              Hvorfor ikke delta i CTF-konkurranser - vinn premier (og
-              jobb?)!<br />
-              <b>Real World CTF</b> og <b>Google CTF</b> er bare et par
-              eksempler fra utlandet, men hvorfor ikke arrangere internt og
-              konkurrere med kollegaer?
+              * Hvorfor ikke delta i CTF-konkurranser! (vanke premier, og
+              jobb?)<br />
+              * Eller hvorfor ikke <b>arrangere</b> CTF-konkurranser på jobb?
+              <br />
+              ** Sosialt, øker sikkerhetsbevisstheten til alle og øker
+              kompetansen til deltagerne
             </aside>
           </section>
 
           <section>
             <h3>Konferanser</h3>
-            <div class="fragment fade-up">
+            <div>
               <p><a href="https://owaspnorwayday.org/">OWASP Norway Day</a></p>
               <p>
                 <a href="https://sikkerhetsfestivalen.no/"
@@ -2680,7 +2683,7 @@
             </div>
             <aside class="notes">
               Kompetansebygging handler også om å dele med hverandre - gå på
-              konferanser eller hold foredrag (NESTE)<br /><br />
+              konferanser eller hold foredrag<br /><br />
 
               * OWASP Norway Day<br />
               * Sikkerhetsfestivalen<br />
@@ -3055,7 +3058,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
             twitterhai_pwd_1,
             twitterhai_pwd_letter_1,
             0,
-            isProd ? 10 : 1,
+            isPresenting ? 7 : 1,
             resolve
           );
         });
@@ -3068,7 +3071,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_2,
                 twitterhai_pwd_letter_2,
                 0,
-                isProd ? 9 : 1,
+                isPresenting ? 6 : 1,
                 resolve
               );
             });
@@ -3080,7 +3083,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_3,
                 twitterhai_pwd_letter_3,
                 0,
-                isProd ? 3 : 1,
+                isPresenting ? 1 : 1,
                 resolve
               );
             });
@@ -3092,7 +3095,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_4,
                 twitterhai_pwd_letter_4,
                 0,
-                isProd ? 2 : 1,
+                isPresenting ? 1 : 1,
                 resolve
               );
             });
@@ -3104,7 +3107,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_5,
                 twitterhai_pwd_letter_5,
                 0,
-                isProd ? 1 : 1,
+                isPresenting ? 1 : 1,
                 resolve
               );
             });
@@ -3116,7 +3119,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_6,
                 twitterhai_pwd_letter_6,
                 0,
-                isProd ? 1 : 1,
+                isPresenting ? 1 : 1,
                 resolve
               );
             });
@@ -3128,7 +3131,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
                 twitterhai_pwd_7,
                 twitterhai_pwd_letter_7,
                 0,
-                isProd ? 1 : 1,
+                isPresenting ? 1 : 1,
                 resolve
               );
             });
@@ -3183,7 +3186,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
         // width: 1300,
         // height: 900,
 
-        transition: "default", // none/fade/slide/convex/concave/zoom
+        transition: "slide", // none/fade/slide/convex/concave/zoom
 
         // Parallax scrolling
         //background: "#28306a",
