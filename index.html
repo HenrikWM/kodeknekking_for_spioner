@@ -201,16 +201,15 @@
               snakket om hvordan lage sømløse innloggingsløsninger - tydelig at
               sikkerhet har blitt et fagområde jeg trives i<br /><br />
 
-              Alle disse egenskapene egner seg tilfeldigvis også veldig godt til
-              kodeknekking
+              Det viser seg at alle disse egenskapene tilfeldigvis egner seg
+              veldig godt til kodeknekking
             </aside>
           </section>
 
           <section>
             <h3>I ❤️ CTF-er</h3>
             <aside class="notes">
-              Og som nevnt, jeg digger CTF-er! Min favoritt
-              kompetanseaktivitet<br />
+              Og som nevnt, jeg digger CTF-er!<br />
 
               * Hva er en CTF?<br />
               ** <b>Capture The Flag</b>-spill/nøtt, hacker seg igjennom
@@ -323,8 +322,8 @@
               ><br /><br />
 
               Det viser seg heldigvis at PST har et snev av selvironi, fordi
-              gåten og løsningen som vi skal gå igjennom idag bærer preg av
-              relativt mye hai, som dere snart skal få se.
+              gåten og løsningen som vi skal gå igjennom, bærer preg av relativt
+              mye hai, som dere snart skal få se
             </aside>
           </section>
 
@@ -621,7 +620,7 @@
             />
             <aside class="notes">
               * Slik starter vi opp Stegsolve<br />
-              * Har lastet inn haibildet<br />
+              * Har lastet inn haibildet, klikker igjennom filtrene<br />
               (VENTE 10s)<br />
               Her var det lite spennende
             </aside>
@@ -689,7 +688,7 @@
             />
             <p>shark.html</p>
             <aside class="notes">
-              shark.html gjemt vertikalt, snedig!
+              <b>shark.html</b> gjemt vertikalt, snedig!
             </aside>
           </section>
 
@@ -750,8 +749,8 @@
               * Får opp en nettside med råd om hvordan man lager en god
               jobbsøknad <br />
               (NESTE)<br />
-              * Ikke så mye mer interessant her... vi får kikke på
-              HTML-kildekoden
+              * Ikke så mye mer interessant her... vi får kikke på nettsidens
+              kildekode igjen
             </aside>
           </section>
 
@@ -765,10 +764,10 @@
             />
             <h3 class="fragment fade-up">🤔🤔🤔</h3>
             <aside class="notes">
-              Vi gransker HTML-kildekoden og finner et par interessante
-              kommentarer i koden:<br /><br />
-              * Vi får tips om at NAVs nettsider inneholder tips på hvordan
-              skrive en god jobbsøknad.<br />
+              Vi gransker HTML-koden og finner et par interessante kommentarer i
+              koden:<br /><br />
+              * Det står at NAVs nettsider inneholder tips på hvordan skrive en
+              god jobbsøknad<br />
               * "Vi har flere oppgaver. Se nøye etter, så finner du de."<br /><br />
               (NESTE)<br />
 
@@ -820,11 +819,11 @@
                 30            0x1E            <mark>TIFF image data</mark>, big-endian, offset of first image directory: 8
               </code></pre>
             <aside class="notes">
-              * Når vi skal analysere filer liker jeg å bruke
+              * Når jeg skal analysere filer liker jeg å bruke
               <b>binwalk</b> (NESTE)<br />
               * Hva gjør binwalk?<br />
               (NESTE) <br />
-              * Og vi får bekreftet at vi har et bilde, TIFF komprimert til
+              * Og her får vi bekreftet at vi har et bilde, TIFF komprimert til
               JPEG. Ikke noe spennende her.
             </aside>
           </section>
@@ -892,7 +891,8 @@
 
               (ANEKDOTE) <br />
               * Hvorfor er tekst i bildekommentarer/data-chunks i PNG-bilder
-              farlig?
+              farlig?<br />
+              * Ikke stol på brukerinput!
             </aside>
           </section>
 
@@ -915,8 +915,8 @@
               style="width: 75%"
             />
             <aside class="notes">
-              * I CTF'er gjelder det av og til å være effektiv så da bruker man
-              Google for å finne et verktøy, enn å gjøre altfor mye jobb selv<br />
+              * I CTF'er gjelder det å være effektiv, så da bruker man Google
+              for å finne et verktøy, enn å gjøre altfor mye jobb selv<br />
               * Her har vi en nettside som henter ut metadata fra et bilde, og
               her ser vi bildekommentaren som vi fant tidligere med
               <b>file</b> og <b>strings</b>
@@ -930,7 +930,8 @@
             <p class="fragment fade-up">👍</p>
             <aside class="notes">
               Kult! (NESTE)<br />
-              Vi har en ny nettside å gå videre til
+              Vi har en ny nettside å gå videre til:
+              twitterhai.eu/haitech_secure.html
             </aside>
           </section>
         </section>
@@ -945,11 +946,11 @@
               class="plain"
             />
             <aside class="notes">
-              * Vi kommer til nok en side med tips om å skrive en god
-              jobbsøknad. Forteller at du vil bli testet på intervjuet.<br />
+              * Vi kommer til nok en side med tips om hvordan skrive en god
+              jobbsøknad. Blir også fortalt at vi blir testet på evt.
+              intervju<br />
               * Vi legger merke til at vi skal logge inn med et passord<br />
-              * Vi har ikke så mange ledetråder her så vi får kikke på
-              HTML-kildekoden igjen
+              * Ellers få ledetråder her så vi får kikke på kildekoden igjen
             </aside>
           </section>
 
@@ -977,8 +978,8 @@
 
               1. Det første som skjer etter at vi har tastet inn passordet og
               trykker ENTER, er å trigge funksjonen "login()"<br />
-              2. I login()-funksjonen er det en chiffertekst på pkt. 2, hva
-              brukes den til? (hva er chiffertekst)<br />
+              2. I login()-funksjonen på pkt.2 er det en chiffertekst, altså en
+              kryptert tekst. Nysgjerrig på hva den brukes til<br />
               3. På pkt. 3 ser vi et if-uttrykk. Den gjør true/false-sjekker på
               passordet vi oppgir.<br />
               Hvis hele uttrykket blir sant:<br />
@@ -1002,9 +1003,8 @@
               Det er på tide å hacke!<br />
               (NESTE)<br />
 
-              Dette handler om å reverseengineere logikken i
-              JavaScript-kodesnutten som validerer passordet, slik at vi finner
-              passordet (NESTE) ut ifra hva den godtar<br /><br />
+              Dette handler om å forstå logikken i JavaScript-kodesnutten som
+              validerer passordet og angi passordet som forventes (NESTE)<br /><br />
 
               Denne typen "kodeknekking"/hacking finner man ofte på enklere
               CTF-oppgaver (forstå logikken og kalkulere seg til et passord)<br /><br />
@@ -1015,7 +1015,7 @@
               * Alltid <b>komprimer</b> og <b>obfusker</b> JS-koden <br />
               * <b>Flytt</b> slik kritisk funksjonalitet til et
               <b>back-end API</b>, eller enda bedre: bruk kjente rammeverk og
-              standarder for innlogging/autentisering - ikke lag selv!<br /><br />
+              standarder for innlogging/autentisering - ikke lag dette selv!<br /><br />
 
               Men siden er er åpent og tilrettelagt for oss her, la oss ta en
               nærmere kikk på denne passordvalideringen
@@ -1043,13 +1043,13 @@
               >ASCII-til-hex/bin/dec-converter</a
             >
             <aside class="notes">
-              Her har vi logikken vi må knekke:<br />
+              Her har vi logikken i If-uttrykket som vi må knekke:<br />
               * For hver tegn i passordet må vi finne et tall.<br />
               * Tallet må vi gjøre om til et tegn. Det gjør vi ved å slå opp
               tallet i noe som kalles ASCII-tabellen, en liste over alle tegn på
               tastaturet ditt, hvor hver tegn har en tallverdi.<br />
-              * Hver tegn vi finner på hver linje her blir tilsammen passordet
-              vi er på jakt etter<br /><br />
+              * Hver tegn vi ender opp med på hver linje, blir tilsammen
+              passordet vi er på jakt etter<br /><br />
 
               (NESTE)<br />
               Veldig kjekt å bruke et verktøy for å gå til/fra tall og
@@ -1338,7 +1338,7 @@
               </code>
             </pre>
             <p>H4mm3rH</p>
-            <aside class="notes"><b>72, H</b></aside>
+            <aside class="notes"><b>H</b></aside>
           </section>
 
           <section data-transition="none">
@@ -1379,7 +1379,7 @@
             </pre>
             <p>H4mm3rH4</p>
             <aside class="notes">
-              <b>52, 4</b><br />
+              <b>4</b><br />
               De av dere som er observante ser kanskje hva passordet ser ut til
               å bli...
             </aside>
@@ -1421,9 +1421,12 @@
             </pre>
             <p>H4mm3rH4i 🦈</p>
             <aside class="notes">
-              <b>105, i</b><br />
-              Vi har klart å tolke valideringen og kalkulert oss fram til et
-              passord som vil glatt passere valideringen!
+              <b>105, i</b><br /><br />
+
+              <b>H4mm3rH4i</b><br /><br />
+
+              Vi har klart å tolke valideringen og kalkulert oss fram til
+              passordet!
             </aside>
           </section>
 
@@ -1509,7 +1512,8 @@
               en løsning hvis man Googler litt.<br />
               * Kan også lage kodesnutt som gjør dette<br />
               (NESTE)<br />
-              * Vi har en ny nettside å gå videre til!
+              * Vi har en ny nettside å gå videre til:
+              twitterhai.tech/hai_there.html
             </aside>
           </section>
 
@@ -1543,7 +1547,9 @@
               * Hvis man gikk til <b>twitterhai.tech</b> fikk man samme melding
               om å sjekke ut Twitter-kontoen som vi så nettopp. Artig!<br /><br />
 
-              Så det bringer oss til Twitter!
+              Hvis man er kreativ og kan mange nok teknikker, kommer man raskere
+              til mål. <br />
+              Vi får ta en tur til Twitter!
             </aside>
           </section>
         </section>
@@ -1623,7 +1629,7 @@
             <aside class="notes">
               (ZOOM INN)<br />
               Ser ikke noe mønster i haitweetene. For mye hai. <br />
-              Får ta ut tekstene til et tekstprogram.
+              Får ta ut tekstene til et tekstprogram og analysere de
             </aside>
           </section>
 
@@ -1654,7 +1660,9 @@
             <aside class="notes">
               Så se for dere at jeg klipper og limer her.<br />
               Veldig kult med negativ tekst! Gøy å se løsningen åpenbare seg på
-              denne måten!
+              denne måten!<br /><br />
+
+              <b>HAI1337</b>
             </aside>
           </section>
 
@@ -1757,8 +1765,8 @@
             </p>
             <aside class="notes">
               (NESTE)<br />
-              * Hvis man foretrekker Linux er (NESTE)<b>tcpdump/NetworkMiner</b>
-              fine programmer for å jobbe med pcap-filer.<br />
+              * Hvis man foretrekker Linux er (NESTE)
+              <b>tcpdump/NetworkMiner</b> fine programmer for pcap-filer<br />
               * NetworkMiner er god hvis det er mye trafikk å analysere.
             </aside>
           </section>
@@ -1782,7 +1790,8 @@
           <section data-transition="fade-out" data-source="wireshark">
             <img data-src="img/haimat/haimat-wireshark.png" class="plain" />
             <aside class="notes">
-              Vi åpner Wireshark og begynner å kikke litt rundt.
+              * Vi åpner Wireshark og begynner å kikke litt rundt.<br />
+              * Hver rad er en datapakke
             </aside>
           </section>
 
@@ -1792,8 +1801,8 @@
               class="plain"
             />
             <aside class="notes">
-              * Vi ser fort spor etter mye HTTP-pakker, så mest sannsynlig noen
-              som har avlyttet trafikken mellom bruker og en webserver.
+              * Vi ser fort spor etter mange HTTP-pakker, så mest sannsynlig har
+              noen avlyttet trafikken mellom bruker og en webserver.
             </aside>
           </section>
 
@@ -1805,11 +1814,12 @@
             <aside class="notes">
               Det første vi ser er en HTTP-forespørsel mot rotmappen på server
               192.168.230.129. Vi ser deretter en HTTP-respons med text-html.
-              Innholdet er en HTML-side med link til en "secret_data"
-              zip-fil!<br /><br />
+              Innholdet er en HTML-side med link til en <b>secret_data.zip</b
+              ><br /><br />
+
               Det vi gjør nå er godt spionhåndtverk, nemlig kikke og lytte på
-              åpen web-trafikk. Dette er forresten hvorfor vi må bruke
-              SSL/TLS-kryptering på nettsidene våre og krypterte
+              web-trafikk. Dette er forresten hvorfor vi må bruke
+              SSL/TLS-kryptering på nettsidene våre, og bruke krypterte
               meldingstjenester! Da unngår du snoking som vi driver med nå
             </aside>
           </section>
@@ -1859,7 +1869,7 @@
               class="plain"
             />
             <aside class="notes">
-              * Så finner vi en HTTP-forespørsel for å laste ned denne
+              * Så finner vi en HTTP-forespørsel for å <b>laste ned</b> denne
               zip-filen.<br />
 
               * Veldig nysgjerrig på hva som er i denne zip-filen!
@@ -1886,16 +1896,15 @@
               Så her ser vi...<br />
               (NESTE)<br />
 
-              * En forespørsel fra en klient til webserveren om å hente ned
-              <b>secret_data.zip</b> og selve svaret som inneholder zip-filen
+              * En forespørsel fra brukeren til webserveren om å hente ned
+              <b>secret_data.zip</b> og et svar som inneholder zip-filen
               (NESTE)<br />
 
               * Og heldigvis for oss går trafikken over TCP-port 80 som gjør at
-              vi ser all trafikk <br />
+              vi ser (og hente ut alt i) trafikken <br />
               (NESTE)<br />
 
-              (NESTE)<br />
-              * Vi får plukke ut denne filen og kikke nærmere på den!
+              * Vi får plukke ut (NESTE) denne zip-filen!
             </aside>
           </section>
 
@@ -1928,8 +1937,8 @@
             <p>Vi henter ut <b>secret_data.zip</b> med Wireshark</p>
             <aside class="notes">
               Tilbake til zip-filen. Vi bruker Wireshark til å eksportere ut
-              binærdataene fra nettverkspakke 362 og lagrer dataene til disk som
-              en zip-fil. <br />
+              binærdataene fra nettverkspakke 362 som inneholdt zip-filen, og
+              lagrer dataene til disk<br />
 
               * Mange måter å gjøre dette på med Wireshark. Jeg viser en av
               flere måter man kan gjøre dette på.
@@ -1942,8 +1951,7 @@
               class="plain"
             />
             <aside class="notes">
-              Vi finner pakken det gjelder som inneholder svaret fra webserveren
-              med zip-filen
+              Vi finner datapakke 362 med zip-filen
             </aside>
           </section>
 
@@ -1954,7 +1962,7 @@
             />
             <aside class="notes">
               Vi velger pakken og høyreklikker på Media Type (selve
-              binærdataene) og velger "Export Packet Bytes". <br /><br />
+              binærdataene) og velger <b>Export Packet Bytes</b>. <br /><br />
 
               Lagrer filen som <b>secret_data.zip</b>.
             </aside>
@@ -1969,7 +1977,7 @@
             <p class="fragment">😀</p>
             <aside class="notes">
               Nå har jeg lagret zip-filen og har åpnet den i WinZip (NESTE)
-              <br />
+              <br /><br />
 
               Vi kan se at i zip-filen ligger det et bilde
               <b>insignificant_shark.png</b>! Spennende!
@@ -2001,7 +2009,7 @@
               class="plain"
             />
             <aside class="notes">
-              Det er en passordbeskyttet zip-fil!
+              Det er en passordbeskyttet zip-fil! Søren!
             </aside>
           </section>
 
@@ -2015,9 +2023,10 @@
             </p>
             <aside class="notes">
               Hm (NESTE)<br />
-              * I forrige avsnitt fant vi en HTML-fil som sa at "passordet har
-              du allerede". Fikk vi med oss noe fra tidligere som kan passe som
-              passord? (NESTE)<br />
+              * I forrige avsnitt, i nettverkstrafikken, hentet bruker en
+              HTML-side hvor det stod "passordet har du allerede"<br />
+              * Fikk vi med oss noe fra tidligere som kan passe som passord?
+              (NESTE)<br />
               * HAI1337 er en god kandidat
             </aside>
           </section>
@@ -2067,7 +2076,7 @@
               class="plain"
             />
             <aside class="notes">
-              La oss se nærmere på disse tegnene
+              Zoomer litt inn
             </aside>
           </section>
 
@@ -2091,6 +2100,7 @@
               style="width: 60%"
             />
             <aside class="notes">
+              Store norke leksikon kan hjelpe oss<br />
               * Her har vi en "Normalisert" utgave av det eldre runealfabetet<br />
               * Vi får prøve å finne en og en bokstav
             </aside>
@@ -2245,7 +2255,7 @@
               * Har jeg prøvd alle dekodingsmuligheter?<br />
               (NESTE) <br /><br />
 
-              * Hva med Most Significant Bit dekoding? (NESTE)
+              * Hva med Most Significant Bit (NESTE) dekoding?
             </aside>
           </section>
 
@@ -2296,13 +2306,15 @@
 
             <aside class="notes">
               * Se der! Vi har en tekstsnutt!<br />
-              * Vi skal videre til en ny fil (et bilde) (NESTE)<br /><br />
+              * Vi skal videre til en ny fil (et bilde):
+              <b>u_are_th3_winrar.jpg</b> <br />
+              (NESTE) Kult!<br /><br />
 
               Oppsummert: <br />
               * I haibildet var det runer, de sa vi skulle bry oss om LSB (<b
                 >Least Significant Bit</b
               >)<br />
-              * Vi brukte LSB-dekoding på filen og vi fant QR-kodebildet <br />
+              * Vi brukte LSB-dekoding på bildet og vi fant QR-kodebildet <br />
               * Vi dekodet QR-kodebildet som hintet igjen om LSB-dekoding. Vi
               lærte ikke noe mer, LSB-dekoding et sidespor<br /><br />
 
@@ -2333,15 +2345,15 @@
             <p>2 observasjoner...</p>
             <p class="fragment"><b>8,56 MB</b> stort JPG-bilde!</p>
             <p class="fragment">
-              Filnavnet inneholder <b>WinRar</b> (kompresjonsformat)
+              Filnavnet inneholder <b>rar</b> (kompresjonsformat)
             </p>
             <aside class="notes">
               Et par observasjoner: <br />
               (NESTE) <br />
-              * Veldig stort bilde (over 8 MB) <br />
+              * Veldig stort bilde (over 8 MB). Uvanlig stort bilde <br />
               (NESTE)<br />
-              * Filnavnet hinter om programmet WinRar: et format for å
-              komprimere filer<br />
+              * Filnavnet hinter om RAR-filer: et format for å komprimere
+              filer<br />
               * Vi har en ny fil. Hva gjør vi når vi får en ny fil?
             </aside>
           </section>
@@ -2415,7 +2427,7 @@
               * Litt artig, det ligger også en binær sertifikatfil gjemt
               her...<br />
               * Men... (NESTE)<br />
-              * vi ser at det skjuler seg en RAR-fil (WinRar) i bildet!<br />
+              * vi ser at det skjuler seg en RAR-fil i bildet!<br />
               (NESTE)<br />
               * Jeg <b>digger binwalk</b> fordi den finner alt!<br />
               (NESTE)<br />
@@ -2474,10 +2486,11 @@
               Linux
             </p>
             <aside class="notes">
-              * Vi får pakke ut hva som ligger i denne WinRar-filen<br />
+              * Vi får pakke ut hva som ligger i denne RAR-filen<br />
               * Jeg bruker (NESTE) <b>WinRar</b> i Windows. <br />
-              (NESTE)<br /><br />
 
+              (NESTE)<br />
+              (NESTE) <br />
               <b>Unrar</b> for Linux gjør det samme.
             </aside>
           </section>
@@ -2524,9 +2537,12 @@
 
               Hvis vi søker så blir vi bedt om å nevne det
               <b>hemmelige kodeordet</b> som vi nå har fått tilgang til ved å
-              løse oppgavene. Hva det var får du finne ut selv...<br /><br />
+              løse oppgavene.<br />
+              * Kodeordet var flagget vi lett etter i denne CTF'en<br /><br />
 
-              Resten av filen er fyllstoff med Lorem Ipsum dummytekst.
+              Resten av filen er fyllstoff med Lorem Ipsum dummytekst.<br /><br />
+
+              Da er gåten løst!
             </aside>
           </section>
         </section>
@@ -2538,16 +2554,17 @@
             <aside class="notes">
               * Hvordan gjorde jeg det? <br />
               ** blindsporbokstaver til koordinater, 1 arb.dag effektivt<br />
-              ** lærte meg Linux og verktøy<br /><br />
+              ** lærte meg Linux, python og verktøy<br />
+              ** nøt prosessen<br /><br />
 
               * Lærte å skrive ned både løsning og oppgave, til evt. senere
               bruk<br /><br />
 
               (ANEKDOTE)<br />
-              * Hva slet jeg mest med? (ineffektivt i starten før man kan
-              verktøyene)<br />
-              * Hvordan hjalp CTF-erfaringene med å løse gåten? (definere målet,
-              sikte inn på en ting)
+              * Hvordan hjalp CTF-erfaringene med å løse gåten?<br />
+              ** Definere <b>delmål</b><br />
+              ** Sikte inn på <b>en ting</b> av gangen<br />
+              ** Bruke de <b>riktige verktøyene</b>
             </aside>
           </section>
 
@@ -2701,7 +2718,7 @@
             </div>
             <aside class="notes">
               Kompetansebygging handler også om å dele med hverandre - gå på
-              konferanser eller hold foredrag<br /><br />
+              konferanser eller hold foredrag. Eksempler med sikkerhetstema:<br /><br />
 
               * OWASP Norway Day<br />
               * Sikkerhetsfestivalen<br />
@@ -2726,7 +2743,7 @@
               <p>Les reglene og slå deg løs! 🤑</p>
             </div>
             <aside class="notes">
-              Få betalt for å finne sårbarheter og bugs (NESTE)<br /><br />
+              Bug-bounties: få betalt for å finne sårbarheter og bugs (NESTE)<br /><br />
 
               * HackerOne er en plattform for bedrifter som har
               bugbounty-programmer for sine tjenester (Twitter, Facebook
