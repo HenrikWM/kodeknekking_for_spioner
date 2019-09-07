@@ -988,7 +988,7 @@
               * deretter spretter det opp en pop-up med denne dekrypterte
               chifferteksten. Spennende!<br /><br />
 
-              Vi er nødt til å finne ut hva passordet er!
+              For å komme videre er vi er nødt til å finne ut hva passordet er!
             </aside>
           </section>
 
@@ -1009,7 +1009,16 @@
               Denne typen "kodeknekking"/hacking finner man ofte på enklere
               CTF-oppgaver (forstå logikken og kalkulere seg til et passord)<br /><br />
 
-              La oss ta en nærmere kikk på denne passordvalideringen
+              (ANEKDOTE)<br />
+              * Ikke gjør slik kritisk kode så lett tilgjengelig og forståelig
+              <br />
+              * Alltid <b>komprimer</b> og <b>obfusker</b> JS-koden <br />
+              * <b>Flytt</b> slik kritisk funksjonalitet til et
+              <b>back-end API</b>, eller enda bedre: bruk kjente rammeverk og
+              standarder for innlogging/autentisering - ikke lag selv!<br /><br />
+
+              Men siden er er åpent og tilrettelagt for oss her, la oss ta en
+              nærmere kikk på denne passordvalideringen
             </aside>
           </section>
 
@@ -1093,18 +1102,18 @@
 
           <section data-transition="none">
             <pre>
-                  <code class="javascript smaller" data-trim data-line-numbers="2">
-                  password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-                  password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
-                  password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
-                  password.charCodeAt(3) == password.charCodeAt(2) &&
-                  password.substring(4, 5) == 3 &&
-                  password.charCodeAt(5) == 7 * 17 - 5 &&
-                  password.charCodeAt(6) == password.charCodeAt(0) &&
-                  password.charCodeAt(7) == password.charCodeAt(1) &&
-                  password.charCodeAt(8) == 0x69
-                  </code>
-                </pre>
+              <code class="javascript smaller" data-trim data-line-numbers="2">
+              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
+              password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
+              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
+              password.charCodeAt(3) == password.charCodeAt(2) &&
+              password.substring(4, 5) == 3 &&
+              password.charCodeAt(5) == 7 * 17 - 5 &&
+              password.charCodeAt(6) == password.charCodeAt(0) &&
+              password.charCodeAt(7) == password.charCodeAt(1) &&
+              password.charCodeAt(8) == 0x69
+              </code>
+            </pre>
             <p>H</p>
             <aside class="notes">
               Math.pow, dvs. x opphøyd i y.<br />
@@ -1414,14 +1423,23 @@
             <aside class="notes">
               <b>105, i</b><br />
               Vi har klart å tolke valideringen og kalkulert oss fram til et
-              passord som vil glatt passere valideringen!<br /><br />
+              passord som vil glatt passere valideringen!
+            </aside>
+          </section>
 
-              * På siden med passordfeltet taster jeg inn <b>H4mm3H4i</b><br />
+          <section data-source="roy_solberg_fra_pst">
+            <img
+              data-src="img/innlogging/innlogging_haitech_secure-html.png"
+              class="plain"
+            />
+            <aside class="notes">
+              * I passordfeltet taster jeg inn <b>H4mm3H4i</b><br />
               * if ()-uttrykket for passordvalidering blir <b>true</b><br />
-              * decrypt(ciphertext, passord) dekrypterer ciphertext-strengen<br />
+              * decrypt(ciphertext, passord) dekrypterer chifferteksten<br />
               * En melding vises ved passordfeltet: <b>Kult! Du er en råing!</b
               ><br />
-              * Til slutt: alert-boks vises med dekryptert chiffertekst
+
+              * Alert-boks (pop-up) vises med den dekrypterte chifferteksten
             </aside>
           </section>
 
@@ -1448,13 +1466,14 @@
               >
             </p>
             <aside class="notes">
-              Ser vi noe mønster i den rare teksten? Hva ligner det på?
-              (NESTE)<br />
-              * Hint: :// - ligner på en url med rare tegn? Forskjøvet? <br />
+              Ser vi noe mønster i den rare teksten? Hva ligner det på?<br />
+              * Hint: :// - ligner på en url med rare tegn? (NESTE) <br />
+              Forskjøvet? <br />
               * Hint: Ceasar er nevnt<br />
-              * Kan det være Ceasar chiffer? (NESTE) (hva er det?)<br />
-              (NESTE) <br />
+              * Kan det være Ceasar chiffer? (NESTE)<br />
+              ** Hva er Ceasar chiffer? (rotere tegn, nøkkelløs kryptering)<br />
               * Dette er en tekst som er kryptert med en teknikk som kalles
+              (NESTE)
               <b>ROT-13 Ceasar chiffer</b>
             </aside>
           </section>
@@ -1466,11 +1485,10 @@
               style="width: 60%"
             />
             <aside class="notes">
-              * Disse skivene demonstrerer hvordan man krypterer en tekst uten å
-              bruke en krypteringsnøkkel. <br />
-              * Istedet roteres skiven for hver bokstav i en tekst 13 ganger.
-              Den som skal lese den krypterte teksten, roterer tilbake 13
-              ganger, og kan dermed lese teksten.<br />
+              * Disse skivene illustrerer hvordan man krypterer en tekst et tegn
+              av gangen<br />
+              * Skiven roteres for hver bokstav 13 ganger. Den som skal lese den
+              krypterte teksten, roterer hver bokstav tilbake 13 ganger<br />
               * Populært i romertiden, effektiv, billig og enkel kryptering
             </aside>
           </section>
@@ -3190,7 +3208,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
 
         // Parallax scrolling
         //background: "#28306a",
-        parallaxBackgroundImage: "img/background_bond2.png",
+        parallaxBackgroundImage: "img/background_bond.png",
         parallaxBackgroundSize: "3700px 1600px",
 
         dependencies: [
