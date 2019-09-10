@@ -201,8 +201,8 @@
               snakket om hvordan lage sømløse innloggingsløsninger - tydelig at
               sikkerhet har blitt et fagområde jeg trives i<br /><br />
 
-              Det viser seg at alle disse egenskapene tilfeldigvis egner seg
-              veldig godt til kodeknekking
+              Alle disse egenskapene, viser det seg, egner seg også veldig godt
+              til kodeknekking
             </aside>
           </section>
 
@@ -216,9 +216,9 @@
               sårbarheter - finne skjult kode (flagget)<br /><br />
 
               * Hvorfor liker jeg CTF'er? <br />
-              ** <b>Måldrevne</b>. Krever <b>rekognosering</b>,
-              <b>analyse</b> for å forstå hvordan man kan <b>utnytte</b> en
-              sårbarhet<br />
+              ** <b>Måldrevne</b><br />
+              ** Prosessen: <b>rekognosering</b> og <b>analyse</b> for å forstå
+              hvordan man kan <b>utnytte</b> en sårbarhet<br />
               ** Belønning! (koden, viktig spisskompetanse)<br /><br />
 
               Før vi begynner, la oss dvele litt over hvorfor PST søker etter
@@ -604,24 +604,62 @@
                 >last ned stegsolve.jar</a
               >
             </p>
+            <pre>
+              <code data-trim class="shell">root@c04ddcc8bccd:~# java -jar stegsolve.jar</code>
+            </pre>
             <aside class="notes">
-              Å skjule noe i et bilde kalles <b>Steganografi</b><br />
-              * Stegsolve: kikke igjennom fargefiltre, lete etter tekst og
-              bilder
+              Å skjule data i et bilde kalles <b>Steganografi</b><br />
+              * Stegsolve: kikke igjennom fargefiltre i bildet<br />
+              ** ser etter <b>skjult tekst</b> eller <b>andre bilder</b
+              ><br /><br />
+
+              La oss starte opp Stegsolve og først kikke på et eksempel på
+              hvordan man finner et flagg (skjult kode) i et bilde
+            </aside>
+          </section>
+
+          <section
+            data-transition="fade-in"
+            data-source="failOverflow_doge_stege"
+          >
+            <img
+              data-src="img/twitterhai-eu/insignificant_shark-doge.png"
+              class="plain"
+              style="width: 70%;"
+            />
+            <aside class="notes">
+              * Her har jeg funnet fram et bilde fra en annen CTF-oppgave
+              <b>doge_stege</b> (<b>Plaid CTF 2014</b>)<br />
+              * Vi klikker igjennom fargefiltrene i Stegsolve...
+            </aside>
+          </section>
+
+          <section
+            data-transition="none fade-out"
+            data-source="failOverflow_doge_stege"
+          >
+            <img
+              data-src="img/twitterhai-eu/insignificant_shark-doge-decoded-highlighted.png"
+              class="plain"
+              style="width: 70%;"
+            />
+            <aside class="notes">
+              * Se der!<br />
+              * I et av fargefiltrene er flagget man skal finne gjemt:
+              <b>pctf{keep_doge_alive_2014}</b><br /><br />
+
+              Vi får se om det skjuler seg noe i haibildet
             </aside>
           </section>
 
           <section data-source="stegsolve_caesum">
-            <pre><code data-trim class="shell">
-              root@c04ddcc8bccd:~# java -jar stegsolve.jar</code></pre>
             <img
               data-src="img/twitterhai-eu/twitterhai-eu-stegsolve.gif"
               class="plain"
               style="width: 75%;"
             />
             <aside class="notes">
-              * Slik starter vi opp Stegsolve<br />
-              * Har lastet inn haibildet, klikker igjennom filtrene<br /><br />
+              * Har lastet inn haibildet, klikker igjennom fargefiltrene<br /><br />
 
               (VENTE 10s)<br /><br />
 
@@ -922,7 +960,7 @@
               style="width: 75%"
             />
             <aside class="notes">
-              * I CTF'er gjelder det å være effektiv, så da bruker man Google
+              Men i CTF'er gjelder det å være effektiv, så da bruker man Google
               for å finne et verktøy, enn å gjøre altfor mye jobb selv<br /><br />
 
               * Her har vi en nettside som henter ut <b>metadata</b> fra et
@@ -1896,7 +1934,7 @@
           </section>
 
           <section>
-            <h3>Andre observasjon...</h3>
+            <h3>Andre observasjon</h3>
             <p class="fragment">
               I nettverkspakke 326 og 362 er det henholdsvis en HTTP-forespørsel
               og -svar på å laste ned zip-filen:
@@ -2462,9 +2500,8 @@
           <section data-source="bobu_sumisu_pst_writeup">
             <p>
               Ekstraherer RAR-filen ut av <b>u_are_th3_winrar.jpg</b> med
-              <span class="fragment highlight-green">dd</span> (Linux)
+              <span class="fragment highlight-green">dd</span> i Linux
             </p>
-
             <pre
               class="fragment fade-up"
             ><code class="shell smaller" data-trim data-noescape>
@@ -2823,11 +2860,11 @@
             </p>
             <aside class="notes">
               Vi har ikke mye å stille opp med sammenlignet med andre større
-              aktørers cyberforsvarsbudsjetter (NESTE)<br /><br/>
+              aktørers cyberforsvarsbudsjetter (NESTE)<br /><br />
 
               Men kanskje det er typisk norsk (NESTE) å allikevel klare å ta
-              igjen skjevheten med <b>dyktighet</b>, og at vi er <b>effektive og
-              effektfulle</b> i det vi gjør
+              igjen skjevheten med <b>dyktighet</b>, og at vi er
+              <b>effektive og effektfulle</b> i det vi gjør
             </aside>
           </section>
 
@@ -2886,7 +2923,7 @@
             * Det var alt jeg hadde for idag<br />
             * Tusen takk for at dere kom og hørte på. <br /><br />
 
-            * Ha en flott JavaZone videre!<br /><br />
+            * Ha en super JavaZone videre!<br /><br />
 
             * Takk for meg!
           </aside>
@@ -2917,6 +2954,8 @@
           "Kilde: http://reverseip.domaintools.com/search/?q=twitterhai.eu, Foto: Domaintools",
         roy_solberg: "Kilde: Roy Solberg, Foto: Twitter",
         stegsolve_caesum: "Foto: StegSolve, Caesum, Windows 10",
+        failOverflow_doge_stege:
+          "Kilde: https://fail0verflow.com/blog/2014/plaidctf2014-for100-doge_stege/, Foto: jix, fail0verflow",
         roy_solberg_blogg:
           "Kilde: https://blog.roysolberg.com/2019/01/pst-challenge",
         twitter: "Kilde: https://twitter.com/twitt3rhai, Foto: Twitter",
