@@ -1554,17 +1554,23 @@
           </section>
 
           <section
+            data-source="inventwithpython_cipherwheel"
             data-state="ceasar-chiffer-scrambler-start"
             data-transition="fade-in slide"
           >
             <h4>uggc://gjvggreunv.grpu/unv_gurer.ugzy</h4>
-            <h3>=</h3>
+            <img
+              data-src="img/innlogging/Caesar-Cipher-wheel-animation.gif"
+              class="plain"
+              style="width: 40%"
+            />
             <h4 id="scramble-id-ceasar">
               uggc://gjvggreunv.grpu/unv_gurer.ugzy
             </h4>
             <p class="fragment fade-up">👍</p>
             <aside class="notes">
-              Så hvis vi forskyver hvert tegn bakover 13 ganger...<br />
+              Så hvis vi roterer den ytterste skiven bakover
+              <b>13 ganger</b> for hver bokstav...<br />
               Der ja (NESTE) <br />
               Fett!
             </aside>
@@ -1605,7 +1611,7 @@
             />
             <p class="fragment fade-up">👌</p>
             <aside class="notes">
-              Ser ut som vi skal til Twitter! (NESTE)<br/><br/>
+              Ser ut som vi skal til Twitter! (NESTE)<br /><br />
 
               Spennende!
             </aside>
@@ -3004,6 +3010,8 @@
         exif_regex_info: "Kilde: http://exif.regex.info/exif.cgi",
         ceasar_wheel:
           "Foto: https://commons.wikimedia.org/wiki/File:CipherDisk2000.jpg, Lisens: Public",
+        inventwithpython_cipherwheel:
+          "Kilde: https://inventwithpython.com/cipherwheel/",
         ceasar_cipher_decryption_tool:
           "Kilde: https://www.xarg.org/tools/caesar-cipher",
         wireshark: "Foto: Wireshark, Windows 10",
@@ -3195,7 +3203,7 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
         // Scrambler
         Scrambler({
           target: "#scramble-id-ceasar",
-          random: [1000, 12000],
+          random: [1000, 80000],
           speed: 100,
           text: "http://twitterhai.tech/hai_there.html",
           beforeEach: function(element) {
