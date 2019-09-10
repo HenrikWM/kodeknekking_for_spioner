@@ -141,8 +141,15 @@
               * Det viste seg jo at PST-gåten var
               <b>en eneste stor Capture The Flag (CTF)</b> oppgave, så for meg
               som digger CTF'er var det en nøtt å bare <b>hive seg over</b>!
-              <br />
-              * Jeg gleder meg til å ta dere igjennom løsningen straks<br /><br />
+              <br /><br />
+
+              * Hva er en CTF?<br />
+              ** <b>Capture The Flag</b>-spillsjanger hvor man alene eller som
+              lag fanger det andre lagets <b>flagg</b>. ** for vår del: hacker
+              oss igjennom sårbarheter hos motparten - finne skjult
+              <b>kode (som er flagget)</b><br /><br />
+
+              * Så jeg gleder meg til å ta dere igjennom løsningen straks<br /><br />
 
               Men før det, tenkte jeg <b>først</b> å starte med
               <b>å fortelle</b> om <b>mitt første møte</b> med kodeknekking
@@ -211,15 +218,11 @@
             <aside class="notes">
               Og som nevnt, jeg digger CTF-er!<br />
 
-              * Hva er en CTF?<br />
-              ** <b>Capture The Flag</b>-spill/nøtt, hacker seg igjennom
-              sårbarheter - finne skjult kode (flagget)<br /><br />
-
               * Hvorfor liker jeg CTF'er? <br />
-              ** <b>Måldrevne</b><br />
-              ** Prosessen: <b>rekognosering</b> og <b>analyse</b> for å forstå
-              hvordan man kan <b>utnytte</b> en sårbarhet<br />
-              ** Belønning! (koden, viktig spisskompetanse)<br /><br />
+              ** <b>Prosessen</b>: <b>rekognosering</b> og <b>analyse</b> for å
+              forstå hvordan man kan <b>utnytte</b> en sårbarhet<br />
+              ** <b>Måldrevne</b>: delmål underveis, motiverer<br />
+              ** <b>Belønning!</b> (koden, viktig spisskompetanse)<br /><br />
 
               Før vi begynner, la oss dvele litt over hvorfor PST søker etter
               flere folk
@@ -1057,9 +1060,9 @@
               CTF-oppgaver (forstå logikken og kalkulere seg til et passord)<br /><br />
 
               (ANEKDOTE)<br />
-              * Ikke gjør slik kritisk kode så lett tilgjengelig og forståelig
+              * Lite tips: ikke gjør slik kritisk kode så lett tilgjengelig og
+              forståelig
               <br />
-              * Alltid <b>komprimer</b> og <b>obfusker</b> JS-koden <br />
               * <b>Flytt</b> slik kritisk funksjonalitet til et
               <b>back-end API</b>, eller enda bedre: bruk kjente rammeverk og
               standarder for innlogging/autentisering - ikke lag dette selv!<br /><br />
@@ -1526,7 +1529,8 @@
               Forskjøvet? <br />
               * Hint: Ceasar er nevnt<br />
               * Kan det være Ceasar chiffer? (NESTE)<br />
-              ** Hva er Ceasar chiffer? (rotere tegn, nøkkelløs kryptering)<br /><br />
+              ** Hva er Ceasar chiffer? (forskyve bokstaver bortover i
+              alfabetet, nøkkelløs kryptering)<br /><br />
 
               Dette er en tekst som er kryptert med en teknikk som kalles
               (NESTE)
@@ -1549,23 +1553,50 @@
             </aside>
           </section>
 
+          <section
+            data-source="inventwithpython_cipherwheel"
+            data-state="ceasar-chiffer-scrambler-start"
+            data-transition="fade-in slide"
+          >
+            <h4>uggc://gjvggreunv.grpu/unv_gurer.ugzy</h4>
+            <img
+              data-src="img/innlogging/Caesar-Cipher-wheel-animation.gif"
+              class="plain"
+              style="width: 40%"
+            />
+            <h4 id="scramble-id-ceasar">
+              uggc://gjvggreunv.grpu/unv_gurer.ugzy
+            </h4>
+            <p class="fragment fade-up">👍</p>
+            <aside class="notes">
+              Så hvis vi roterer den ytterste skiven bakover
+              <b>13 ganger</b> for hver bokstav...<br />
+              Der ja (NESTE) <br />
+              Fett!
+            </aside>
+          </section>
+
           <section data-source="ceasar_cipher_decryption_tool">
             <img
               data-src="img/innlogging/innlogging_haitech_secure-html-ceasar-decrypted-highlighted.png"
               class="plain"
               style="width: 60%"
             />
-            <p class="fragment">
+            <aside class="notes">
+              * Som nevnt tidligere, vil man være rask finnes det nesten alltid
+              en løsning hvis man Googler litt.<br />
+              * Kan også lage kodesnutt som gjør dette
+            </aside>
+          </section>
+
+          <section>
+            <p>
               <a href="http://twitterhai.tech/hai_there.html"
                 >http://twitterhai.tech/hai_there.html ➡
               </a>
             </p>
             <aside class="notes">
-              * Som nevnt tidligere, vil man være rask finnes det nesten alltid
-              en løsning hvis man Googler litt.<br />
-              * Kan også lage kodesnutt som gjør dette<br />
-              (NESTE)<br />
-              * Vi har en ny nettside å gå videre til:
+              Vi har en ny nettside å gå videre til:
               <b>twitterhai.tech/hai_there.html</b>
             </aside>
           </section>
@@ -1580,14 +1611,14 @@
             />
             <p class="fragment fade-up">👌</p>
             <aside class="notes">
-              Ser ut som vi skal på Twitter! (NESTE)<br /><br />
+              Ser ut som vi skal til Twitter! (NESTE)<br /><br />
 
-              Det var faktisk en måte å komme hit på etter at man knakk koden i
-              diktet...
+              Spennende!
             </aside>
           </section>
 
-          <section data-source="twitterhai_eu_domaintools">
+          <!-- TODO: skjule kun på presentasjonen
+            <section data-source="twitterhai_eu_domaintools">
             <img
               data-src="img/innlogging/innlogging_dns-reverse-lookup.png"
               class="plain"
@@ -1606,6 +1637,7 @@
               Vi får ta en tur til Twitter!
             </aside>
           </section>
+ -->
         </section>
 
         <!-- =================== TWITT3Rhai =================== -->
@@ -1838,7 +1870,11 @@
               (NESTE)<br />
               * På Windows brukte jeg (NESTE) Wireshark. Gir god oversikt og
               grei å bla igjennom datapakkene med <br />
-              * tshark/NetworkMiner er også alternativer på Windows
+              * tshark/NetworkMiner er også alternativer på Windows<br /><br />
+
+              (ANEKTDOTE)<br />
+              Wire<b>shark</b>-navnet er jo også litt morsomt her, sett i
+              kontekst med dagens <b>haitema</b>
             </aside>
           </section>
 
@@ -2113,7 +2149,7 @@
 
           <section>
             <p>
-              Vi zipper ut filen
+              Vi kikker nærmere på filen
               <span class="fragment highlight-green"
                 >insignificant_shark.png</span
               >
@@ -2122,10 +2158,11 @@
               Legger merke til kryptiske tegn på haien
             </p>
             <aside class="notes">
-              * Vi henter ut (NESTE) <b>insignificant_shark.png</b> fra
-              zip-filen og lagrer det til disk.<br />(NESTE)<br />
+              * Vi må kikke nærmere på (NESTE) <b>insignificant_shark.png</b>
+              <br />
+              (NESTE)<br />
 
-              * Legger først merke til kryptiske tegn, la oss se nærmere på de
+              * Jeg synes jeg så noen kryptiske tegn. La oss se nærmere kikk
             </aside>
           </section>
 
@@ -2529,8 +2566,11 @@
               interessert i<br /><br />
 
               (NESTE)<br />
-              * Her ser vi at vi har plukket ut filen fra bildet og lagd en ny
-              fil: (NESTE) <b>u_are_th3_winrar.rar</b> (NESTE)<br /><br />
+              * Vi sier til <b>dd</b>: her er filen med skjult data, lag denne
+              filen, start fra og med <b>66398 bytes</b> ut i filen, og hent ut
+              alt videre ut i filen<br />
+              * Vi kjører programmet og får en ny fil: (NESTE)
+              <b>u_are_th3_winrar.rar</b> (NESTE)<br /><br />
 
               (ANEKDOTE)<br />
               * Å finne filer gjemt i andre filer er klassisk CTF-oppgave og med
@@ -2616,7 +2656,7 @@
             <aside class="notes">
               * Hvordan gjorde jeg det? <br />
               ** blindsporbokstaver til koordinater, 1 arb.dag effektivt<br />
-              ** lærte meg Linux, python og verktøy<br />
+              ** lærte meg Linux, python, verktøy, Kali Linux VM med Docker<br />
               ** nøt prosessen<br /><br />
 
               * Lærte å skrive ned både løsning og oppgave, til evt. senere
@@ -2771,6 +2811,12 @@
             <h3>Konferanser</h3>
             <div>
               <p><a href="https://owaspnorwayday.org/">OWASP Norway Day</a></p>
+              <p>
+                <a
+                  href="https://www.owasp.org/index.php/OWASP_Events/upcoming_events"
+                  >OWASP Internasjonalt</a
+                >
+              </p>
               <p>
                 <a href="https://sikkerhetsfestivalen.no/"
                   >Sikkerhetsfestivalen</a
@@ -2964,6 +3010,8 @@
         exif_regex_info: "Kilde: http://exif.regex.info/exif.cgi",
         ceasar_wheel:
           "Foto: https://commons.wikimedia.org/wiki/File:CipherDisk2000.jpg, Lisens: Public",
+        inventwithpython_cipherwheel:
+          "Kilde: https://inventwithpython.com/cipherwheel/",
         ceasar_cipher_decryption_tool:
           "Kilde: https://www.xarg.org/tools/caesar-cipher",
         wireshark: "Foto: Wireshark, Windows 10",
@@ -3142,6 +3190,22 @@ Håbrann TigerhaiOksehaiHvithaiBrugdeHvalhaiHammerhaiHavet\n";
           random: [1000, 12000],
           speed: 100,
           text: "TWITTERHAI.EU",
+          beforeEach: function(element) {
+            console.log("About to scramble");
+          },
+          afterAll: function(elements) {
+            console.log("all done!");
+          }
+        });
+      });
+
+      Reveal.addEventListener("ceasar-chiffer-scrambler-start", function() {
+        // Scrambler
+        Scrambler({
+          target: "#scramble-id-ceasar",
+          random: [1000, 80000],
+          speed: 100,
+          text: "http://twitterhai.tech/hai_there.html",
           beforeEach: function(element) {
             console.log("About to scramble");
           },
