@@ -18,7 +18,6 @@ iv = ""
 for i in get_primes(16):
     iv += chr(plaintext[i + 16])
 
-print(iv)
 key = b"\xba\xda\x55 HackerMan \x13\x37"  # <----- DESTROY AFTER USE
 
 cipher = AES.new(key, AES.MODE_CBC, IV=iv.encode('utf-8'))
