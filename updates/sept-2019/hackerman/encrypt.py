@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 from base64 import b64encode
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
@@ -18,8 +18,10 @@ iv = ""
 for i in get_primes(16):
     iv += chr(plaintext[i + 16])
 
+print(iv)
 key = b"\xba\xda\x55 HackerMan \x13\x37"  # <----- DESTROY AFTER USE
 
 cipher = AES.new(key, AES.MODE_CBC, IV=iv.encode('utf-8'))
-ciphertext_b64 = b64encode(cipher.encrypt(pad(plaintext, 64))).decode('utf-8')
+ciphertext_b64 = b64encode(cipher.encrypt(
+    pad(plaintext, 32))).decode('utf-8')
 print(ciphertext_b64)
