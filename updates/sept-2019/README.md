@@ -64,3 +64,8 @@ Får da en lesbar tekst:
 'PST-haien gratulerer! Du klarte det! Beklager, men denne gangen har vi ikke laget flere oppgaver. H\xc3\xa5per du vil s\xc3\xb8ke jobben. Hvis du blir ansatt kan vi love deg mange utfordrende oppgaver.'
 
 Putter "PST-haien gratul" i "plain.txt" ("Gratulerer" var visst feil) og kjører "encrypt.py" på nytt, og får lik chiffertekst som den på TwitterH4i-kontoen :)
+
+Min lille chiffer: "Yg+8drmNN/giyyL10whyPey06N63YpMb8lUC3p3Agp1VZVxp1hsqUcbOU3WBnNxVS6iY1IzhqVG3v8xFN1/wkjmXGS2Oh4Vo9/sHO1D2ZFajeaVz75rRVvDRxoMF9wExXwN1gTe0iG1Bszett0dL0A=="
+
+IV: "udsfvrt mm v eei"
+Tekst: "PST-haien lever! Kudos for varierte og morsomme oppgaver. Keep em coming!🕵https://gph.is/1Sjcgph"

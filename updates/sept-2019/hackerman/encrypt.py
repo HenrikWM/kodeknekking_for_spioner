@@ -16,12 +16,12 @@ with open('plain.txt', 'rb') as f:
 
 iv = ""
 for i in get_primes(16):
+    print(iv)
     iv += chr(plaintext[i + 16])
 
-print(iv)
 key = b"\xba\xda\x55 HackerMan \x13\x37"  # <----- DESTROY AFTER USE
 
 cipher = AES.new(key, AES.MODE_CBC, IV=iv.encode('utf-8'), )
 ciphertext_b64 = b64encode(cipher.encrypt(
-    pad(plaintext, 16))).decode('utf-8')
+    pad(plaintext, AES.block_size))).decode('utf-8')
 print(ciphertext_b64)
