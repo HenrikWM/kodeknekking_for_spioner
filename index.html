@@ -1138,7 +1138,7 @@
             data-highlight-theme="solarized-dark"
           >
             <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="1" >
+              <code class="javascript smaller" data-trim data-line-numbers="1">
               password.charCodeAt(0) == 8 * 8 + 8 &&
               password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
               password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
@@ -2681,10 +2681,367 @@
               løse oppgavene.<br />
               * Kodeordet var flagget vi lett etter i denne CTF'en<br /><br />
 
-              Da er gåten løst!
+              (NESTE)
+            </aside>
+          </section>
+
+          <!-- ============= NY JOBBANNONSE I SEPTEMBER ============ -->
+          <!-- START: SKJUL FOR BEKK-FAGDAG 18. okt -->
+          <section>
+            <h2>Gåte løst - det var det! 👍</h2>
+            <h3 class="fragment">Eller...?</h3>
+            <p class="fragment">Plutselig, etter 274 dager med stillhet...</p>
+            <aside class="notes">
+              Det var det! Gåten er løst og vi er ferdige!<br /><br />
+              (NESTE) Eller...?<br /><br />
+
+              (NESTE)<br /><br />
+
+              Plutselig kom det en ny tweet!
+            </aside>
+          </section>
+
+          <section>
+            <img
+              data-src="img/update-sept-2019/ny-tweet.png"
+              class="plain"
+              style="width: 130%"
+            />
+            <p class="fragment">Vi klarer litt til vel? 😎</p>
+            <aside class="notes">
+              Vi har visst noe mer å pusle med her!
             </aside>
           </section>
         </section>
+
+        <section>
+          <section>
+            <h2>Ny jobbannonse?</h2>
+            <aside class="notes">
+              En ny tweet uten mye kontekst.<br />
+              Vi sjekker om det er noe nytt i jobbannonsene på PSTS-hjemmesider.
+            </aside>
+          </section>
+
+          <section data-source="pst_jobbannonse2">
+            <img
+              data-src="img/update-sept-2019/ny-annonse-sept-2019-utklipp.png"
+              class="plain"
+              style="width: 100%"
+            />
+            <aside class="notes">
+              Vi finner en ny jobbannonse!<br /><br />
+
+              Vi leser litt om stillingen og interessant nok det. Ellers blir vi
+              ikke så mer kloke på hvordan vi skal starte.<br /><br />
+
+              Litt interessant illusttrasjonsbilde da. Enhance!
+            </aside>
+          </section>
+
+          <section data-source="pst_jobbannonse2">
+            <img
+              data-src="img/update-sept-2019/ny-annonse-sept-2019-utklipp-zoomed.png"
+              class="plain"
+              style="width: 130%"
+            />
+            <p class="fragment">🤔</p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section data-source="pst_jobbannonse2">
+            <img
+              data-src="img/update-sept-2019/ny-annonse-sept-2019-utklipp-zoomed-x2.png"
+              class="plain"
+              style="width: 85%"
+            />
+            <p class="fragment">😄</p>
+            <aside class="notes">
+              Vi ser en "key" som må ødelegges etter bruk! <br /><br />
+
+              Vi ser en "IV" som blir generert ut ifra primtall og bokstaver i
+              en fil "plain.txt"<br /><br />
+
+              Vi ser at chifferteksten som ble generert ble lagt ut på
+              Twitt3rhai sin Twitter-konto <br /><br />
+
+              Vi ser at teksten i "plain.txt" krypteres med AES-CBC
+            </aside>
+          </section>
+
+          <section>
+            <h2>Hva er det vi ser?</h2>
+            <p class="fragment">
+              Et Python-script som krypterer en tekst med <b>AES-CBC</b>
+            </p>
+            <p class="fragment">
+              En <b>IV</b> blir generert ut ifra primtall og tekst i filen
+              <b>plain.txt</b>
+            </p>
+            <p class="fragment">En hemmelig <b>Key</b> er synlig (!)</p>
+            <p class="fragment">
+              Generert chiffertekst blir lagt ut på Twitt3rhai sin Twitter-feed
+            </p>
+          </section>
+
+          <section data-source="wikipedia_aes_cbc_kryptering">
+            <h2>AES-CBC kryptering 101</h2>
+            <img
+              data-src="img/update-sept-2019/aes-cbc-kryptering.png"
+              class="plain"
+              style="width: 85%"
+            />
+          </section>
+
+          <section data-source="wikipedia_aes_cbc_kryptering">
+            <h2>AES-CBC kryptering 101</h2>
+            <a
+              href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation"
+              >AES Cipher Block Chaining</a
+            >
+            krypterer en tekst i blokker á 16 bytes.<br /><br />
+
+            I første blokk tar man inputtekst som blir XOR'et med en
+            <b>Initialization Vector (IV)</b> og blir kryptert med en <b>Key</b
+            ><br /><br />
+
+            Deretter blir hver blokk XOR'et med den neste hvor forrige blokk er
+            input.
+            <aside class="notes">
+              Når man krypterer med AES-CBC så tar man en inputtekst og gjør en
+              XOR-binæroperasjon med en IV, og krypterer dette med en key.
+              Output brukes som input i neste ledd og dette repeteres i blokker
+              på 16 bytes.
+            </aside>
+          </section>
+
+          <section data-source="wikipedia_aes_cbc_dekryptering">
+            <h2>AES-CBC dekryptering 101</h2>
+            <img
+              data-src="img/update-sept-2019/aes-cbc-dekryptering.png"
+              class="plain"
+              style="width: 85%"
+            />
+          </section>
+
+          <section data-source="wikipedia_aes_cbc_dekryptering">
+            <h2>AES-CBC de kryptering 101</h2>
+            <a
+              href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation"
+              >AES Cipher Block Chaining</a
+            >
+            dekrypterer en tekst i blokker á 16 bytes.<br /><br />
+
+            I første blokk tar man en chiffertekst som blir dekryptert med en
+            <b>Key</b> og deretter XOR'et med en
+            <b>Initialization Vector (IV)</b><br /><br />
+
+            Deretter blir hver blokk XOR'et med den neste hvor forrige blokk er
+            input.
+            <aside class="notes">
+              Når man dekrypterer med AES-CBC så tar man en chifferteksten og
+              dekrypterer med en key, og gjør en XOR-binæroperasjon med en IV.
+              Output brukes som input i neste ledd og dette repeteres i blokker
+              på 16 bytes.
+            </aside>
+          </section>
+
+          <section>
+            <h2>Encrypt.py</h2>
+            <p>
+              Vi leser koden i illustrasjonsbildet og kjører <b>encrypt.py</b>:
+            </p>
+            <pre>
+              <code class="shell smaller" data-trim data-noescape>
+                root@c04ddcc8bccd:~# python encrypt.py
+                31qA4W7pZA9oUOamMGbu7o1jA28NkkgZnFCnUhQaEa2 /
+                yeIKxQv5sQVLrtbZ/dcMOUpid0jSatZuu0m0FnoU9Up /
+                kZujjE2ggaMkTK75g65g=
+              </code>
+            </pre>
+            <p>Hva mangler for å generere chifferteksten i tweeten?</p>
+          </section>
+
+          <section>
+            <ul>
+              <li>
+                Vi har en <span class="fragment highlight-green">Key</span>
+              </li>
+              <li>
+                Vi vet ikke innholdet i
+                <span class="fragment highlight-green">plain.txt</span>
+              </li>
+              <li>
+                Vi vet ikke <span class="fragment highlight-green">IV</span>
+              </li>
+              <li>
+                Vi har
+                <span class="fragment highlight-green">chifferteksten</span> fra
+                tweeten
+              </li>
+            </ul>
+            <p>
+              Med dette burde vi ihvertfall kunne dekryptere alt bortsett fra
+              første blokk.
+            </p>
+          </section>
+
+          <section>
+            <h2>Decrypt.py</h2>
+            <pre>
+              <code class="python smaller" data-trim data-noescape>
+                ciphertext_b64 = "/lb0WZDpaI [...]" # chifferteksten fra tweeten
+                key = b"\xba\xda\x55 HackerMan \x13\x37" # den "hemmelige" key'en :)
+
+                # Riktig IV gir oss første AES-CBC blokk.
+                iv = b"\x00"*16 # bruker tom IV foreløpig
+
+                ciphertext = b64decode(ciphertext_b64)
+                cipher = AES.new(key, AES.MODE_CBC, IV=iv)
+                plaintext = cipher.decrypt(ciphertext)
+
+                print(plaintext.decode())
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <blockquote>
+              erer! Du klarte det! Beklager, men denne gangen har vi ikke laget
+              flere oppgaver. Håper du vil søke jobben. Hvis du blir ansatt kan
+              vi love deg mange utfordrende oppgaver.
+            </blockquote>
+            <p class="fragment">
+              Vi ser hele meldingen minus første blokk (første 16 bytes). Til
+              det trenger vi riktig <b>IV</b>.
+            </p>
+            <p class="fragment">"erer!" = "Gratulerer"? 🤔</p>
+          </section>
+
+          <section>
+            <p>
+              Vi putter den dekrypterte teksten i <b>plain.txt</b>, pluss
+              "Gratulerer" som første ord, og kjører <b>encrypt.py</b>:
+            </p>
+            <pre>
+              <code class="shell smaller" data-trim data-noescape>
+                root@c04ddcc8bccd:~# python encrypt.py
+                vfpCERjMFBAwlm4EudaOBF5weTn2ydwGzrd9wojpZGKVzSzkbb /
+                VfOotF6hfYR9WhBneTwzJ/X8DE9RemQeTvHvAK3leczdZ4OYxz /
+                gw+IGDaFCGWazBN0EoJNXQB4UGsJHN258m5TL0LMwB889nSQ0U /
+                jknHjpWGgbNkb0919DCY/DOUn5LEz8Vneomw9s2K1G7DxZsxYf /
+                15AFLGY1GDrebrFpRHbzXUANKmzlUugG4nfD0u5UcljQXWoNnKZhV5Dy
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <p>
+              <b>plain.txt</b> er fortsatt feil fordi vi ikke får riktig
+              chiffer.
+            </p>
+            <p class="fragment">
+              Litt rart det med "erer" i starten av teksten istad.
+            </p>
+            <p class="fragment">
+              Da må "Gratul" være tekst i første blokk? Men "Gratul" er bare 6
+              bytes. En blokk er 16 bytes.
+            </p>
+            <p class="fragment">Aner ikke hva de resterende 10 bytes-ene er.</p>
+          </section>
+
+          <section>
+            <p>Studerer <b>encrypt.py</b> igjen:</p>
+            <pre>
+              <code class="python smaller" data-trim data-noescape data-line-numbers="3">
+                  iv = ""
+                  for i in get_primes(16):
+                      iv += chr(plaintext[i + 16]) # <--- +16 offset :)
+              </code>
+            </pre>
+            <p class="fragment">
+              Genereringen av IV skjer fra og med
+              <b>16 posisjoner uti plain.txt</b>!
+            </p>
+          </section>
+
+          <section>
+            <p>
+              Betyr at vi kan putte tulletekst (padding) innenfor de første 16
+              posisjonene i
+              <b>plain.txt</b>. Det bør resultere i riktig <b>IV</b> hvis vår
+              første AES-CBC blokk f.eks. ser slik ut:
+            </p>
+            <img
+              data-src="img/update-sept-2019/første-blokk-med-padding.png"
+              class="plain"
+              style="width: 100%"
+            />
+          </section>
+
+          <section>
+            <p>Oppdaterer <b>plain.txt</b>:</p>
+            <blockquote>
+              xxxxxxxxxxGratulerer! Du klarte det! Beklager, men denne gangen
+              har vi ikke laget flere oppgaver. Håper du vil søke jobben. Hvis
+              du blir ansatt kan vi love deg mange utfordrende oppgaver.
+            </blockquote>
+          </section>
+
+          <section>
+            <p>Kjører <b>encrypt.py</b> på nytt og printer ut <b>IV</b>:</p>
+            <pre>
+              <code class="shell smaller" data-trim data-noescape>
+                root@c04ddcc8bccd:~# python encrypt.py
+                IV: er uate!k,mngn i
+                F7AnYv5hHZ0Xw/HS76EAGFJpAGXQces5jBJNMiru/xDbb /
+                v2FHZOq3lwqeCcbvZrU5feXrAdyK26GnAJz3WCZooWd5b /
+                4Bo53lpc4tmWuXum03yeXRLxOzQnBectd/7bXhBHmcYbE /
+                J/IX/8MnPAh9Z0a5U90H1KyG+CfxZffGK/VqkEUaXhMWw /
+                llywjWfmRITFjkIipOn8GXkXATVy9WVjVZYr9JysgE6xK /
+                3Ah08WPslngTxz5t50UDYNzBJqPherY
+              </code>
+            </pre>
+            <p class="fragment">
+              Åpenbart fortsatt feil chiffertekst da 😜 Oppdaterer
+              <b>decrypt.py</b> med vår nye <b>IV</b>.
+            </p>
+          </section>
+
+          <section>
+            <h2>Decrypt.py med ny IV</h2>
+            <p>Vi kjører <b>decrypt.py</b> på nytt med ny <b>IV</b>:</p>
+            <pre>
+              <code class="python smaller" data-trim data-noescape data-line-numbers="5">
+                ciphertext_b64 = "/lb0WZDpaI [...]" # chifferteksten fra tweeten
+                key = b"\xba\xda\x55 HackerMan \x13\x37" # den "hemmelige" key'en :)
+
+                # Riktig IV gir oss første AES-CBC blokk.
+                iv = b"er uate!k,mngn i" # <-- ny IV med padding i første blokk
+
+                ciphertext = b64decode(ciphertext_b64)
+                cipher = AES.new(key, AES.MODE_CBC, IV=iv)
+                plaintext = cipher.decrypt(ciphertext)
+
+                print(plaintext.decode())
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <blockquote>
+              PST-haien gratulerer! Du klarte det! Beklager, men denne gangen
+              har vi ikke laget flere oppgaver. Håper du vil søke jobben. Hvis
+              du blir ansatt kan vi love deg mange utfordrende oppgaver.
+            </blockquote>
+          </section>
+
+          <section
+            data-source="pst"
+            data-background="img/u_are_th3_winrar-jpg/u_are_th3_winrar-jpg-gratulerer.gif"
+          ></section>
+        </section>
+        <!-- STOPP: SKJUL FOR BEKK-FAGDAG 18. okt -->
 
         <!-- =================== OPPSUMMERING =================== -->
         <section>
@@ -3053,7 +3410,13 @@
         georgeom_stegonline: "Kilde: https://georgeom.net/StegOnline/extract",
         bobu_sumisu_pst_writeup:
           "Kilde: https://gist.github.com/BobuSumisu/501dafd4d7166d2a295a68c20bc3eb41",
-        winrar: "Foto: WinRAR, Windows 10"
+        winrar: "Foto: WinRAR, Windows 10",
+        wikipedia_aes_cbc_kryptering:
+          "Kilde: https://commons.wikimedia.org/wiki/File:Cbc_encryption.png, Lisens: Public",
+        wikipedia_aes_cbc_dekryptering:
+          "Kilde: https://commons.wikimedia.org/wiki/File:Cbc_decryption.png, Lisens: Public",
+        pst_jobbannonse2:
+          "Kilde: https://1005007.webcruiter.no/main/recruit/public/4134047982?language=NB, Foto: PST"
       };
 
       function setFooterSource() {
