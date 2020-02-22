@@ -2744,10 +2744,10 @@
             <aside class="notes">
               Vi finner en ny jobbannonse!<br /><br />
 
-              Vi leser litt om stillingen og interessant nok det. Ellers blir vi
-              ikke så mer kloke på hvordan vi skal starte.<br /><br />
+              Vi leser litt om stillingen men bare kjedelig tekst der.
+              <br /><br />
 
-              Litt interessant illusttrasjonsbilde da. Enhance!
+              (PAUSE) Litt interessant illusttrasjonsbilde da. Enhance!
             </aside>
           </section>
 
@@ -2765,19 +2765,28 @@
             <img
               data-src="img/update-sept-2019/ny-annonse-sept-2019-utklipp-zoomed-x2.png"
               class="plain"
-              style="width: 85%"
+              style="width: 95%"
             />
             <p class="fragment">😄</p>
             <aside class="notes">
-              Vi ser en "key" som må ødelegges etter bruk! <br /><br />
+              Vi ser et Python-script <b>encrypt.py</b> som krypterer en
+              tekstfil. <br /><br />
 
-              Vi ser en "IV" som blir generert ut ifra primtall og bokstaver i
-              en fil "plain.txt"<br /><br />
+              Noen observasjoner... vi ser: <br />
+              * en variabel "key" med kommentar "må ødelegges etter bruk!". Den
+              må ødelegges fordi den ikke må lekkes eller gjenbrukes!
+              <br />
+              Hvis man tolker litt leetspeak her så er key'ens innhold:
+              <b>badass Hackerman 1337</b> <br /><br />
 
-              Vi ser at chifferteksten som ble generert ble lagt ut på
-              Twitt3rhai sin Twitter-konto <br /><br />
+              * en variabel "IV" som blir generert ut ifra primtall og teksten i
+              filen "plain.txt"<br /><br />
 
-              Vi ser at teksten i "plain.txt" krypteres med AES-CBC
+              * at teksten i "plain.txt" krypteres med algoritmen
+              <b>AES-CBC</b><br /><br />
+
+              * at generert chiffertekst ble lagt ut på Twitt3rhai sin
+              Twitter-konto, og en kommentar om å automatisere dette senere
             </aside>
           </section>
 
@@ -2787,21 +2796,9 @@
               class="plain"
               style="width: 100%"
             />
-          </section>
-
-          <section>
-            <h2>Hva gjør koden i bildet?</h2>
-            <p class="fragment">
-              Et Python-script som krypterer en tekst med <b>AES-CBC</b>
-            </p>
-            <p class="fragment">
-              En <b>IV</b> blir generert ut ifra primtall og tekst i filen
-              <b>plain.txt</b>
-            </p>
-            <p class="fragment">En hemmelig <b>Key</b> er synlig (!)</p>
-            <p class="fragment">
-              Generert chiffertekst blir lagt ut på Twitt3rhai sin Twitter-feed
-            </p>
+            <aside class="notes">
+              Tydelig at dette er Hackerman sitt verk!
+            </aside>
           </section>
 
           <section data-source="wikipedia_aes_cbc_kryptering">
@@ -2811,27 +2808,16 @@
               class="plain"
               style="width: 85%"
             />
-          </section>
-
-          <section data-source="wikipedia_aes_cbc_kryptering">
-            <h2>AES-CBC kryptering 101</h2>
-            <a
-              href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation"
-              >AES Cipher Block Chaining</a
-            >
-            krypterer en tekst i blokker á 16 bytes.<br /><br />
-
-            I første blokk tar man inputtekst som blir XOR'et med en
-            <b>Initialization Vector (IV)</b> og blir kryptert med en <b>Key</b
-            ><br /><br />
-
-            Deretter blir hver blokk XOR'et med den neste hvor forrige blokk er
-            input.
             <aside class="notes">
-              Når man krypterer med AES-CBC så tar man en inputtekst og gjør en
-              XOR-binæroperasjon med en IV, og krypterer dette med en key.
-              Output brukes som input i neste ledd og dette repeteres i blokker
-              på 16 bytes.
+              I AES Cipher Block Chaining krypterer en tekst i
+              <b>blokker á 16 bytes</b><br /><br />
+
+              I første blokk tar man inputtekst som blir XOR'et med en
+              <b>Initialization Vector (IV)</b> og blir kryptert med en
+              <b>Key</b><br /><br />
+
+              Videre blir hver blokk XOR'et med den neste hvor forrige blokk er
+              input, og vi får en kjede med blokker.
             </aside>
           </section>
 
@@ -2842,27 +2828,16 @@
               class="plain"
               style="width: 85%"
             />
-          </section>
-
-          <section data-source="wikipedia_aes_cbc_dekryptering">
-            <h2>AES-CBC de kryptering 101</h2>
-            <a
-              href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation"
-              >AES Cipher Block Chaining</a
-            >
-            dekrypterer en tekst i blokker á 16 bytes.<br /><br />
-
-            I første blokk tar man en chiffertekst som blir dekryptert med en
-            <b>Key</b> og deretter XOR'et med en
-            <b>Initialization Vector (IV)</b><br /><br />
-
-            Deretter blir hver blokk XOR'et med den neste hvor forrige blokk er
-            input.
             <aside class="notes">
-              Når man dekrypterer med AES-CBC så tar man en chifferteksten og
-              dekrypterer med en key, og gjør en XOR-binæroperasjon med en IV.
-              Output brukes som input i neste ledd og dette repeteres i blokker
-              på 16 bytes.
+              I AES Cipher Block Chaining dekrypterer en tekst i blokker á 16
+              bytes.<br /><br />
+
+              I første blokk tar man en chiffertekst som blir dekryptert med en
+              <b>Key</b> og deretter XOR'et med en
+              <b>Initialization Vector (IV)</b><br /><br />
+
+              Videre blir hver blokk XOR'et med den neste hvor forrige blokk er
+              input.
             </aside>
           </section>
 
@@ -2880,6 +2855,15 @@
               </code>
             </pre>
             <p>Hva mangler for å generere chifferteksten i tweeten?</p>
+            <aside class="notes">
+              Så jeg skriver ned koden i bildet, lager meg en "plain.txt"-fil og
+              kjører Python-scriptet.
+              <br /><br />
+              Vi ser at vi får en chiffertekst så vi vet at
+              <b>skriptet virker</b>. Vi ser at denne chifferteksten er jo ikke
+              den samme som den i tweeten, så det må være <b>feil innhold</b> i
+              "plain.txt"
+            </aside>
           </section>
 
           <section>
@@ -2904,6 +2888,17 @@
               Med dette burde vi ihvertfall kunne dekryptere alt bortsett fra
               første blokk.
             </p>
+            <aside class="notes">
+              Hva er det vi vet så langt?<br /><br />
+
+              Vi: (NESTE)<br />
+              * har en Key (NESTE)<br />
+              * vet ikke hva som er i plain.txt (NESTE)<br />
+              * har chifferteksten fra tweeten (NESTE)<br /><br />
+
+              Vi kan i det minste dekryptere alt bortsett fra de 16 bytene i
+              <b>første blokk</b>
+            </aside>
           </section>
 
           <section>
@@ -2923,6 +2918,14 @@
                 print(plaintext.decode())
               </code>
             </pre>
+            <aside class="notes">
+              Vi lager oss et Python-skript for å dekryptere.<br /><br />
+
+              Vi oppgir chifferteksten fra tweeten, key'en og en IV.<br /><br />
+
+              Vi bruker en IV med bare tulledata fordi vi ikke vet denne (ennå).
+              Så la oss kjøre skriptet!
+            </aside>
           </section>
 
           <section>
@@ -2936,6 +2939,13 @@
               det trenger vi riktig <b>IV</b>.
             </p>
             <p class="fragment">"erer!" = "Gratulerer"? 🤔</p>
+            <aside class="notes">
+              Kult! Vi fikk dekryptert nesten hele twittermeldingen<br /><br />
+              (NESTE)
+              <br />
+              Vi ser alt minus den første blokken på 16 bytes. Hva kan den teksten være?
+              (NESTE)
+            </aside>
           </section>
 
           <section>
