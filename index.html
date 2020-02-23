@@ -136,7 +136,7 @@
             <aside class="notes">
               <b>Kodeknekking for spioner</b><br /><br />
               * Idag skal vi <b>leke at vi er spioner</b> og sammen
-              <b>løse PST-gåten</b> som var gjemt i PSTs jobbannonse fra i
+              <b>løse PST-gåten</b> som var gjemt i PSTs jobbannonse fra ifjor
               vinter<br /><br />
 
               * Det viste seg jo at PST-gåten var
@@ -198,12 +198,13 @@
           >
             <aside class="notes">
               Jeg...<br />
-              * liker å løpe, noen ganger langt. Her fra Ecotrail i mai<br />
+              * liker å løpe, noen ganger langt. Her fra Ecotrail i mai ifjor<br />
               * er sta, har pågangsmot <br />
               * liker utfordringer med klare mål<br /><br />
 
               * Hvilke faggrupper har jeg deltatt i? (2 år i <b>Sikkerhet</b>,
-              faggruppeleder iår i <b>Open Source</b>)<br /><br />
+              faggruppeleder ifjor i <b>Open Source</b>, iår faggruppeleder for
+              Sikkerhet)<br /><br />
 
               (ANEKDOTE):<br />
               Appropos sikkerhet: holdt foredrag på JavaZone og en Bekk fagdag i
@@ -296,12 +297,12 @@
               style="width: 60%"
             />
             <aside class="notes">
-              19. mars i våres ble Hydro angrepet av et krypteringsvirus
+              19. mars ifjor våres ble Hydro angrepet av et krypteringsvirus
               ("LockerGoga").<br /><br />
               Dette skjedde på <b>Norsk jord</b>, <b>i Oslo</b>,
               <b>i bygget</b> hvor Hydro deler etasjer med If Skadeforsikring
-              hvor <b>jeg</b>, og kanskje flere av dere også, <b>sitter</b> til
-              daglig.<br /><br />
+              hvor <b>jeg</b> sitter til daglig.<br /><br />
+
               * Hvor hang oppslagene?<br />
               * Hva følte vi da vi så de?<br /><br />
 
@@ -372,7 +373,7 @@
           <section>
             <h2>Jobbannonsen</h2>
             <aside class="notes">
-              La oss starte med jobbannonsen PST la ut i vinter
+              La oss starte med jobbannonsen PST la ut ifjor vinter
             </aside>
           </section>
 
@@ -1130,7 +1131,7 @@
             <aside class="notes">
               Her har vi logikken i If-uttrykket som vi må knekke:<br /><br />
 
-              * For hver tegn i passordet må vi finne et tall.<br /><br />
+              * For hvert tegn i passordet må vi finne et tall.<br /><br />
 
               * Tallet må vi gjøre om til et tegn. Det gjør vi ved å slå opp
               tallet i noe som kalles ASCII-tabellen, en liste over alle tegn på
@@ -2721,7 +2722,9 @@
             />
             <p class="fragment">Vi klarer litt til vel? 😎</p>
             <aside class="notes">
-              Vi har visst noe mer å pusle med her!
+              Vi har visst noe mer å pusle med her! (NESTE) <br /><br />
+
+              Vi klarer litt til!
             </aside>
           </section>
         </section>
@@ -2730,8 +2733,9 @@
           <section>
             <h2>Ny jobbannonse?</h2>
             <aside class="notes">
-              En ny tweet uten mye kontekst.<br />
-              Vi sjekker om det er noe nytt i jobbannonsene på PSTS-hjemmesider.
+              Det var en tweet særlig mye kontekst.<br />
+              Vi får ta en kikk og ser om det er noen nye jobbannonsener på
+              PSTs-hjemmesider.
             </aside>
           </section>
 
@@ -2758,7 +2762,9 @@
               style="width: 130%"
             />
             <p class="fragment">🤔</p>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              (NESTE) hmmmm. Vi må kjøre en Enhance til og zoome helt inn
+            </aside>
           </section>
 
           <section data-source="pst_jobbannonse2">
@@ -2770,23 +2776,26 @@
             <p class="fragment">😄</p>
             <aside class="notes">
               Vi ser et Python-script <b>encrypt.py</b> som krypterer en
-              tekstfil. <br /><br />
+              tekstfil som heter <b>plain.txt</b>. <br /><br />
 
               Noen observasjoner... vi ser: <br />
-              * en variabel "key" med kommentar "må ødelegges etter bruk!". Den
-              må ødelegges fordi den ikke må lekkes eller gjenbrukes!
-              <br />
+              * en variabel <b>Key</b> med kommentar "må ødelegges etter bruk!".
+              Den må ødelegges fordi den ikke må lekkes eller gjenbrukes!
+              <br /><br />
+
               Hvis man tolker litt leetspeak her så er key'ens innhold:
               <b>badass Hackerman 1337</b> <br /><br />
 
-              * en variabel "IV" som blir generert ut ifra primtall og teksten i
-              filen "plain.txt"<br /><br />
+              * en variabel <b>IV</b> som blir generert ut ifra primtall og
+              teksten i filen <b>plain.txt</b><br /><br />
 
-              * at teksten i "plain.txt" krypteres med algoritmen
+              * at teksten i <b>plain.txt</b> krypteres med algoritmen
               <b>AES-CBC</b><br /><br />
 
-              * at generert chiffertekst ble lagt ut på Twitt3rhai sin
-              Twitter-konto, og en kommentar om å automatisere dette senere
+              * at generert chiffertekst ble lagt ut på PST-haiens
+              Twitter-konto, med en kommentar om å automatisere dette senere<br /><br />
+
+              (NESTE)
             </aside>
           </section>
 
@@ -2797,7 +2806,7 @@
               style="width: 100%"
             />
             <aside class="notes">
-              Tydelig at dette er Hackerman sitt verk!
+              Det er tydelig at dette er Hackerman sitt verk!
             </aside>
           </section>
 
@@ -2809,15 +2818,18 @@
               style="width: 85%"
             />
             <aside class="notes">
-              I AES Cipher Block Chaining krypterer en tekst i
+              Dette handler altså om å dekryptere noe som er kryptert med AES
+              Cipher Block Chaining, dvs AES-CBC.<br /><br />
+
+              I AES-CBC krypterer en tekst i
               <b>blokker á 16 bytes</b><br /><br />
 
               I første blokk tar man inputtekst som blir XOR'et med en
               <b>Initialization Vector (IV)</b> og blir kryptert med en
               <b>Key</b><br /><br />
 
-              Videre blir hver blokk XOR'et med den neste hvor forrige blokk er
-              input, og vi får en kjede med blokker.
+              Videre blir hver blokk XOR'et med den neste og vi får en kjede med
+              blokker.
             </aside>
           </section>
 
@@ -2829,15 +2841,14 @@
               style="width: 85%"
             />
             <aside class="notes">
-              I AES Cipher Block Chaining dekrypterer en tekst i
+              I AES-CBC dekrypterer en tekst i
               <b>blokker á 16 bytes</b><br /><br />
 
               I første blokk tar man en chiffertekst som blir dekryptert med en
               <b>Key</b> og deretter XOR'et med en
               <b>Initialization Vector (IV)</b><br /><br />
 
-              Videre blir hver blokk XOR'et med den neste hvor forrige blokk er
-              input.
+              Videre blir hver blokk XOR'et med den neste.
             </aside>
           </section>
 
@@ -2901,9 +2912,10 @@
               Vi: (NESTE)<br />
               * har en Key (NESTE)<br />
               * vet ikke hva som er i plain.txt (NESTE)<br />
+              * vet ikke <b>IV</b> <br />
               * har chifferteksten fra tweeten (NESTE)<br /><br />
 
-              Vi kan i det minste dekryptere alt bortsett fra de 16 bytene i
+              Med dette klarer vi å dekryptere alt bortsett fra det som er i
               <b>første blokk</b>
             </aside>
           </section>
@@ -2981,7 +2993,7 @@
               <b>plain.txt</b> <br /><br />
 
               Så kjører <b>encrypt.py</b> på nytt og får en ny chiffertekst som
-              vi ser her som fortsatt ikke er riktig
+              vi ser her som fortsatt ikke er riktig. Kjiptern
             </aside>
           </section>
 
@@ -3001,7 +3013,8 @@
 
             <aside class="notes">
               Hm, fortsatt feil tekst i <b>plain.txt</b>. Vi gjettet feil,
-              "Gratulerer" er ikke første del av teksten allikevel (NESTE)<br /><br />
+              <b>Gratulerer</b> er ikke første del av teksten allikevel
+              (NESTE)<br /><br />
 
               Jeg tenkte lenge her... "erer" (NESTE) <br /><br />
 
@@ -3055,8 +3068,8 @@
               <b>første 16 bytene</b>, er å bruke padding for å fylle opp med
               data.<br /><br />
 
-              Dvs at vi kan bruke <b>10 x'er</b> pluss "Gratul", da har vi våre
-              16 bytes, slik vi ser her
+              Som vi ser her kan vi altså bruke <b>10 x'er</b> pluss "Gratul",
+              da har vi våre 16 bytes i første blokk
             </aside>
           </section>
 
@@ -3143,8 +3156,8 @@
               Vi klarte altså å dekryptere AES-CBC chifferteksten i tweeten
               fordi vi kunne finne
               <b>IV</b> ved å putte inn <b>10 bytes med padding</b> og gjette
-              oss litt frem til første blokk. Da fikk vi tak i <b>IV</b>.
-              <br /><br />
+              oss litt frem til innholdet i første blokk. Da fikk vi tak i
+              <b>IV</b>. <br /><br />
 
               Når
               <b>Key</b> i tillegg var lekket så ble dekrypteringen enkel.
@@ -3156,8 +3169,8 @@
             data-background="img/u_are_th3_winrar-jpg/u_are_th3_winrar-jpg-gratulerer.gif"
           >
             <aside class="notes">
-              Jeg syns dere fortjener en Leo igjen for å ha hengt med hele
-              veien!
+              Dette er heavy greier så dere fortjener en Leo igjen etter å ha
+              hengt med hele veien!
             </aside>
           </section>
         </section>
@@ -3167,8 +3180,10 @@
           <section>
             <h2>Hva har vi lært?</h2>
             <aside class="notes">
+              Det var alle gåtene løst. <br />
+
               * Hvordan gjorde jeg det? <br />
-              ** blindsporbokstaver til koordinater, 1 arb.dag effektivt<br />
+              ** blindsporbokstaver til koordinater, 2 arb.dag effektivt<br />
               ** lærte meg Linux, python, verktøy, Kali Linux VM med Docker<br />
               ** nøt prosessen<br /><br />
 
