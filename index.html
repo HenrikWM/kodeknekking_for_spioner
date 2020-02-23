@@ -2873,6 +2873,7 @@
           </section>
 
           <section>
+            <p>Hva vet vi så langt?</p>
             <ul>
               <li>
                 Vi har en <span class="fragment highlight-green">Key</span>
@@ -2980,7 +2981,7 @@
               <b>plain.txt</b> <br /><br />
 
               Så kjører <b>encrypt.py</b> på nytt og får en ny chiffertekst som
-              vi ser her
+              vi ser her som fortsatt ikke er riktig
             </aside>
           </section>
 
@@ -3031,8 +3032,11 @@
 
               <b>IV</b> blir generert med 16 posisjoners offset uti
               <b>plain.txt</b>! Så vi kan putte hva vi vil i første blokk og i
-              de første 16 bytene Så kan vi kjøre <b>encrypt.py</b> på nytt og
-              lese ut riktig <b>IV</b>
+              de første 16 bytene <br /><br />
+
+              Gjør vi det kan vi kjøre <b>encrypt.py</b> på nytt og lese ut
+              riktig
+              <b>IV</b>
             </aside>
           </section>
 
@@ -3047,8 +3051,12 @@
               style="width: 100%"
             />
             <aside class="notes">
-              Hvis vi bruker padding i den første blokken, altså bruke
-              <b>10 x'er</b> pluss "Gratul", da har vi totalt våre 16 bytes.
+              Måten vi fikser første blokk på, dvs disse
+              <b>første 16 bytene</b>, er å bruke padding for å fylle opp med
+              data.<br /><br />
+
+              Dvs at vi kan bruke <b>10 x'er</b> pluss "Gratul", da har vi våre
+              16 bytes, slik vi ser her
             </aside>
           </section>
 
@@ -3060,15 +3068,14 @@
               du blir ansatt kan vi love deg mange utfordrende oppgaver.
             </blockquote>
             <aside class="notes">
-              Vi oppdaterer de første 16 bytes i <b>plain.txt</b> med x'ene og
-              "Gratul".
+              Slik ser <b>plain.txt</b> ut når vi putter inn x'ene og "Gratul".
             </aside>
           </section>
 
           <section>
             <p>Kjører <b>encrypt.py</b> og printer ut <b>IV</b>:</p>
             <pre>
-              <code class="shell smaller" data-trim data-noescape>
+              <code class="shell smaller" data-trim data-noescape data-line-numbers="2">
                 root@c04ddcc8bccd:~# python encrypt.py
                 IV: er uate!k,mngn i
                 F7AnYv5hHZ0Xw/HS76EAGFJpAGXQces5jBJNMiru/xDbb /
@@ -3083,20 +3090,21 @@
               Åpenbart fortsatt feil chiffertekst da 😜
             </p>
             <aside class="notes">
-              Vi har oppdatert <b>plain.txt</b> og kjører
+              Vi har nå en oppdatert <b>plain.txt</b> og kjører
               <b>encrypt.py</b> igjen og leser ut <b>IV</b> <br /><br />
 
               (NESTE) <br />
               Åpenbart skal det ikke være masse x'er i <b>plain.txt</b> så
-              chifferteksten vi får her er jo feil.<br /><br />
+              chifferteksten vi får her er jo helt feil, som forventet.<br /><br />
 
-              Men denne <b>IV'en</b> vi har nå burde være
-              <b>siste brikke</b> til å gjøre en riktig dekryptering!
+              Men denne <b>IV'en</b> vi har printet ut her oven chifferteksten
+              burde være vår <b>siste brikke</b> til å gjøre en riktig
+              dekryptering!
             </aside>
           </section>
 
           <section>
-            <p>Vi kjører <b>decrypt.py</b> med ny <b>IV</b>:</p>
+            <p>Kjører <b>decrypt.py</b> med ny <b>IV</b>:</p>
             <pre>
               <code class="python smaller" data-trim data-noescape data-line-numbers="4,5">
                 ciphertext_b64 = "/lb0WZDpaI [...]" # chifferteksten fra tweeten
@@ -3126,13 +3134,20 @@
               du blir ansatt kan vi love deg mange utfordrende oppgaver.
             </blockquote>
             <aside class="notes">
-              Og DER ser vi hele twitter-meldingen til PST-haien! <br /><br />
+              Og DER ser vi den dekrypterte twitter-meldingen til PST-haien! Bra
+              jobba! <br /><br />
 
-              De 10 bytene vi manglet i første blokk var "PST-haien ".<br /><br />
+              De 10 bytene vi manglet i første blokk var <b>"PST-haien "</b
+              ><br /><br />
 
-              Vi klarte å dekryptere meldingen fordi vi kunne finne
-              <b>IV</b> ved å putte inn <b>10 bytes med padding</b> i første
-              blokk og få lest ut hva <b>IV</b> ble. Når <b>Key</b> i tillegg var lekket så ble dekrypteringen enkel.
+              Vi klarte altså å dekryptere AES-CBC chifferteksten i tweeten
+              fordi vi kunne finne
+              <b>IV</b> ved å putte inn <b>10 bytes med padding</b> og gjette
+              oss litt frem til første blokk. Da fikk vi tak i <b>IV</b>.
+              <br /><br />
+
+              Når
+              <b>Key</b> i tillegg var lekket så ble dekrypteringen enkel.
             </aside>
           </section>
 
@@ -3141,7 +3156,8 @@
             data-background="img/u_are_th3_winrar-jpg/u_are_th3_winrar-jpg-gratulerer.gif"
           >
             <aside class="notes">
-              Bra jobba!
+              Jeg syns dere fortjener en Leo igjen for å ha hengt med hele
+              veien!
             </aside>
           </section>
         </section>
