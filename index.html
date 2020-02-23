@@ -2829,8 +2829,8 @@
               style="width: 85%"
             />
             <aside class="notes">
-              I AES Cipher Block Chaining dekrypterer en tekst i blokker á 16
-              bytes.<br /><br />
+              I AES Cipher Block Chaining dekrypterer en tekst i
+              <b>blokker á 16 bytes</b><br /><br />
 
               I første blokk tar man en chiffertekst som blir dekryptert med en
               <b>Key</b> og deretter XOR'et med en
@@ -2843,9 +2843,6 @@
 
           <section>
             <h2>Encrypt.py</h2>
-            <p>
-              Vi leser koden i illustrasjonsbildet og kjører <b>encrypt.py</b>:
-            </p>
             <pre>
               <code class="shell smaller" data-trim data-noescape>
                 root@c04ddcc8bccd:~# python encrypt.py
@@ -2854,15 +2851,24 @@
                 kZujjE2ggaMkTK75g65g=
               </code>
             </pre>
-            <p>Hva mangler for å generere chifferteksten i tweeten?</p>
+            <p class="fragment">
+              Hva trengs for å generere en chiffertekst lik den i tweeten?
+            </p>
+            <p class="fragment">
+              <span class="fragment highlight-green">plain.txt</span> innholder
+              en hemmelig melding som vi skal finne!
+            </p>
             <aside class="notes">
-              Så jeg skriver ned koden i bildet, lager meg en "plain.txt"-fil og
-              kjører Python-scriptet.
-              <br /><br />
-              Vi ser at vi får en chiffertekst så vi vet at
-              <b>skriptet virker</b>. Vi ser at denne chifferteksten er jo ikke
-              den samme som den i tweeten, så det må være <b>feil innhold</b> i
-              "plain.txt"
+              Så jeg skriver ned koden i bildet, lager meg en
+              <b>plain.txt</b>-fil med nok innhold til at skriptet kjører, og
+              når jeg kjører skriptet får vi en chiffertekst slik vi ser her
+              (NESTE) <br /><br />
+
+              Men denne chifferteksten er jo ikke den samme som den i tweeten
+              (NESTE)(NESTE)<br /><br />
+
+              Vi må finne ut hva som lå i <b>deres plain.txt</b>-fil. Der ligger
+              den hemmelige meldingen som vi skal finne!
             </aside>
           </section>
 
@@ -2921,10 +2927,11 @@
             <aside class="notes">
               Vi lager oss et Python-skript for å dekryptere.<br /><br />
 
-              Vi oppgir chifferteksten fra tweeten, key'en og en IV.<br /><br />
+              Vi oppgir <b>chifferteksten</b> fra tweeten, <b>Key'en</b> og en
+              <b>IV</b><br /><br />
 
-              Vi bruker en IV med bare tulledata fordi vi ikke vet denne (ennå).
-              Så la oss kjøre skriptet!
+              Vi bruker en <b>IV</b> med bare tulledata fordi vi ikke vet denne
+              (ennå). Så la oss kjøre skriptet!
             </aside>
           </section>
 
@@ -2943,8 +2950,10 @@
               Kult! Vi fikk dekryptert nesten hele twittermeldingen<br /><br />
               (NESTE)
               <br />
-              Vi ser alt minus den første blokken på 16 bytes. Hva kan den
-              teksten være? (NESTE)
+              Vi ser alt bortsett den <b>første blokken på 16 bytes</b>. Hva kan
+              den teksten være? (NESTE)<br /><br />
+
+              "erer" kan jo være "Gratulerer"?
             </aside>
           </section>
 
@@ -2964,11 +2973,14 @@
               </code>
             </pre>
             <aside class="notes">
-              Vi tar den dekrypterte teksten, pluss "Gratulerer" som første ord
-              siden vi gjetter på at det må være det vi mangler i starte her, og
-              putter dette inn i <b>plain.txt</b> <br /><br />
+              Vi nærmer oss den riktige <b>plain.txt</b>.<br /><br />
 
-              Vi kjører <b>encrypt.py</b> på nytt og får en ny chiffertekst ut.
+              Vi tar den dekrypterte teksten, pluss "Gratulerer" som vi gjetter
+              er første ord (Gratul + erer) og putter dette inn i
+              <b>plain.txt</b> <br /><br />
+
+              Så kjører <b>encrypt.py</b> på nytt og får en ny chiffertekst som
+              vi ser her
             </aside>
           </section>
 
@@ -2984,7 +2996,7 @@
               Da må "Gratul" være tekst i første blokk? Men "Gratul" er bare 6
               bytes. En blokk er 16 bytes.
             </p>
-            <p class="fragment">Aner ikke hva de resterende 10 bytes-ene er.</p>
+            <p class="fragment">Aner ikke hva de resterende 10 bytene er.</p>
 
             <aside class="notes">
               Hm, fortsatt feil tekst i <b>plain.txt</b>. Vi gjettet feil,
@@ -2992,9 +3004,11 @@
 
               Jeg tenkte lenge her... "erer" (NESTE) <br /><br />
 
-              "Gratul" er bare på <b>6 bytes</b>. AES-CBC blokker er
-              <b>16 bytes</b>. Vi mangler <b>10 bytes</b> i første blokk! Men
-              hva kan det være? (NESTE)<br /><br />
+              "Gratul" er bare <b>6 bytes</b>. AES-CBC blokker er
+              <b>16 bytes</b>. Vi mangler <b>10 bytes</b> i første blokk!
+              (NESTE)<br /><br />
+
+              Men hva kan det være?
             </aside>
           </section>
 
@@ -3009,7 +3023,7 @@
             </pre>
             <p class="fragment">
               Genereringen av <b>IV</b> skjer fra og med
-              <b>16 posisjoner uti plain.txt</b>!
+              <b>16 posisjoner uti plain.txt</b> 😎!
             </p>
             <aside class="notes">
               Dette tok meg tid å catche. Se nærmere på hvordan
@@ -3017,8 +3031,8 @@
 
               <b>IV</b> blir generert med 16 posisjoners offset uti
               <b>plain.txt</b>! Så vi kan putte hva vi vil i første blokk og i
-              de første 16 bytene, kjøre <b>encrypt.py</b> på nytt og lese ut
-              riktig <b>IV</b>
+              de første 16 bytene Så kan vi kjøre <b>encrypt.py</b> på nytt og
+              lese ut riktig <b>IV</b>
             </aside>
           </section>
 
@@ -3074,7 +3088,8 @@
 
               (NESTE) <br />
               Åpenbart skal det ikke være masse x'er i <b>plain.txt</b> så
-              chifferteksten er jo fortsatt feil.<br />
+              chifferteksten vi får her er jo feil.<br /><br />
+
               Men denne <b>IV'en</b> vi har nå burde være
               <b>siste brikke</b> til å gjøre en riktig dekryptering!
             </aside>
@@ -3116,9 +3131,9 @@
               De 10 bytene vi manglet i første blokk var "PST-haien ".<br /><br />
 
               Vi klarte å dekryptere meldingen fordi vi kunne finne
-              <b>IV</b> ved å putte inn 10 bytes med padding i første blokk og
-              få lest ut hva IV ble. Så visste vi allerede hva <b>Key</b> var,
-              da er dekryptering trivielt.
+              <b>IV</b> ved å putte inn <b>10 bytes med padding</b> i første
+              blokk og få lest ut hva <b>IV</b> ble. Med en lekket <b>Key</b> i
+              tillegg var dekrypteringen rett fram.
             </aside>
           </section>
 
