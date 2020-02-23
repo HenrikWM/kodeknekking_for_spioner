@@ -2943,8 +2943,8 @@
               Kult! Vi fikk dekryptert nesten hele twittermeldingen<br /><br />
               (NESTE)
               <br />
-              Vi ser alt minus den første blokken på 16 bytes. Hva kan den teksten være?
-              (NESTE)
+              Vi ser alt minus den første blokken på 16 bytes. Hva kan den
+              teksten være? (NESTE)
             </aside>
           </section>
 
@@ -2963,6 +2963,13 @@
                 15AFLGY1GDrebrFpRHbzXUANKmzlUugG4nfD0u5UcljQXWoNnKZhV5Dy
               </code>
             </pre>
+            <aside class="notes">
+              Vi tar den dekrypterte teksten, pluss "Gratulerer" som første ord
+              siden vi gjetter på at det må være det vi mangler i starte her, og
+              putter dette inn i <b>plain.txt</b> <br /><br />
+
+              Vi kjører <b>encrypt.py</b> på nytt og får en ny chiffertekst ut.
+            </aside>
           </section>
 
           <section>
@@ -2978,6 +2985,17 @@
               bytes. En blokk er 16 bytes.
             </p>
             <p class="fragment">Aner ikke hva de resterende 10 bytes-ene er.</p>
+
+            <aside class="notes">
+              Hm, fortsatt feil tekst i <b>plain.txt</b>. Vi gjettet feil,
+              "Gratulerer" er ikke første del av teksten allikevel (NESTE)<br /><br />
+
+              Jeg tenkte lenge her... "erer" (NESTE) <br /><br />
+
+              "Gratul" er bare på <b>6 bytes</b>. AES-CBC blokker er
+              <b>16 bytes</b>. Vi mangler <b>10 bytes</b> i første blokk! Men
+              hva kan det være? (NESTE)<br /><br />
+            </aside>
           </section>
 
           <section>
@@ -2990,23 +3008,34 @@
               </code>
             </pre>
             <p class="fragment">
-              Genereringen av IV skjer fra og med
+              Genereringen av <b>IV</b> skjer fra og med
               <b>16 posisjoner uti plain.txt</b>!
             </p>
+            <aside class="notes">
+              Dette tok meg tid å catche. Se nærmere på hvordan
+              <b>IV</b> blir generert... (NESTE)<br /><br />
+
+              <b>IV</b> blir generert med 16 posisjoners offset uti
+              <b>plain.txt</b>! Så vi kan putte hva vi vil i første blokk og i
+              de første 16 bytene, kjøre <b>encrypt.py</b> på nytt og lese ut
+              riktig <b>IV</b>
+            </aside>
           </section>
 
           <section>
             <p>
-              Betyr at vi kan putte tulletekst (padding) innenfor de første 16
-              posisjonene i
-              <b>plain.txt</b>. Det bør resultere i riktig <b>IV</b> hvis vår
-              første AES-CBC blokk f.eks. ser slik ut:
+              Hva hvis vi bruker tulletekst (padding) i de første 10 posisjonene
+              i <b>plain.txt</b>?
             </p>
             <img
               data-src="img/update-sept-2019/første-blokk-med-padding.png"
               class="plain"
               style="width: 100%"
             />
+            <aside class="notes">
+              Hvis vi bruker padding i den første blokken, altså bruke
+              <b>10 x'er</b> pluss "Gratul", da har vi totalt våre 16 bytes.
+            </aside>
           </section>
 
           <section>
@@ -3016,10 +3045,14 @@
               har vi ikke laget flere oppgaver. Håper du vil søke jobben. Hvis
               du blir ansatt kan vi love deg mange utfordrende oppgaver.
             </blockquote>
+            <aside class="notes">
+              Vi oppdaterer de første 16 bytes i <b>plain.txt</b> med x'ene og
+              "Gratul".
+            </aside>
           </section>
 
           <section>
-            <p>Kjører <b>encrypt.py</b> på nytt og printer ut <b>IV</b>:</p>
+            <p>Kjører <b>encrypt.py</b> og printer ut <b>IV</b>:</p>
             <pre>
               <code class="shell smaller" data-trim data-noescape>
                 root@c04ddcc8bccd:~# python encrypt.py
@@ -3033,16 +3066,24 @@
               </code>
             </pre>
             <p class="fragment">
-              Åpenbart fortsatt feil chiffertekst da 😜 Oppdaterer
-              <b>decrypt.py</b> med vår nye <b>IV</b>.
+              Åpenbart fortsatt feil chiffertekst da 😜
             </p>
+            <aside class="notes">
+              Vi har oppdatert <b>plain.txt</b> og kjører
+              <b>encrypt.py</b> igjen og leser ut <b>IV</b> <br /><br />
+
+              (NESTE) <br />
+              Åpenbart skal det ikke være masse x'er i <b>plain.txt</b> så
+              chifferteksten er jo fortsatt feil.<br />
+              Men denne <b>IV'en</b> vi har nå burde være
+              <b>siste brikke</b> til å gjøre en riktig dekryptering!
+            </aside>
           </section>
 
           <section>
-            <h2>Decrypt.py med ny IV</h2>
-            <p>Vi kjører <b>decrypt.py</b> på nytt med ny <b>IV</b>:</p>
+            <p>Vi kjører <b>decrypt.py</b> med ny <b>IV</b>:</p>
             <pre>
-              <code class="python smaller" data-trim data-noescape data-line-numbers="5">
+              <code class="python smaller" data-trim data-noescape data-line-numbers="4,5">
                 ciphertext_b64 = "/lb0WZDpaI [...]" # chifferteksten fra tweeten
                 key = b"\xba\xda\x55 HackerMan \x13\x37" # den "hemmelige" key'en :)
 
@@ -3056,6 +3097,11 @@
                 print(plaintext.decode())
               </code>
             </pre>
+            <aside class="notes">
+              Så la oss prøve! Putter inn ny <b>IV</b> her.<br /><br />
+
+              Så kjører vi <b>decrypt.py</b> en gang til
+            </aside>
           </section>
 
           <section>
@@ -3064,12 +3110,26 @@
               har vi ikke laget flere oppgaver. Håper du vil søke jobben. Hvis
               du blir ansatt kan vi love deg mange utfordrende oppgaver.
             </blockquote>
+            <aside class="notes">
+              Og DER ser vi hele twitter-meldingen til PST-haien! <br /><br />
+
+              De 10 bytene vi manglet i første blokk var "PST-haien ".<br /><br />
+
+              Vi klarte å dekryptere meldingen fordi vi kunne finne
+              <b>IV</b> ved å putte inn 10 bytes med padding i første blokk og
+              få lest ut hva IV ble. Så visste vi allerede hva <b>Key</b> var,
+              da er dekryptering trivielt.
+            </aside>
           </section>
 
           <section
             data-source="pst"
             data-background="img/u_are_th3_winrar-jpg/u_are_th3_winrar-jpg-gratulerer.gif"
-          ></section>
+          >
+            <aside class="notes">
+              Bra jobba!
+            </aside>
+          </section>
         </section>
 
         <!-- =================== OPPSUMMERING =================== -->
