@@ -199,7 +199,7 @@
             />
             <h2>ERT</h2>
             <aside class="notes">
-              Bokstavene vi plukker ut er store bokstaver i diktet<br/><br/>
+              Bokstavene vi plukker ut er store bokstaver i diktet<br /><br />
 
               Hvis vi fortsetter så får vi... (NESTE)
             </aside>
@@ -812,11 +812,6 @@
               password.charCodeAt(8) == 0x69
               </code>
             </pre>
-            <a
-              href="https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html"
-              class="fragment"
-              >ASCII-til-hex/bin/dec-converter</a
-            >
             <aside class="notes">
               Her har vi logikken i If-uttrykket som vi må knekke:<br /><br />
 
@@ -827,11 +822,7 @@
               tastaturet ditt, hvor hver tegn har en tallverdi.<br /><br />
 
               * Hver tegn vi ender opp med på hver linje, blir tilsammen
-              passordet vi er på jakt etter<br /><br />
-
-              (NESTE)<br />
-              Veldig kjekt å bruke et verktøy for å gå til/fra tall og
-              ASCII-tegn. Dette er en side jeg ofte bruker
+              passordet vi er på jakt etter
             </aside>
           </section>
 
@@ -875,312 +866,11 @@
               </code>
             </pre>
             <p class="larger">H</p>
-            <aside class="notes"><b>72, H</b><br /></aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="2">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 &&
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
-              password.charCodeAt(3) == password.charCodeAt(2) &&
-              password.substring(4, 5) == 3 &&
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H</p>
             <aside class="notes">
-              Math.pow, dvs. x opphøyd i y.<br />
-              9^2 - 29?
-            </aside>
-          </section>
+              <b>72, H</b><br /><br />
 
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="2">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
-              password.charCodeAt(3) == password.charCodeAt(2) &&
-              password.substring(4, 5) == 3 &&
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4</p>
-            <aside class="notes"><b>52, 4</b><br /></aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="3">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) &&
-              password.charCodeAt(3) == password.charCodeAt(2) &&
-              password.substring(4, 5) == 3 &&
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4</p>
-            <aside class="notes">
-              x opphøyd i y igjen.<br />
-              10^2 + 3^2?
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="3">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) &&
-              password.substring(4, 5) == 3 &&
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4m</p>
-            <aside class="notes">
-              <b>109, m</b>
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="4">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) &&
-              password.substring(4, 5) == 3 &&
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4m</p>
-            <aside class="notes">
-              Tallverdien på det 4. tegnet i passordet må være lik det 3.
-              tegnet<br /><br />
-
-              M.a.o: uttrykket blir sant når verdien er lik svaret på forrige
-              linje
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="4">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 &&
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm</p>
-            <aside class="notes">
-              <b>109, m</b>
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="5">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 &&
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm</p>
-            <aside class="notes">
-              Neste tegn ser vi i uttrykket må være 3-tall, fordi det er en
-              konstant.<br />
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="5">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3</p>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="6">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 &&
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3</p>
-            <aside class="notes">
-              7 * 17 - 5
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="6">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3r</p>
-            <aside class="notes">
-              <b>114, r</b>
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="7">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
-              password.charCodeAt(6) == password.charCodeAt(0) &&
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3r</p>
-            <aside class="notes">
-              password.charCodeAt(0):<br />
-              Vi skal ha ASCII-tallet til passordets <b>første tegn</b>. Hva har
-              vi funnet ut er passordets første tegn?
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="7">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
-              password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3rH</p>
-            <aside class="notes"><b>H</b></aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="8">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
-              password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
-              password.charCodeAt(7) == password.charCodeAt(1) &&
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3rH</p>
-            <aside class="notes">
-              password.charCodeAt(1):<br />
-              Vi skal ha ASCII-tallet til passordets <b>andre tegn</b>. Hva har
-              vi funnet ut er passordets andre tegn?
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="8">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
-              password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
-              password.charCodeAt(7) == password.charCodeAt(1) && // 52 = 4
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3rH4</p>
-            <aside class="notes">
-              <b>4</b><br />
-              De av dere som er observante ser kanskje hva passordet ser ut til
-              å bli...
-            </aside>
-          </section>
-
-          <section data-transition="none">
-            <pre>
-              <code class="javascript smaller" data-trim data-line-numbers="9">
-              password.charCodeAt(0) == 8 * 8 + 8 && // 72 = H
-              password.charCodeAt(1) == Math.pow(9, 2) - 29 && // 52 = 4
-              password.charCodeAt(2) == Math.pow(10, 2) + Math.pow(3, 2) && // 109 = m
-              password.charCodeAt(3) == password.charCodeAt(2) && // 109 = m
-              password.substring(4, 5) == 3 && // 3
-              password.charCodeAt(5) == 7 * 17 - 5 && // 114 = r
-              password.charCodeAt(6) == password.charCodeAt(0) && // 72 = H
-              password.charCodeAt(7) == password.charCodeAt(1) && // 52 = 4
-              password.charCodeAt(8) == 0x69
-              </code>
-            </pre>
-            <p class="larger">H4mm3rH4</p>
-            <aside class="notes">
-              Vi må finne ut hva tallet til hexadesimalet <b>0x69</b> er.
+              Så hvis vi linje for linje regner ut alle disse uttrykkene...
+              (NESTE)
             </aside>
           </section>
 
@@ -1200,9 +890,7 @@
             </pre>
             <p class="larger">H4mm3rH4i 🦈</p>
             <aside class="notes">
-              <b>105, i</b><br /><br />
-
-              <b>H4mm3rH4i</b><br /><br />
+              Så får vi <b>H4mm3rH4i</b><br /><br />
 
               Vi har klart å tolke valideringen og kalkulert oss fram til
               passordet!
@@ -2382,7 +2070,7 @@
               </h3>
             </span>
             <aside class="notes">
-              (NESTE) Prøv selv!<br/><br/>
+              (NESTE) Prøv selv!<br /><br />
 
               Bli med i gruppen vår på Slack: (NESTE)<br /><br />
 
