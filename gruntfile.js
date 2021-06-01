@@ -3,7 +3,7 @@ const sass = require("node-sass");
 module.exports = grunt => {
   require("load-grunt-tasks")(grunt);
 
-  let port = grunt.option("port") || 8000;
+  let port = grunt.option("port") || 8001;
   let root = grunt.option("root") || ".";
 
   if (!Array.isArray(root)) root = [root];
@@ -104,7 +104,7 @@ module.exports = grunt => {
         options: {
           port: port,
           base: root,
-          livereload: true,
+          livereload: false,
           open: true,
           useAvailablePort: true
         }
