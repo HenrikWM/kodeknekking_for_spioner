@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Kodeknekking for spioner - JavaZone Academy 2020</title>
+    <title>Kodeknekking for spioner - Sommerjobbere Bekk 2021</title>
 
     <meta
       name="description"
-      content="Kodeknekking for spioner - JavaZone Academy 2020"
+      content="Kodeknekking for spioner - Sommerjobbere Bekk 2021"
     />
     <meta name="author" content="Henrik Walker Moe" />
 
@@ -19,11 +19,11 @@
 
     <meta
       property="og:title"
-      content="Kodeknekking for spioner - JavaZone Academy 2020"
+      content="Kodeknekking for spioner - Sommerjobbere Bekk 2021"
     />
     <meta
       property="og:description"
-      content="En gjennomgang av løsningen på PST-gåten presentert på JavaZone Academy 2020"
+      content="En gjennomgang av løsningen på PST-gåten presentert på Sommerjobbere Bekk 2021"
     />
     <meta property="og:site_name" content="Github" />
     <meta
@@ -41,11 +41,11 @@
     <meta name="twitter:creator" content="@henrikwm" />
     <meta
       name="twitter:title"
-      content="Kodeknekking for spioner - JavaZone Academy 2020"
+      content="Kodeknekking for spioner - Sommerjobbere Bekk 2021"
     />
     <meta
       name="twitter:description"
-      content="En gjennomgang av løsningen på PST-gåten presentert på JavaZone Academy 2020"
+      content="En gjennomgang av løsningen på PST-gåten presentert på Sommerjobbere Bekk 2021"
     />
     <meta
       name="twitter:image"
@@ -76,7 +76,7 @@
     <script type="text/javascript">
       var isPresenting = true;
       var defaultFooterText =
-        "Kodeknekking for spioner - JavaZone Academy 2020";
+        "Kodeknekking for spioner - Sommerjobbere Bekk 2021";
     </script>
 
     <!-- Printing and PDF exports -->
@@ -112,15 +112,6 @@
               <span class="fragment">bekk</span>
             </p>
             <aside class="notes">
-              Heisann alle sammen! Takk for at dere kom for å høre på meg! Og en
-              stor takk til JavaZone Academy som inviterte meg hit idag.
-              <br /><br />
-
-              Hvis det er noen som har noen <b>spørsmål underveis</b>, så
-              foreslår jeg at dere finner meg etterpå slik at vi
-              <b>runder av på tid</b>. Jeg tenker også å henge med dere utover
-              dagen så jeg er ikke langt unna (NESTE)<br /><br />
-
               Mitt navn er Henrik Walker Moe og jeg jobber i (NESTE) (NESTE)<br />
               Bekk.<br /><br />
 
@@ -136,13 +127,12 @@
             <aside class="notes">
               <b>Kodeknekking for spioner</b><br /><br />
               * Idag skal vi <b>leke at vi er spioner</b> og sammen
-              <b>løse PST-gåten</b> som var gjemt i PSTs jobbannonse fra ifjor
-              vinter<br /><br />
+              <b>løse PST-gåten</b> som var gjemt i en av deres jobbannonser<br /><br />
 
               * Det viste seg jo at PST-gåten var
-              <b>en eneste stor Capture The Flag (CTF)</b> oppgave, så for meg
-              som digger CTF'er var det en nøtt å bare <b>hive seg over</b>!
-              <br /><br />
+              <b>en eneste stor Capture The Flag (CTF)</b> oppgave. I en
+              CTF-oppgave handler det om å løse flere deloppgaver til man til
+              slutt finner en skjult kode, også kalt et "flagg"
 
               * Hva er en CTF?<br />
               ** <b>Capture The Flag</b>-spillsjanger hvor man alene eller som
@@ -203,12 +193,12 @@
               * liker utfordringer med klare mål<br /><br />
 
               * Hvilke faggrupper har jeg deltatt i? (2 år i <b>Sikkerhet</b>,
-              faggruppeleder ifjor i <b>Open Source</b>, iår faggruppeleder for
+              faggruppeleder ifjor i <b>Open Source</b>, siste to årene vært faggruppeleder for
               Sikkerhet)<br /><br />
 
               (ANEKDOTE):<br />
-              Appropos sikkerhet: holdt foredrag på JavaZone og en Bekk fagdag i
-              2017 og snakket om hvordan lage sømløse innloggingsløsninger -
+              Appropos sikkerhet: holdt et par foredrag på JavaZone og flere på Bekk-fagdager
+              og snakket om hvordan lage sømløse innloggingsløsninger og kodeknekking -
               tydelig at sikkerhet har blitt et fagområde jeg trives i<br /><br />
 
               Alle disse egenskapene, viser det seg, egner seg også veldig godt
@@ -649,7 +639,7 @@
               ><br /><br />
 
               La oss starte opp Stegsolve og først kikke på et eksempel på
-              hvordan man en skjult kode i et bilde
+              hvordan man kan finne en skjult kode i et bilde
             </aside>
           </section>
 
@@ -899,10 +889,13 @@
                 30            0x1E            <mark>TIFF image data</mark>, big-endian, offset of first image directory: 8
               </code></pre>
             <aside class="notes">
-              * Når jeg skal analysere filer liker jeg å bruke
-              <b>binwalk</b> (NESTE)<br />
+              * Når jeg skal analysere filer liker jeg å bruke (NESTE)
+              <b>binwalk</b><br />
+
               * Hva gjør binwalk?<br />
+
               (NESTE) <br />
+
               * Og her får vi bekreftet at vi har et bilde, TIFF komprimert til
               JPEG. Ikke noe spennende her.
             </aside>
@@ -931,8 +924,8 @@
               Ql`T>^GLUd
             </code></pre>
             <aside class="notes">
-              * Jeg liker også å bruke programmet <b>strings</b> på filer
-              (NESTE)<br />
+              * Jeg liker også å bruke programmet <b>strings</b> (NESTE) på
+              filer<br />
               * Hva gjør strings?<br />
               (NESTE) <br />
               * Vi ser mye tulletekst bl.a.<br />
@@ -1513,7 +1506,7 @@
             <aside class="notes">
               <b>105, i</b><br /><br />
 
-              <b>H4mm3rH4i</b><br /><br />
+              Så får vi til slutt <b>H4mm3rH4i</b><br /><br />
 
               Vi har klart å tolke valideringen og kalkulert oss fram til
               passordet!
@@ -1526,7 +1519,7 @@
               class="plain"
             />
             <aside class="notes">
-              * I passordfeltet taster jeg inn <b>H4mm3H4i</b><br />
+              * I passordfeltet taster jeg inn <b>H4mm3rH4i</b><br />
               * if ()-uttrykket for passordvalidering blir <b>true</b><br />
               * decrypt(ciphertext, passord) dekrypterer chifferteksten<br />
               * En melding vises ved passordfeltet: <b>Kult! Du er en råing!</b
@@ -1583,8 +1576,9 @@
             <aside class="notes">
               * Disse skivene illustrerer hvordan man krypterer en tekst en
               bokstav av gangen<br />
-              * Skiven roteres for hver bokstav 13 ganger. Den som skal lese den
-              krypterte teksten, roterer hver bokstav tilbake 13 ganger<br />
+              * Ytre skive roteres for hver bokstav 13 ganger. Den som skal lese
+              den krypterte teksten, roterer skiven tilbake 13 ganger for hver
+              bokstav<br />
               * Populært i romertiden, effektiv, billig og enkel kryptering
             </aside>
           </section>
@@ -1753,7 +1747,6 @@
               style="width: 80%"
             />
             <aside class="notes">
-              (ZOOM INN)<br />
               Ser ikke noe mønster i haitweetene. For mye hai. <br />
               Får ta ut tekstene til et tekstprogram og analysere de
             </aside>
@@ -2694,14 +2687,14 @@
               Hvis vi søker så blir vi bedt om å nevne det
               <b>hemmelige kodeordet</b> som vi nå har fått tilgang til ved å
               løse oppgavene.<br />
-              * Kodeordet var flagget vi lett etter i denne CTF'en<br /><br />
-
+              * Kodeordet var flagget vi var på jakt etter i denne
+              CTF-oppgaven<br /><br />
               (NESTE)
             </aside>
           </section>
 
           <!-- ============= NY JOBBANNONSE I SEPTEMBER ============ -->
-          <section>
+          <!-- <section>
             <h2>Gåte løst - det var det! 👍</h2>
             <h3 class="fragment">Eller...?</h3>
             <p class="fragment">Plutselig, etter 274 dager med stillhet...</p>
@@ -3174,7 +3167,7 @@
               hengt med hele veien!
             </aside>
           </section>
-        </section>
+        </section> -->
 
         <!-- =================== OPPSUMMERING =================== -->
         <section>
@@ -3450,8 +3443,7 @@
               <b>kodeknekker</b> - gi deg selv en utfordring! (NESTE)<br /><br />
 
               * Bli en <b>etisk hacker</b> og gjør det til en hobby eller jobb,
-              f.eks. i PST eller som <b>fagspesialist</b> i
-              <b>Sikkerhetsfaggruppen min</b> i Bekk <br /><br />
+              f.eks. i PST eller som konsulent og <b>fagspesialist</b><br /><br />
 
               (NESTE) <br /><br />
 
